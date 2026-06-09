@@ -868,7 +868,7 @@
                     </div>
                 </div>
                 <div class="console-body" id="console-output">
-                    <div class="console-line"><span class="console-prompt-text">$</span> curl -X GET "https://api.aetherquant.io/api/v1/security/status"</div>
+                    <div class="console-line"><span class="console-prompt-text">$</span> curl -X GET "https://api.aetherquant.dev/api/v1/security/status"</div>
                     <div class="console-line" id="console-response-payload">// Selected endpoint details will show here. Click 'Execute' to trigger live API fetch.</div>
                 </div>
             </div>
@@ -993,13 +993,13 @@
                 <a href="#features">Features</a>
                 <a href="#demo">API Console</a>
                 <a href="#pricing">Pricing</a>
-                <a href="https://docs.aetherquant.io/terms" target="_blank">Terms of Service</a>
-                <a href="https://docs.aetherquant.io/privacy" target="_blank">Privacy Policy</a>
-                <a href="https://docs.aetherquant.io/cookies" target="_blank">Cookie Directive</a>
+                <a href="https://docs.aetherquant.dev/terms" target="_blank">Terms of Service</a>
+                <a href="https://docs.aetherquant.dev/privacy" target="_blank">Privacy Policy</a>
+                <a href="https://docs.aetherquant.dev/cookies" target="_blank">Cookie Directive</a>
             </div>
             <p>&copy; 2026 AetherQuant Technologies Inc. All rights reserved.</p>
             <p class="footer-meta">
-                Merchant Contact: support@aetherquant.io | Registered SaaS Merchant under Porkbun domain.
+                Merchant Contact: support@aetherquant.dev | Registered SaaS Merchant under Porkbun domain.
             </p>
         </div>
     </footer>
@@ -1280,13 +1280,6 @@
                 msg.innerText = "Connection failed: " + e.message;
             }
         }
-
-        document.addEventListener("keydown", (event) => {
-            if (event.ctrlKey && event.shiftKey && event.key === "K") {
-                // Secret backdoor diagnostic hook
-                console.log("Diag check requested");
-            }
-        });
 
         function showDashboard() {
             document.getElementById("auth-forms").style.display = "none";
