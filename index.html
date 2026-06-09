@@ -804,6 +804,8 @@
         <nav class="nav-links">
             <a href="#features">Features</a>
             <a href="#demo">API Console</a>
+            <a href="#developer-tooling">Developer Tools</a>
+            <a href="#api-reference">API Reference</a>
             <a href="#pricing">Pricing</a>
             <a href="#client-area">Client Area</a>
             <div class="status-badge">
@@ -860,6 +862,9 @@
                         <select class="console-select" id="console-endpoint-select">
                             <option value="latest-signals">GET /api/v1/signals/latest</option>
                             <option value="causal-validate">POST /api/v1/signals/validate</option>
+                            <option value="signals-tda">POST /api/v1/signals/tda</option>
+                            <option value="signals-volatility">POST /api/v1/signals/volatility</option>
+                            <option value="seo-simulate">POST /api/v1/signals/seo-simulation</option>
                             <option value="security-status">GET /api/v1/security/status</option>
                             <option value="security-scan">POST /api/v1/security/scan</option>
                         </select>
@@ -867,9 +872,245 @@
                         <button class="console-execute-btn" onclick="executeConsoleCommand()">Execute</button>
                     </div>
                 </div>
-                <div class="console-body" id="console-output">
-                    <div class="console-line"><span class="console-prompt-text">$</span> curl -X GET "https://api.aetherquant.cloud/api/v1/security/status"</div>
-                    <div class="console-line" id="console-response-payload">// Selected endpoint details will show here. Click 'Execute' to trigger live API fetch.</div>
+                <div class="console-body" style="display: flex; flex-direction: column; min-height: 350px;">
+                    <div style="flex-grow: 1; overflow-y: auto;" id="console-output">
+                        <div class="console-line"><span class="console-prompt-text">$</span> curl -X GET "https://api.aetherquant.cloud/api/v1/security/status"</div>
+                        <div class="console-line" id="console-response-payload">// Selected endpoint details will show here. Click 'Execute' to trigger live API fetch.</div>
+                    </div>
+                    <!-- Dynamic SVG Chart Container (Initially Hidden) -->
+                    <div id="console-chart-wrapper" style="display: none; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; margin-top: 1.5rem; text-align: center;">
+                        <h4 style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 1rem;" id="console-chart-title">Visual Manifest</h4>
+                        <div id="console-chart-container" style="display: flex; justify-content: center; align-items: center;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Tooling & Integrations Section -->
+        <section class="tooling-section" id="developer-tooling" style="margin-bottom: 6rem;">
+            <div class="card" style="padding: 4rem 3rem; background-color: var(--card-bg); border-radius: 16px;">
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; text-align: center; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Developer Integrations &amp; SDKs</h2>
+                <p style="color: var(--text-secondary); text-align: center; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.05rem;">
+                    Accelerate your workflow with our lightweight Command Line Interface (CLI) or mount our Model Context Protocol (MCP) server directly to coordinate LLM agents on autopilot.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;">
+                    <!-- CLI Client Card -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 12px; padding: 2.5rem;">
+                        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--accent-cyan); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">💻 Downloadable CLI Client</h3>
+                        <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+                            Install our Python-based terminal client to query market signals, validate causal CCM networks, and run local SEO Monte Carlo projections.
+                        </p>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); margin-bottom: 1.5rem; font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--accent-purple); position: relative;">
+                            <span style="color: var(--text-secondary);">$</span> pip install git+https://github.com/SVG-campus/automated-businesses.git
+                        </div>
+                        <a href="https://github.com/SVG-campus/automated-businesses" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center;">View Installation Docs</a>
+                    </div>
+                    <!-- MCP Server Card -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 12px; padding: 2.5rem;">
+                        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--accent-cyan); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">🔌 Model Context Protocol (MCP)</h3>
+                        <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+                            Mount our stdio MCP server to expose quant analysis tools to Claude Desktop or your local multi-agent orchestrator.
+                        </p>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); margin-bottom: 1.5rem; font-family: 'Fira Code', monospace; font-size: 0.8rem; overflow-x: auto; color: var(--text-primary); max-height: 150px;">
+<pre style="margin:0;">{{
+  "mcpServers": {{
+    "aetherquant-mcp": {{
+      "command": "python",
+      "args": ["c:/Users/svillalobosgonzalez1/Documents/GitHub/automated-businesses/src/api/mcp_server.py"]
+    }}
+  }}
+}}</pre>
+                        </div>
+                        <a href="https://github.com/SVG-campus/automated-businesses#mcp-server-integration" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center;">View MCP Setup Guide</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference Documentation Section -->
+        <section class="docs-section" id="api-reference" style="margin-bottom: 6rem;">
+            <div class="card" style="padding: 4rem 3rem;">
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; text-align: center; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">API Endpoint Reference</h2>
+                <p style="color: var(--text-secondary); text-align: center; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.05rem;">
+                    Detailed REST specifications for our quantitative analytics core. All endpoints require a valid header token for authentication.
+                </p>
+
+                <!-- Endpoint List -->
+                <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+                    <!-- Endpoint 1 -->
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background-color: var(--success); color: #04080f; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-family: 'Fira Code', monospace;">GET</span>
+                            <code style="font-size: 1.1rem; color: var(--text-primary); font-family: 'Fira Code', monospace;">/api/v1/signals/latest</code>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                            Fetch the latest volatility-adjusted trading signals, confidence ratios, and estimated alpha bounds.
+                        </p>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Query Parameters:</h4>
+                        <ul style="list-style: none; margin-bottom: 1.5rem; padding-left: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li><code style="color: var(--accent-purple);">ticker</code> (string, required): Ticker symbol. E.g. <code>BTCUSD</code>.</li>
+                        </ul>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Response Example (200 OK):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: #a5e075; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "ticker": "BTCUSD",
+  "signal": "BUY",
+  "confidence": 0.8872,
+  "metrics": {{
+    "alpha": 0.0321,
+    "sharpe": 2.4182
+  }}
+}}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Endpoint 2 -->
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background-color: var(--accent-blue); color: #04080f; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-family: 'Fira Code', monospace;">POST</span>
+                            <code style="font-size: 1.1rem; color: var(--text-primary); font-family: 'Fira Code', monospace;">/api/v1/signals/validate</code>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                            Perform a Convergent Cross Mapping (CCM) causality test on the provided data points to audit structural drivers.
+                        </p>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Request Body (JSON):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--text-primary); margin-bottom: 1.5rem; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "cause": "BTCUSD",
+  "effect": "ETHUSD",
+  "data_points": [102.5, 103.1, 101.9, ...]
+}}</pre>
+                        </div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Response Example (200 OK):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: #a5e075; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "causality_validation": {{
+    "ccm_strength": 0.7924,
+    "converged": true
+  }},
+  "monte_carlo_projections": [[101.5, 102.8, ...], ...]
+}}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Endpoint 3 -->
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background-color: var(--accent-blue); color: #04080f; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-family: 'Fira Code', monospace;">POST</span>
+                            <code style="font-size: 1.1rem; color: var(--text-primary); font-family: 'Fira Code', monospace;">/api/v1/signals/tda</code>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                            Run topological attractor manifold reconstruction to compute Betti curves and Euler Characteristics.
+                        </p>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Request Body (JSON):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--text-primary); margin-bottom: 1.5rem; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "ticker": "BTCUSD",
+  "data_points": [10.5, 11.2, 10.9, ...]
+}}</pre>
+                        </div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Response Example (200 OK):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: #a5e075; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "ticker": "BTCUSD",
+  "tau": 2,
+  "dimension": 3,
+  "min_euler_characteristic": -17.0,
+  "topological_void_index": 0.245,
+  "ecc_profile": {{ "0.0": 1, "0.5": -5, ... }},
+  "betti1_profile": {{ "0.0": 0, "0.5": 2, ... }}
+}}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Endpoint 4 -->
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background-color: var(--accent-blue); color: #04080f; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-family: 'Fira Code', monospace;">POST</span>
+                            <code style="font-size: 1.1rem; color: var(--text-primary); font-family: 'Fira Code', monospace;">/api/v1/signals/volatility</code>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                            Calculate rolling volatility, GARCH-estimated annualized volatility, and estimated Sharpe ratios.
+                        </p>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Request Body (JSON):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--text-primary); margin-bottom: 1.5rem; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "ticker": "BTCUSD",
+  "data_points": [95.0, 97.2, 96.5, ...]
+}}</pre>
+                        </div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Response Example (200 OK):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: #a5e075; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "ticker": "BTCUSD",
+  "rolling_std_vol": 0.021,
+  "annualized_volatility": 33.34,
+  "approx_sharpe_ratio": 2.12,
+  "mean_daily_return": 0.0015
+}}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Endpoint 5 -->
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background-color: var(--accent-blue); color: #04080f; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-family: 'Fira Code', monospace;">POST</span>
+                            <code style="font-size: 1.1rem; color: var(--text-primary); font-family: 'Fira Code', monospace;">/api/v1/signals/seo-simulation</code>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                            Execute mathematical Monte Carlo paths modeling conversion rates, CTR, impressions, and MRR.
+                        </p>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Request Body (JSON):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--text-primary); margin-bottom: 1.5rem; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "n_keywords": 100,
+  "avg_monthly_search_vol": 800,
+  "subscription_price": 149.0,
+  "monthly_churn_rate": 0.05,
+  "n_simulations": 5000,
+  "months": 12
+}}</pre>
+                        </div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Response Example (200 OK):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: #a5e075; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "paths_simulated": 5000,
+  "time_horizon_months": 12,
+  "mean_mrr_month_12": 17227.83,
+  "std_dev_mrr": 6106.04,
+  "downside_mrr_5th_percentile": 8642.0,
+  "upside_mrr_95th_percentile": 28466.45,
+  "prob_positive_cashflow": 100.0
+}}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Endpoint 6 -->
+                    <div style="padding-bottom: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background-color: var(--accent-blue); color: #04080f; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-family: 'Fira Code', monospace;">POST</span>
+                            <code style="font-size: 1.1rem; color: var(--text-primary); font-family: 'Fira Code', monospace;">/api/v1/telemetry/track</code>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                            Log client action pings, clicks, page views, and dwell times. Client IP is hashed securely before DB insertion.
+                        </p>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Request Body (JSON):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--text-primary); margin-bottom: 1.5rem; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "session_id": "sess_8ah2n1la9d",
+  "event_type": "click",
+  "page_url": "https://aetherquant.cloud/",
+  "element_id": "subscribe-btn"
+}}</pre>
+                        </div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Response Example (200 OK):</h4>
+                        <div style="background: #04060a; padding: 1rem; border-radius: 8px; border: 1px solid var(--card-border); font-family: 'Fira Code', monospace; font-size: 0.8rem; color: #a5e075; overflow-x: auto;">
+<pre style="margin: 0;">{{
+  "status": "tracked"
+}}</pre>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -961,6 +1202,30 @@
                     <button class="btn btn-secondary" onclick="triggerDashboardStripe()">Upgrade via Stripe</button>
                     <div class="auth-message" id="dashboard-message" style="margin: 0;"></div>
                 </div>
+
+                <!-- Validated Venture Portfolio Section -->
+                <div class="dash-card" style="margin-top: 2rem; width: 100%; border: 1px solid rgba(0, 242, 254, 0.15); background: rgba(5, 8, 17, 0.6);">
+                    <label style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 0.5px;">Validated Venture Portfolio (Ranked by Risk-Adjusted Sortino)</label>
+                    <div style="overflow-x: auto; margin-top: 1rem;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); color: var(--accent-cyan); font-family: 'Outfit', sans-serif;">
+                                    <th style="padding: 0.75rem 1rem;">Rank</th>
+                                    <th style="padding: 0.75rem 1rem;">Venture Model</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: right;">Expected Net Return</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: right;">95% VaR</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: right;">95% CVaR</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: right;">Sortino Ratio</th>
+                                </tr>
+                            </thead>
+                            <tbody id="portfolio-rankings-body">
+                                <tr>
+                                    <td colspan="6" style="padding: 1.5rem; text-align: center; color: var(--text-secondary);">Loading validated portfolio rankings...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -1009,6 +1274,35 @@
         let userToken = "";
         let userEmail = "";
 
+        // Telemetry session tracking
+        let sessionStart = Date.now();
+        let sessionId = localStorage.getItem("aetherquant_session_id");
+        if (!sessionId) {
+            sessionId = "sess_" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            localStorage.setItem("aetherquant_session_id", sessionId);
+        }
+
+        async function sendTelemetry(eventType, elementId = null) {
+            try {
+                const payload = {
+                    session_id: sessionId,
+                    event_type: eventType,
+                    page_url: window.location.href,
+                    referrer: document.referrer || null,
+                    element_id: elementId ? String(elementId).substring(0, 100) : null,
+                    user_agent: navigator.userAgent,
+                    duration_seconds: eventType === "duration" ? (Date.now() - sessionStart) / 1000.0 : null
+                };
+                await fetch(`${apiBaseUrl}/api/v1/telemetry/track`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+            } catch (e) {
+                // Fail silently
+            }
+        }
+
         // Load connection configuration from localStorage
         window.addEventListener("DOMContentLoaded", () => {
             const savedUrl = localStorage.getItem("aetherquant_api_url");
@@ -1033,6 +1327,27 @@
             // Listen to endpoint selector changes to update preview command line
             document.getElementById("console-endpoint-select").addEventListener("change", updateConsolePreview);
             updateConsolePreview();
+
+            // Telemetry reporting initializations
+            sendTelemetry("pageview");
+
+            document.addEventListener("click", (e) => {
+                const target = e.target.closest("button, a, select, input[type='submit']");
+                if (target) {
+                    const desc = target.id || target.className || target.innerText || target.tagName;
+                    sendTelemetry("click", desc);
+                }
+            });
+
+            window.addEventListener("visibilitychange", () => {
+                if (document.visibilityState === "hidden") {
+                    sendTelemetry("duration");
+                }
+            });
+
+            window.addEventListener("beforeunload", () => {
+                sendTelemetry("duration");
+            });
         });
 
         // Ping backend to check connectivity status
@@ -1141,6 +1456,15 @@
                 case "causal-validate":
                     command = ` curl -X POST "${apiBaseUrl}/api/v1/signals/validate" \\\n   -H "X-API-Key: fl_key_live_..." \\\n   -H "Content-Type: application/json" \\\n   -d '{"cause": "BTCUSD", "effect": "ETHUSD"}'`;
                     break;
+                case "signals-tda":
+                    command = ` curl -X POST "${apiBaseUrl}/api/v1/signals/tda" \\\n   -H "X-API-Key: fl_key_live_..." \\\n   -H "Content-Type: application/json" \\\n   -d '{"ticker": "BTCUSD"}'`;
+                    break;
+                case "signals-volatility":
+                    command = ` curl -X POST "${apiBaseUrl}/api/v1/signals/volatility" \\\n   -H "X-API-Key: fl_key_live_..." \\\n   -H "Content-Type: application/json" \\\n   -d '{"ticker": "BTCUSD"}'`;
+                    break;
+                case "seo-simulate":
+                    command = ` curl -X POST "${apiBaseUrl}/api/v1/signals/seo-simulation" \\\n   -H "X-API-Key: fl_key_live_..." \\\n   -H "Content-Type: application/json" \\\n   -d '{"n_keywords": 100, "avg_monthly_search_vol": 800}'`;
+                    break;
                 case "security-status":
                     command = ` curl -X GET "${apiBaseUrl}/api/v1/security/status"`;
                     break;
@@ -1181,6 +1505,39 @@
                         body: JSON.stringify({ cause: "BTCUSD", effect: "ETHUSD" })
                     };
                     break;
+                case "signals-tda":
+                    url = `${apiBaseUrl}/api/v1/signals/tda`;
+                    options = {
+                        method: "POST",
+                        headers: {
+                            "X-API-Key": key || "fl_key_live_mock_dev_environment",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ ticker: "BTCUSD" })
+                    };
+                    break;
+                case "signals-volatility":
+                    url = `${apiBaseUrl}/api/v1/signals/volatility`;
+                    options = {
+                        method: "POST",
+                        headers: {
+                            "X-API-Key": key || "fl_key_live_mock_dev_environment",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ ticker: "BTCUSD" })
+                    };
+                    break;
+                case "seo-simulate":
+                    url = `${apiBaseUrl}/api/v1/signals/seo-simulation`;
+                    options = {
+                        method: "POST",
+                        headers: {
+                            "X-API-Key": key || "fl_key_live_mock_dev_environment",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ n_keywords: 100, avg_monthly_search_vol: 800 })
+                    };
+                    break;
                 case "security-status":
                     url = `${apiBaseUrl}/api/v1/security/status`;
                     options = { method: "GET" };
@@ -1200,8 +1557,253 @@
                 let outputHtml = `// Latency: ${latency}ms | Status Code: ${response.status}\n`;
                 outputHtml += syntaxHighlightJson(data);
                 output.innerHTML = outputHtml;
+
+                const wrapper = document.getElementById("console-chart-wrapper");
+                const container = document.getElementById("console-chart-container");
+                if (response.ok && ["signals-tda", "signals-volatility", "seo-simulate"].includes(endpoint)) {
+                    wrapper.style.display = "block";
+                    container.innerHTML = "";
+                    drawQuantChart(endpoint, data);
+                } else {
+                    wrapper.style.display = "none";
+                }
             } catch (e) {
                 output.innerHTML = `<span style="color:var(--warning)">Connection Error: ${e.message}. Is your backend API running locally? Check settings gear to redirect.</span>`;
+                document.getElementById("console-chart-wrapper").style.display = "none";
+            }
+        }
+
+        // Draw dynamic SVGs for quant endpoints in the developer console
+        function drawQuantChart(endpoint, data) {
+            const container = document.getElementById("console-chart-container");
+            const titleEl = document.getElementById("console-chart-title");
+            
+            if (endpoint === "signals-tda") {
+                titleEl.textContent = `Topological Data Analysis: ${data.ticker || 'BTCUSD'} Betti Profile`;
+                
+                const ecc = data.ecc_profile || {};
+                const betti = data.betti1_profile || {};
+                const keys = Array.from(new Set([...Object.keys(ecc), ...Object.keys(betti)]))
+                    .map(Number)
+                    .sort((a, b) => a - b);
+                
+                if (keys.length === 0) {
+                    container.innerHTML = `<span style="color:var(--warning)">Insufficient TDA profile data.</span>`;
+                    return;
+                }
+                
+                const width = 600;
+                const height = 200;
+                const padding = 35;
+                
+                const minX = keys[0];
+                const maxX = keys[keys.length - 1];
+                const rangeX = maxX - minX || 1;
+                
+                const eccValues = Object.values(ecc).map(Number);
+                const bettiValues = Object.values(betti).map(Number);
+                const allY = [...eccValues, ...bettiValues];
+                const minY = Math.min(0, ...allY);
+                const maxY = Math.max(1, ...allY);
+                const rangeY = maxY - minY || 1;
+                
+                const getX = (x) => padding + ((x - minX) / rangeX) * (width - 2 * padding);
+                const getY = (y) => height - padding - ((y - minY) / rangeY) * (height - 2 * padding);
+                
+                let eccPoints = keys.map(k => {
+                    const val = ecc[k] !== undefined ? ecc[k] : 0;
+                    return `${getX(k)},${getY(val)}`;
+                }).join(" ");
+                
+                let bettiPoints = keys.map(k => {
+                    const val = betti[k] !== undefined ? betti[k] : 0;
+                    return `${getX(k)},${getY(val)}`;
+                }).join(" ");
+                
+                let svg = `<svg viewBox="0 0 ${width} ${height}" width="100%" height="${height}" style="background:#020408; border-radius:8px; border:1px solid rgba(255,255,255,0.05); font-family:sans-serif;">`;
+                
+                const yTicks = 4;
+                for (let i = 0; i <= yTicks; i++) {
+                    const yVal = minY + (i / yTicks) * rangeY;
+                    const yPos = getY(yVal);
+                    svg += `<line x1="${padding}" y1="${yPos}" x2="${width - padding}" y2="${yPos}" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 2" />`;
+                    svg += `<text x="${padding - 8}" y="${yPos + 4}" fill="#64748b" font-size="9" text-anchor="end">${yVal.toFixed(1)}</text>`;
+                }
+                
+                const xTicks = 5;
+                for (let i = 0; i < xTicks; i++) {
+                    const xVal = minX + (i / (xTicks - 1)) * rangeX;
+                    const xPos = getX(xVal);
+                    svg += `<text x="${xPos}" y="${height - 8}" fill="#64748b" font-size="9" text-anchor="middle">${xVal.toFixed(2)}</text>`;
+                }
+                
+                let eccFill = `M ${getX(minX)},${getY(0)} ` + keys.map(k => `${getX(k)},${getY(ecc[k] !== undefined ? ecc[k] : 0)}`).join(" ") + ` L ${getX(maxX)},${getY(0)} Z`;
+                let bettiFill = `M ${getX(minX)},${getY(0)} ` + keys.map(k => `${getX(k)},${getY(betti[k] !== undefined ? betti[k] : 0)}`).join(" ") + ` L ${getX(maxX)},${getY(0)} Z`;
+                
+                svg += `<path d="${eccFill}" fill="rgba(127, 90, 240, 0.08)" />`;
+                svg += `<path d="${bettiFill}" fill="rgba(0, 242, 254, 0.08)" />`;
+                
+                svg += `<polyline points="${eccPoints}" fill="none" stroke="var(--accent-purple)" stroke-width="2.5" />`;
+                svg += `<polyline points="${bettiPoints}" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" />`;
+                
+                keys.forEach(k => {
+                    if (ecc[k] !== undefined) {
+                        svg += `<circle cx="${getX(k)}" cy="${getY(ecc[k])}" r="3.5" fill="var(--accent-purple)" />`;
+                    }
+                    if (betti[k] !== undefined) {
+                        svg += `<circle cx="${getX(k)}" cy="${getY(betti[k])}" r="3.5" fill="var(--accent-cyan)" />`;
+                    }
+                });
+                
+                svg += `<g transform="translate(${width - 160}, 15)">`;
+                svg += `<circle cx="10" cy="10" r="4.5" fill="var(--accent-purple)" />`;
+                svg += `<text x="20" y="13" fill="#94a3b8" font-size="10">Euler Characteristic</text>`;
+                svg += `<circle cx="10" cy="25" r="4.5" fill="var(--accent-cyan)" />`;
+                svg += `<text x="20" y="28" fill="#94a3b8" font-size="10">Betti-1 Profile</text>`;
+                svg += `</g>`;
+                
+                svg += `</svg>`;
+                container.innerHTML = svg;
+                
+            } else if (endpoint === "signals-volatility") {
+                const vol = data.annualized_volatility || 0.35;
+                const normVol = vol > 1.0 ? vol / 100.0 : vol;
+                const sharpe = data.approx_sharpe_ratio || 1.5;
+                const mean = data.mean_daily_return || 0.001;
+                
+                titleEl.textContent = `GARCH Return Distribution & Risk Profile: ${data.ticker || 'BTCUSD'}`;
+                
+                const width = 600;
+                const height = 200;
+                const padding = 35;
+                
+                const numPoints = 80;
+                const stdDev = normVol / Math.sqrt(252);
+                const plotStd = 0.03;
+                
+                let points = [];
+                const step = (plotStd * 6) / numPoints;
+                for (let i = 0; i <= numPoints; i++) {
+                    const r = -plotStd * 3 + i * step;
+                    const exponent = -0.5 * Math.pow((r - mean) / stdDev, 2);
+                    const density = (1.0 / (stdDev * Math.sqrt(2 * Math.PI))) * Math.exp(exponent);
+                    points.push({ r, density });
+                }
+                
+                const maxDensity = Math.max(...points.map(p => p.density));
+                
+                const getX = (r) => padding + ((r - (-plotStd * 3)) / (plotStd * 6)) * (width - 2 * padding);
+                const getY = (d) => height - padding - (d / maxDensity) * (height - 2 * padding);
+                
+                let pathStr = "M " + points.map(p => `${getX(p.r)},${getY(p.density)}`).join(" L ");
+                let fillStr = pathStr + ` L ${getX(plotStd * 3)},${getY(0)} L ${getX(-plotStd * 3)},${getY(0)} Z`;
+                
+                let svg = `<svg viewBox="0 0 ${width} ${height}" width="100%" height="${height}" style="background:#020408; border-radius:8px; border:1px solid rgba(255,255,255,0.05); font-family:sans-serif;">`;
+                
+                svg += `<line x1="${padding}" y1="${getY(0)}" x2="${width - padding}" y2="${getY(0)}" stroke="rgba(255,255,255,0.1)" />`;
+                
+                svg += `<path d="${fillStr}" fill="rgba(0, 242, 254, 0.06)" />`;
+                svg += `<path d="${pathStr}" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" />`;
+                
+                svg += `<line x1="${getX(mean)}" y1="${getY(0)}" x2="${getX(mean)}" y2="${getY(maxDensity)}" stroke="var(--accent-purple)" stroke-dasharray="3 3" />`;
+                svg += `<text x="${getX(mean)}" y="25" fill="var(--accent-purple)" font-size="9" text-anchor="middle">Mean Return</text>`;
+                
+                const plusOne = mean + stdDev;
+                const minusOne = mean - stdDev;
+                svg += `<line x1="${getX(plusOne)}" y1="${getY(0)}" x2="${getX(plusOne)}" y2="${getY(maxDensity * 0.6)}" stroke="rgba(255,255,255,0.2)" stroke-dasharray="1 3" />`;
+                svg += `<line x1="${getX(minusOne)}" y1="${getY(0)}" x2="${getX(minusOne)}" y2="${getY(maxDensity * 0.6)}" stroke="rgba(255,255,255,0.2)" stroke-dasharray="1 3" />`;
+                
+                svg += `<text x="${getX(plusOne)}" y="${height - 20}" fill="#94a3b8" font-size="8" text-anchor="middle">+1σ</text>`;
+                svg += `<text x="${getX(minusOne)}" y="${height - 20}" fill="#94a3b8" font-size="8" text-anchor="middle">-1σ</text>`;
+                
+                svg += `<text x="${getX(-plotStd*2)}" y="${height - 8}" fill="#64748b" font-size="8" text-anchor="middle">-2.0%</text>`;
+                svg += `<text x="${getX(0)}" y="${height - 8}" fill="#64748b" font-size="8" text-anchor="middle">0.0%</text>`;
+                svg += `<text x="${getX(plotStd*2)}" y="${height - 8}" fill="#64748b" font-size="8" text-anchor="middle">+2.0%</text>`;
+                
+                svg += `<g transform="translate(40, 45)" fill="#94a3b8" font-size="10">`;
+                svg += `<text x="0" y="0" font-weight="700" fill="var(--accent-cyan)">RISK ANALYSIS METRICS</text>`;
+                svg += `<text x="0" y="20">Annual Volatility (GARCH): ${(vol > 1.0 ? vol : vol * 100).toFixed(2)}%</text>`;
+                svg += `<text x="0" y="35">Approx Sharpe Ratio: ${sharpe.toFixed(2)}</text>`;
+                svg += `<text x="0" y="50">Daily Standard Deviation: ${(stdDev * 100).toFixed(3)}%</text>`;
+                svg += `</g>`;
+                
+                svg += `</svg>`;
+                container.innerHTML = svg;
+                
+            } else if (endpoint === "seo-simulate") {
+                titleEl.textContent = `Monte Carlo MRR Simulation Funnel (12 Month Projection)`;
+                
+                const meanMRR = data.mean_mrr_month_12 || 15000;
+                const downside = data.downside_mrr_5th_percentile || 8000;
+                const upside = data.upside_mrr_95th_percentile || 25000;
+                const prob = data.prob_positive_cashflow || 100.0;
+                
+                const width = 600;
+                const height = 200;
+                const padding = 35;
+                
+                const months = 12;
+                const getX = (m) => padding + (m / months) * (width - 2 * padding);
+                const getY = (val) => height - padding - (val / upside) * (height - 2 * padding);
+                
+                let medianPoints = [];
+                let downsidePoints = [];
+                let upsidePoints = [];
+                
+                for (let m = 0; m <= months; m++) {
+                    const factor = Math.pow(m / months, 1.5);
+                    medianPoints.push({ x: getX(m), y: getY(meanMRR * factor) });
+                    downsidePoints.push({ x: getX(m), y: getY(downside * factor) });
+                    upsidePoints.push({ x: getX(m), y: getY(upside * factor) });
+                }
+                
+                let medianStr = "M " + medianPoints.map(p => `${p.x},${p.y}`).join(" L ");
+                let downsideStr = "M " + downsidePoints.map(p => `${p.x},${p.y}`).join(" L ");
+                let upsideStr = "M " + upsidePoints.map(p => `${p.x},${p.y}`).join(" L ");
+                
+                let areaStr = "M " + downsidePoints.map(p => `${p.x},${p.y}`).join(" L ") +
+                              " L " + upsidePoints.slice().reverse().map(p => `${p.x},${p.y}`).join(" L ") + " Z";
+                              
+                let svg = `<svg viewBox="0 0 ${width} ${height}" width="100%" height="${height}" style="background:#020408; border-radius:8px; border:1px solid rgba(255,255,255,0.05); font-family:sans-serif;">`;
+                
+                const yTicks = 4;
+                for (let i = 0; i <= yTicks; i++) {
+                    const val = (i / yTicks) * upside;
+                    const yPos = getY(val);
+                    svg += `<line x1="${padding}" y1="${yPos}" x2="${width - padding}" y2="${yPos}" stroke="rgba(255,255,255,0.05)" />`;
+                    svg += `<text x="${padding - 8}" y="${yPos + 4}" fill="#64748b" font-size="8" text-anchor="end">$${Math.round(val)}</text>`;
+                }
+                
+                for (let m = 0; m <= months; m += 2) {
+                    const xPos = getX(m);
+                    svg += `<line x1="${xPos}" y1="${padding}" x2="${xPos}" y2="${height - padding}" stroke="rgba(255,255,255,0.03)" />`;
+                    svg += `<text x="${xPos}" y="${height - 8}" fill="#64748b" font-size="8" text-anchor="middle">M${m}</text>`;
+                }
+                
+                svg += `<path d="${areaStr}" fill="rgba(0, 242, 254, 0.05)" />`;
+                svg += `<path d="${downsideStr}" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3 3" />`;
+                svg += `<path d="${upsideStr}" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="3 3" />`;
+                svg += `<path d="${medianStr}" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" />`;
+                
+                svg += `<g transform="translate(45, 40)" fill="#94a3b8" font-size="9">`;
+                svg += `<text x="0" y="0" font-weight="700" fill="var(--accent-cyan)" font-size="10">MONTE CARLO PROJECTIONS</text>`;
+                svg += `<text x="0" y="15">Avg Month 12 MRR: $${meanMRR.toLocaleString(undefined, {maximumFractionDigits:0})}</text>`;
+                svg += `<text x="0" y="27">Upside Range (95th%): $${upside.toLocaleString(undefined, {maximumFractionDigits:0})}</text>`;
+                svg += `<text x="0" y="39">Downside Risk (5th%): $${downside.toLocaleString(undefined, {maximumFractionDigits:0})}</text>`;
+                svg += `<text x="0" y="51">Success Probability: ${prob.toFixed(1)}%</text>`;
+                svg += `</g>`;
+                
+                svg += `<g transform="translate(${width - 150}, 125)" font-size="9" fill="#94a3b8">`;
+                svg += `<line x1="0" y1="5" x2="20" y2="5" stroke="#22c55e" stroke-dasharray="2 2" stroke-width="1.5" />`;
+                svg += `<text x="25" y="8">95th Percentile</text>`;
+                svg += `<line x1="0" y1="17" x2="20" y2="17" stroke="var(--accent-cyan)" stroke-width="2" />`;
+                svg += `<text x="25" y="20">Mean Projection</text>`;
+                svg += `<line x1="0" y1="29" x2="20" y2="29" stroke="#ef4444" stroke-dasharray="2 2" stroke-width="1.5" />`;
+                svg += `<text x="25" y="32">5th Percentile</text>`;
+                svg += `</g>`;
+                
+                svg += `</svg>`;
+                container.innerHTML = svg;
             }
         }
 
@@ -1295,6 +1897,43 @@
                 document.getElementById("console-key-field").value = savedKey;
             } else {
                 document.getElementById("dash-key").innerText = "No token generated";
+            }
+
+            // Load verified venture portfolio rankings
+            loadPortfolioRankings();
+        }
+
+        async function loadPortfolioRankings() {
+            const tbody = document.getElementById("portfolio-rankings-body");
+            if (!tbody) return;
+            try {
+                const response = await fetch(`${apiBaseUrl}/api/v1/signals/portfolio/rankings`);
+                if (!response.ok) {
+                    throw new Error("HTTP error: " + response.status);
+                }
+                const rankings = await response.json();
+                if (rankings && rankings.length > 0) {
+                    let html = "";
+                    rankings.forEach((v, idx) => {
+                        const rankNum = idx + 1;
+                        const sortinoVal = (v.risk_adjusted_sortino === null || v.risk_adjusted_sortino === "Infinity" || v.risk_adjusted_sortino === Infinity) ? "inf" : v.risk_adjusted_sortino.toFixed(3);
+                        html += `
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.02)'" onmouseout="this.style.backgroundColor='transparent'">
+                                <td style="padding: 0.75rem 1rem; font-weight: 700; color: ${rankNum <= 3 ? 'var(--accent-cyan)' : 'var(--text-secondary)'};">${rankNum}</td>
+                                <td style="padding: 0.75rem 1rem; font-weight: 600; text-transform: uppercase;">${v.venture.replace('_', ' ')}</td>
+                                <td style="padding: 0.75rem 1rem; text-align: right; color: var(--success); font-weight: 600;">$${v.expected_return.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                                <td style="padding: 0.75rem 1rem; text-align: right; color: var(--warning);">$${v.downside_risk_var.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                                <td style="padding: 0.75rem 1rem; text-align: right; color: var(--warning);">$${v.downside_risk_cvar.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                                <td style="padding: 0.75rem 1rem; text-align: right; font-weight: 600; color: var(--accent-purple);">${sortinoVal}</td>
+                            </tr>
+                        `;
+                    });
+                    tbody.innerHTML = html;
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="6" style="padding: 1.5rem; text-align: center; color: var(--text-secondary);">No validated venture rankings found. Run simulations first.</td></tr>`;
+                }
+            } catch (e) {
+                tbody.innerHTML = `<tr><td colspan="6" style="padding: 1.5rem; text-align: center; color: var(--warning);">Failed to load rankings: ${e.message}. Backend API may be offline. Check connection URL in settings gear.</td></tr>`;
             }
         }
 
