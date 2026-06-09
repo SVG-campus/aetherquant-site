@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Causality Report: Bitcoin vs S&P 500 (BTCUSD -> SPY) | AetherQuant</title>
+    <meta name="description" content="Quantitative causality analysis using Convergent Cross Mapping (CCM) and Volatility analysis for Bitcoin vs S&P 500 (BTCUSD vs. SPY).">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: hsl(222, 47%, 6%);
+            --card-bg: hsla(222, 47%, 10%, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-cyan: hsl(182, 100%, 50%);
+            --accent-purple: hsl(255, 82%, 67%);
+            --glass-glow: 0 8px 32px 0 rgba(0, 242, 254, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .bg-glow {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 1.5rem;
+        }
+
+        .back-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--glass-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .metric-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--card-border);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .metric-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 0.25rem;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-purple);
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+    </style>
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Causality Validation Audit: BTCUSD to SPY",
+    "description": "Topological and convergent cross-mapping causality report for Bitcoin vs S&P 500 (BTCUSD vs. SPY).",
+    "author": {
+        "@type": "Organization",
+        "name": "AetherQuant"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "AetherQuant Technologies Inc.",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://aetherquant.cloud/logo.png"
+        }
+    },
+    "datePublished": "2026-06-09T04:05:36Z"
+}
+    </script>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="container">
+        <header>
+            <a href="https://aetherquant.cloud/" class="back-link">&larr; Back to AetherQuant Home</a>
+            <h1>Causality Report: BTCUSD &rarr; SPY</h1>
+            <div class="subtitle">Programmatic Quantitative Relation Audit: Bitcoin vs S&P 500</div>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>Causal Discovery Summary</h2>
+                <p>
+                    Using <strong>Convergent Cross Mapping (CCM)</strong> on reconstructed delay-coordinate state-space manifolds,
+                    we audited the directional influence of <code>BTCUSD</code> on <code>SPY</code>.
+                </p>
+                <p>
+                    By embedding the time-series into 3-dimensional attractor manifolds (Embedding Lag &tau; = 2, Dimension <i>d</i> = 3),
+                    we tested for topological diffeomorphism, determining the degree of cross-map convergence across scale spaces.
+                </p>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">CCM Information Flow</div>
+                        <div class="metric-val">0.6200</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Manifold Convergence</div>
+                        <div class="metric-val">WEAK / NO CO-INTEGRATION</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Topological homological invariants</h2>
+                <p>
+                    Euler Characteristic Curves (ECC) and Connected Components (Betti-0) were computed on the reconstructed phase spaces
+                    to test for persistent loops and attractor void features.
+                </p>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">Topological Void Index</div>
+                        <div class="metric-val">0.3500</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Min Euler Invariant</div>
+                        <div class="metric-val">-18.0</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Causality Volatility Profiles</h2>
+                <p>
+                    Annualized volatility and mean daily returns calculated on the combined asset returns distribution:
+                </p>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">Annual Volatility (GARCH Est.)</div>
+                        <div class="metric-val">33.50%</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Risk-Adjusted Sharpe Ratio</div>
+                        <div class="metric-val">1.45</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 AetherQuant Technologies Inc. All rights reserved.</p>
+            <p style="margin-top:0.5rem; opacity:0.6;">
+                This page was programmatically generated on 2026-06-09 04:05:36 UTC based on AetherQuant Volatility &amp; Causal Validation Compute Core feeds.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
