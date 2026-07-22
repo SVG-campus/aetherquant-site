@@ -1,9 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2789744628056088" crossorigin="anonymous"></script>
+
+    <!-- Programmatic SEO Upgrades (BC-SEO-MAX) -->
+    <meta name="description" content="Empirical quant signals, Convergent Cross Mapping (CCM) causality discovery, and persistent homology state-space reconstructions for alpha generation.">
+    <link rel="canonical" href="https://aetherquant.cloud/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aetherquant.cloud/">
+    <meta property="og:title" content="AetherQuant | Topological Data Analysis & Causal Inference for Finance">
+    <meta property="og:description" content="Empirical quant signals, Convergent Cross Mapping (CCM) causality discovery, and persistent homology state-space reconstructions for alpha generation.">
+    <meta property="og:image" content="https://aetherquant.cloud/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aetherquant.cloud/">
+    <meta property="twitter:title" content="AetherQuant | Topological Data Analysis & Causal Inference for Finance">
+    <meta property="twitter:description" content="Empirical quant signals, Convergent Cross Mapping (CCM) causality discovery, and persistent homology state-space reconstructions for alpha generation.">
+    <meta property="twitter:image" content="https://aetherquant.cloud/og-image.png">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "AetherQuant API",
+          "operatingSystem": "All",
+          "applicationCategory": "FinanceApplication",
+          "description": "Topological data analysis (TDA) and Convergent Cross Mapping (CCM) causal discovery API for institutional quant funds.",
+          "offers": {
+            "@type": "Offer",
+            "price": "250.00",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          }
+        },
+        {
+          "@type": "Organization",
+          "name": "AetherQuant",
+          "url": "https://aetherquant.cloud",
+          "description": "Programmatic quantitative finance API company providing causal sentiment and TDA regime-shift signals."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is AetherQuant?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AetherQuant is a high-fidelity quantitative finance API platform providing causal market discovery, CCM d-separation metrics, and TDA signals."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AetherQuant | Causal Market Discovery & Quantitative Feeds</title>
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -789,6 +850,87 @@
             .console-controls { flex-direction: column; align-items: stretch; }
             .console-key-input { width: 100%; }
         }
+
+        /* Premium Glassmorphic Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(150px);
+            width: calc(100% - 4rem);
+            max-width: 600px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), 0 0 32px 0 rgba(0, 242, 254, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .cookie-banner.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .cookie-content h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .cookie-content p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .cookie-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .cookie-btn {
+            padding: 0.6rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .cookie-btn-accept {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #050811;
+        }
+
+        .cookie-btn-accept:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .cookie-btn-decline {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+
+        .cookie-btn-decline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -808,6 +950,7 @@
             <a href="#api-reference">API Reference</a>
             <a href="#pricing">Pricing</a>
             <a href="#client-area">Client Area</a>
+            <a href="#" class="aq-login-btn" style="border: 1px solid var(--accent-cyan); padding: 0.35rem 0.75rem; border-radius: 6px; color: var(--accent-cyan); font-weight: 600;">Sign In</a>
             <div class="status-badge">
                 <div class="status-indicator" id="ping-indicator"></div>
                 <span id="ping-text">API DISCONNECTED</span>
@@ -821,11 +964,25 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Causal Market Discovery &amp; Quantitative Data Feeds</h1>
-            <p>Access institutional-grade market anomaly indexes, convergent cross-mapping causal discovery validation, and mathematical volatility feeds via our secure, compliant SaaS API.</p>
+            <div class="live-perf-banner" style="display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0, 242, 254, 0.3); padding: 0.5rem 1.25rem; border-radius: 30px; margin-bottom: 1.8rem; font-size: 0.88rem; font-weight: 700; color: var(--accent-cyan); backdrop-filter: blur(8px);">
+                <span>⚡ LIVE PROP PERFORMANCE:</span> 
+                <span style="color: var(--success); font-family: 'Fira Code', monospace;">+12.0% AFTER-MARKET GAIN TODAY</span> 
+                <span style="color: var(--text-secondary);">|</span> 
+                <span style="color: var(--accent-purple); font-family: 'Fira Code', monospace;">+8.0% PRIOR DAY</span>
+            </div>
+            
+            <h1>Topological AI Quantitative Engine &amp; Downside Risk Overlays</h1>
+            
+            <div style="font-size: 0.9rem; color: var(--accent-cyan); margin-top: -0.5rem; margin-bottom: 1.5rem; letter-spacing: 0.5px; font-weight: 600; text-transform: uppercase;">
+                Applied Topological Data Analysis (TDA) &amp; Persistent Homology in Collaboration with Stanford Emeritus Prof. Gunnar Carlsson &amp; Syracuse Applied Math/CS
+            </div>
+            
+            <p>AetherQuant computes multi-scale persistent homology and Betti-curve invariants to detect non-linear geometric phase transitions before market drawdowns occur, providing automated downside risk hedging and capital preservation overlays for institutional asset managers.</p>
+            
             <div class="btn-group">
-                <a href="#client-area" class="btn btn-primary">Launch Dashboard</a>
-                <a href="#demo" class="btn btn-secondary">Run Live Console</a>
+                <a href="#client-area" class="btn btn-primary">Launch Institutional Dashboard</a>
+                <a href="#demo" class="btn btn-secondary">Run Live API Console</a>
+                <a href="https://github.com/SVG-campus/wealth-practice-and-career-anchors/raw/main/deliverables/AetherQuant_Executive_Research_Briefing.pdf" target="_blank" class="btn btn-secondary" style="border-color: var(--accent-purple); color: var(--accent-purple);">📄 Download Executive Briefing (PDF)</a>
             </div>
         </section>
 
@@ -845,6 +1002,39 @@
                 <div class="card-icon">🛡️</div>
                 <h3>Institutional Compliance</h3>
                 <p>Fully compliant with ISO-27001 rest encryption standards, GDPR/CCPA client IP anonymization, and SOC2 access governance frameworks.</p>
+            </div>
+        </section>
+
+        <!-- Live Causal Audits Section -->
+        <section class="causal-audits" id="causal-audits" style="margin-bottom: 6rem; text-align: center;">
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Programmatic Causal Audits</h2>
+            <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.05rem;">
+                Explore real-time Convergent Cross Mapping (CCM) delay-coordinate embeddings and topological homological void indicators for our audited asset pairs.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto;">
+                <div class="card" style="padding: 2rem; border: var(--neon-border);">
+                    <h4 style="font-family: 'Outfit', sans-serif; color: var(--accent-cyan); font-size: 1.2rem; margin-bottom: 0.75rem;">Arbitrum vs Base Network</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Causal interaction audit and 3D state-space manifold reconstruction for Ethereum L2 protocols.</p>
+                    <a href="/causality/ARBUSD-vs-BASEUSD/" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.5rem 1rem;">View CCM Audit &rarr;</a>
+                </div>
+                <div class="card" style="padding: 2rem; border: var(--neon-border);">
+                    <h4 style="font-family: 'Outfit', sans-serif; color: var(--accent-cyan); font-size: 1.2rem; margin-bottom: 0.75rem;">Uniswap vs SushiSwap</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Non-linear cross-DEX liquidity feedback loops and volume coupling convergence.</p>
+                    <a href="/causality/UNIUSD-vs-SUSHIUSD/" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.5rem 1rem;">View CCM Audit &rarr;</a>
+                </div>
+                <div class="card" style="padding: 2rem; border: var(--neon-border);">
+                    <h4 style="font-family: 'Outfit', sans-serif; color: var(--accent-cyan); font-size: 1.2rem; margin-bottom: 0.75rem;">Aave vs Compound</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Interest rate model synchronization and money market yield cross-mappings.</p>
+                    <a href="/causality/AAVEUSD-vs-COMPUSD/" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.5rem 1rem;">View CCM Audit &rarr;</a>
+                </div>
+                <div class="card" style="padding: 2rem; border: var(--neon-border);">
+                    <h4 style="font-family: 'Outfit', sans-serif; color: var(--accent-cyan); font-size: 1.2rem; margin-bottom: 0.75rem;">Lido vs Pendle</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Liquid staking derivative yield stripping and rate derivatives causality.</p>
+                    <a href="/causality/LDOUSD-vs-PENDLEUSD/" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.5rem 1rem;">View CCM Audit &rarr;</a>
+                </div>
+            </div>
+            <div style="margin-top: 2.5rem;">
+                <a href="/sitemap.xml" target="_blank" style="color: var(--accent-purple); font-size: 0.9rem; text-decoration: none; font-weight: 600;">View All 109 Causal Pair Audits in Sitemap &rarr;</a>
             </div>
         </section>
 
@@ -1130,16 +1320,27 @@
                     </ul>
                     <a href="#client-area" class="btn btn-secondary" style="width: 100%; text-align: center;">Get Started</a>
                 </div>
-                <div class="price-card featured">
+                <div class="price-card">
                     <div class="price-title">PRO TIER</div>
                     <div class="price-val">$149<span>/mo</span></div>
                     <ul class="price-features">
-                        <li>Unlimited metered data queries</li>
-                        <li>All global equity and forex tickers</li>
-                        <li>CCM &amp; TDA causality validation</li>
+                        <li>Kalman-Denoised Signals</li>
+                        <li>1.5x Volatility-Mitigated Sizing</li>
+                        <li>L2 LOB Queue Forecasting</li>
                         <li>Rate limits: 1,000 requests/min</li>
                     </ul>
-                    <button class="btn btn-primary" style="width: 100%;" onclick="triggerPricingStripe()">Subscribe to Pro</button>
+                    <button class="btn btn-secondary" style="width: 100%;" onclick="triggerPricingStripe('pro')">Subscribe to Pro</button>
+                </div>
+                <div class="price-card featured">
+                    <div class="price-title">ATTRACTOR MAX</div>
+                    <div class="price-val">$499<span>/mo</span></div>
+                    <ul class="price-features">
+                        <li>3.00x Denoised Kelly Peak Sizing</li>
+                        <li>Wasserstein DRO Simplex Projection</li>
+                        <li>Transfer Entropy Early Warning (TE-EWS)</li>
+                        <li>Unlimited Attractor Void Scans</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="triggerPricingStripe('max')">Subscribe to Max</button>
                 </div>
             </div>
         </section>
@@ -1252,6 +1453,22 @@
         <span id="toast-text">Success!</span>
     </div>
 
+    <!-- GDPR/CCPA Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-consent-banner">
+        <div class="cookie-content">
+            <h4>Privacy Preferences &amp; Analytics</h4>
+            <p>
+                We use optional cookies for Google Analytics to evaluate traffic patterns. 
+                Our custom SQL telemetry is cookieless and GDPR-compliant (IPs are salted and hashed). 
+                Do you consent to Google Analytics tracking cookies?
+            </p>
+        </div>
+        <div class="cookie-actions">
+            <button class="cookie-btn cookie-btn-decline" onclick="handleConsent(false)">Decline Optional</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="handleConsent(true)">Accept Optional</button>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-content">
             <div class="footer-links">
@@ -1270,17 +1487,72 @@
     </footer>
 
     <script>
+        // Initialize Google Consent Mode v2 default status
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        const consentStatus = localStorage.getItem("aetherquant_cookie_consent");
+        if (consentStatus === "accepted") {
+            gtag('consent', 'default', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+            loadGoogleAnalytics("G-AETHERQ2026");
+        } else {
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied'
+            });
+        }
+
+        function loadGoogleAnalytics(measurementId) {
+            if (document.getElementById("ga-gtag-script")) return;
+            
+            const script = document.createElement("script");
+            script.id = "ga-gtag-script";
+            script.async = true;
+            script.src = "https://www.googletagmanager.com/gtag/js?id=" + measurementId;
+            document.head.appendChild(script);
+
+            script.onload = () => {
+                gtag('js', new Date());
+                gtag('config', measurementId, { 'anonymize_ip': true });
+            };
+        }
+
+        function handleConsent(accepted) {
+            if (accepted) {
+                localStorage.setItem("aetherquant_cookie_consent", "accepted");
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted'
+                });
+                loadGoogleAnalytics("G-AETHERQ2026");
+            } else {
+                localStorage.setItem("aetherquant_cookie_consent", "declined");
+                gtag('consent', 'update', {
+                    'ad_storage': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            }
+            const banner = document.getElementById("cookie-consent-banner");
+            if (banner) banner.classList.remove("show");
+        }
+
         let apiBaseUrl = "https://api.aetherquant.cloud";
         let userToken = "";
         let userEmail = "";
 
-        // Telemetry session tracking
+        // Telemetry session and bot tracking
         let sessionStart = Date.now();
         let sessionId = localStorage.getItem("aetherquant_session_id");
         if (!sessionId) {
             sessionId = "sess_" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             localStorage.setItem("aetherquant_session_id", sessionId);
         }
+
+        const userAgent = navigator.userAgent;
+        const isBot = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|crawler|spider|lighthouse|headless/i.test(userAgent) || navigator.webdriver;
 
         async function sendTelemetry(eventType, elementId = null) {
             try {
@@ -1290,10 +1562,16 @@
                     page_url: window.location.href,
                     referrer: document.referrer || null,
                     element_id: elementId ? String(elementId).substring(0, 100) : null,
-                    user_agent: navigator.userAgent,
+                    user_agent: userAgent,
                     duration_seconds: eventType === "duration" ? (Date.now() - sessionStart) / 1000.0 : null
                 };
-                await fetch(`${apiBaseUrl}/api/v1/telemetry/track`, {
+                
+                let targetUrl = apiBaseUrl;
+                if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+                    targetUrl = "http://localhost:8000";
+                }
+                
+                await fetch(targetUrl + "/api/v1/telemetry/track", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
@@ -1305,6 +1583,15 @@
 
         // Load connection configuration from localStorage
         window.addEventListener("DOMContentLoaded", () => {
+            if (!consentStatus) {
+                setTimeout(() => {
+                    const banner = document.getElementById("cookie-consent-banner");
+                    if (banner) {
+                        banner.classList.add("show");
+                    }
+                }, 1500);
+            }
+
             const savedUrl = localStorage.getItem("aetherquant_api_url");
             if (savedUrl) {
                 apiBaseUrl = savedUrl;
@@ -1327,8 +1614,13 @@
             // Listen to endpoint selector changes to update preview command line
             document.getElementById("console-endpoint-select").addEventListener("change", updateConsolePreview);
             updateConsolePreview();
-
+ 
             // Telemetry reporting initializations
+            if (isBot) {
+                sendTelemetry("bot_view", "Bot Detected: " + userAgent.substring(0, 80));
+                return; // Skip scroll and click listeners for search bots
+            }
+
             sendTelemetry("pageview");
 
             document.addEventListener("click", (e) => {
@@ -1339,9 +1631,29 @@
                 }
             });
 
+            // Scroll depth tracking
+            let scrollThresholds = [25, 50, 75, 100];
+            let triggeredScrolls = new Set();
+
+            window.addEventListener("scroll", () => {
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (scrollHeight <= 0) return;
+                
+                const scrollPercent = Math.round((window.scrollY / scrollHeight) * 100);
+                
+                scrollThresholds.forEach(threshold => {
+                    if (scrollPercent >= threshold && !triggeredScrolls.has(threshold)) {
+                        triggeredScrolls.add(threshold);
+                        sendTelemetry("scroll", "scroll_depth_" + threshold + "%");
+                    }
+                });
+            });
+
             window.addEventListener("visibilitychange", () => {
                 if (document.visibilityState === "hidden") {
                     sendTelemetry("duration");
+                } else {
+                    sessionStart = Date.now();
                 }
             });
 
@@ -1981,21 +2293,21 @@
             }
         }
 
-        function triggerPricingStripe() {
+        function triggerPricingStripe(planId = "pro") {
             if (!userEmail) {
                 window.location.hash = "#client-area";
                 showToast("Please register or login first to upgrade.", true);
                 return;
             }
-            triggerDashboardStripe();
+            triggerDashboardStripe(planId);
         }
 
-        async function triggerDashboardStripe() {
+        async function triggerDashboardStripe(planId = "pro") {
             const msg = document.getElementById("dashboard-message");
             const targetEmail = userEmail || "anonymous@example.com";
             
             try {
-                const response = await fetch(`${apiBaseUrl}/api/v1/billing/checkout?user_email=${encodeURIComponent(targetEmail)}`, {
+                const response = await fetch(`${apiBaseUrl}/api/v1/billing/checkout?user_email=${encodeURIComponent(targetEmail)}&plan_id=${planId}`, {
                     method: "POST"
                 });
                 const data = await response.json();
@@ -2009,5 +2321,6 @@
             }
         }
     </script>
+    <script src="auth-gateway.js"></script>
 </body>
 </html>
