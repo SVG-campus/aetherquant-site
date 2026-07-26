@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AetherQuant Quantitative API Portal | Sign In</title>
+    <title>AetherQuant | Auth0 Unified Sign In</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -26,45 +27,20 @@
             max-width: 440px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(12px);
+            text-align: center;
         }
         .brand-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
             color: #00f2fe;
-            text-align: center;
         }
         .subtitle {
             font-size: 0.85rem;
             color: #94A3B8;
-            text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-        label {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #CBD5E0;
-            margin-bottom: 0.4rem;
-        }
-        input {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            color: #FFFFFF;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        input:focus {
-            border-color: #00f2fe;
-        }
-        .submit-btn {
+        .auth0-btn {
             width: 100%;
             padding: 0.85rem;
             background: #00f2fe;
@@ -74,64 +50,86 @@
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
             transition: opacity 0.2s;
         }
-        .submit-btn:hover {
+        .auth0-btn:hover {
             opacity: 0.9;
         }
         .badge {
             display: inline-block;
-            padding: 0.2rem 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 0.6rem;
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 4px;
             font-size: 0.75rem;
             color: #00f2fe;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             width: 100%;
-            text-align: center;
         }
-        .msg-box {
-            margin-top: 1rem;
+        .switch-link {
+            display: block;
+            margin-top: 1.2rem;
             font-size: 0.85rem;
-            text-align: center;
-            color: #10B981;
-            display: none;
+            color: #94A3B8;
+            text-decoration: none;
+        }
+        .switch-link:hover {
+            color: #00f2fe;
         }
     </style>
 </head>
 <body>
     <div class="login-card">
-        <div class="brand-title">AetherQuant Quantitative API Portal</div>
-        <div class="subtitle">Enter your credentials to access your developer portal</div>
-        <div class="badge">PROMO CODE TESTING: Use 'FREEPASS' for Enterprise Tier ($499/mo)</div>
+        <div class="brand-title">AetherQuant Portal</div>
+        <div class="subtitle">Secure Single Sign-On powered by Auth0 Cloud</div>
+        <div class="badge">AUTH0 TENANT: eminencecore.us.auth0.com</div>
 
-        <form id="login-form" onsubmit="handleLogin(event)">
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="email" value="test_admin@aetherquant.cloud" required>
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="password" value="EminencePass2026!" required>
-            </div>
-            <button type="submit" class="submit-btn">Sign In to Dashboard</button>
-        </form>
+        <button class="auth0-btn" onclick="loginWithAuth0()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            Sign In / Register with Auth0
+        </button>
 
-        <div class="msg-box" id="msg-box"></div>
+        <a href="index.html" class="switch-link">← Back to Main Website</a>
     </div>
 
     <script>
-        function handleLogin(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const msg = document.getElementById('msg-box');
-            msg.style.display = 'block';
-            msg.innerText = "Authentication Successful! Redirecting to " + email + " portal...";
-            setTimeout(() => {
-                window.location.href = "index.html";
-            }, 1200);
+        let auth0Client = null;
+
+        async function initAuth0() {
+            try {
+                auth0Client = await auth0.createAuth0Client({
+                    domain: "eminencecore.us.auth0.com",
+                    clientId: "12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU",
+                    authorizationParams: {
+                        redirect_uri: window.location.origin + window.location.pathname
+                    }
+                });
+                
+                // Handle callback
+                if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+                    await auth0Client.handleRedirectCallback();
+                    const user = await auth0Client.getUser();
+                    localStorage.setItem("aetherquant_auth0_user", JSON.stringify(user));
+                    window.location.href = "index.html#dashboard";
+                }
+            } catch(e) {
+                console.warn("Auth0 init fallback", e);
+            }
         }
+
+        async function loginWithAuth0() {
+            if (!auth0Client) await initAuth0();
+            if (auth0Client) {
+                await auth0Client.loginWithRedirect();
+            } else {
+                alert("Redirecting to Auth0 Universal Login...");
+            }
+        }
+
+        window.onload = initAuth0;
     </script>
 </body>
 </html>
