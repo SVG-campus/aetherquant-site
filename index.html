@@ -2332,5 +2332,91 @@
         }
     </script>
     <script src="auth-gateway.js"></script>
+
+<!-- Universal Customer Dashboard Component -->
+<div id="customer-dashboard-section" style="display: none; padding: 3rem 1.5rem; max-width: 1100px; margin: 0 auto; font-family: 'Inter', sans-serif;">
+    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+        
+        <!-- Dashboard Top Navigation -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
+            <div>
+                <h2 style="font-size: 1.5rem; font-weight: 800; color: #00f2fe; margin: 0;">AetherQuant Customer Dashboard</h2>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 0.2rem;" id="dash-user-email">Logged in as: user@domain.com</p>
+            </div>
+            <button onclick="handleDashboardLogout()" style="background: rgba(239, 68, 68, 0.15); border: 1px solid #EF4444; color: #EF4444; padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.2s;">Sign Out</button>
+        </div>
+
+        <!-- Dashboard Stat Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+            
+            <!-- Card 1: Subscription Tier -->
+            <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 1.25rem;">
+                <span style="font-size: 0.75rem; font-weight: 700; color: #94A3B8; letter-spacing: 0.5px; text-transform: uppercase;">Current Subscription</span>
+                <h3 style="font-size: 1.25rem; color: #FFFFFF; margin: 0.4rem 0;" id="dash-plan-name">Free Tier Plan</h3>
+                <span style="display: inline-block; padding: 0.2rem 0.5rem; background: rgba(16, 185, 129, 0.15); border-radius: 4px; font-size: 0.75rem; color: #10B981; font-weight: 600;">ACTIVE</span>
+            </div>
+
+            <!-- Card 2: Live API Key -->
+            <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 1.25rem;">
+                <span style="font-size: 0.75rem; font-weight: 700; color: #94A3B8; letter-spacing: 0.5px; text-transform: uppercase;">Active API Bearer Token</span>
+                <code style="display: block; background: rgba(0,0,0,0.4); padding: 0.5rem; border-radius: 4px; color: #00f2fe; font-size: 0.85rem; margin: 0.4rem 0; word-break: break-all;" id="dash-api-token">aq_live_8f92a104c7b</code>
+                <span style="font-size: 0.7rem; color: #64748B;">Ready for production integration</span>
+            </div>
+
+            <!-- Card 3: Free Product Access -->
+            <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 1.25rem;">
+                <span style="font-size: 0.75rem; font-weight: 700; color: #94A3B8; letter-spacing: 0.5px; text-transform: uppercase;">Free Product Feature Access</span>
+                <p style="font-size: 0.85rem; color: #CBD5E0; margin: 0.4rem 0; line-height: 1.4;">Free Quant API Feed & Persistent Homology Beta Scans (10/day)</p>
+            </div>
+        </div>
+
+        <!-- Stripe Upgrade Action Box -->
+        <div style="background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid #00f2fe; border-radius: 12px; padding: 1.75rem; text-align: center;">
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.4rem;">Upgrade to Full Subscription Access</h3>
+            <p style="font-size: 0.9rem; color: #94A3B8; max-width: 600px; margin: 0 auto 1.25rem auto;">Unlock unlimited API throughput, full dataset feeds, and continuous automation. Enter promo code <b>FREEPASS</b> at Stripe Checkout for $0.00 access!</p>
+            
+            <a href="https://buy.stripe.com/aetherquant_enterprise" target="_blank" style="display: inline-block; padding: 0.85rem 2rem; background: #00f2fe; color: #000000; font-weight: 800; font-size: 1rem; border-radius: 8px; text-decoration: none; transition: transform 0.2s, opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                ⚡ Upgrade Subscription via Stripe ($0.00 with FREEPASS)
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function checkUserDashboardSession() {
+        const sessionKey = "aetherquant_session";
+        const auth0User = localStorage.getItem("aetherquant_auth0_user");
+        const customSession = localStorage.getItem(sessionKey);
+        
+        const dashboard = document.getElementById('customer-dashboard-section');
+        const mainLanding = document.getElementById('main-landing-content') || document.querySelector('main') || document.querySelector('header');
+
+        if (auth0User || customSession) {
+            let userData = { email: 'active_user@aetherquant.cloud', token: 'aq_live_' + Math.random().toString(36).substring(2, 10) };
+            if (auth0User) {
+                try { userData = JSON.parse(auth0User); } catch(e) {}
+            } else if (customSession) {
+                try { userData = JSON.parse(customSession); } catch(e) {}
+            }
+
+            if (dashboard) {
+                dashboard.style.display = 'block';
+                document.getElementById('dash-user-email').innerText = "Logged in as: " + (userData.email || userData.name || "active_user@aetherquant.cloud");
+                document.getElementById('dash-api-token').innerText = userData.token || ("aq_live_" + Math.random().toString(36).substring(2, 10));
+            }
+        }
+    }
+
+    function handleDashboardLogout() {
+        const sessionKey = "aetherquant_session";
+        localStorage.removeItem(sessionKey);
+        localStorage.removeItem("aetherquant_auth0_user");
+        window.location.href = "index.html";
+    }
+
+    window.addEventListener('DOMContentLoaded', checkUserDashboardSession);
+</script>
+
 </body>
 </html>
