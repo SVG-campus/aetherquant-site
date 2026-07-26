@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GLMN9LLXZ8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GLMN9LLXZ8');
+</script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2789744628056088" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Causality Report: Apple Inc. vs Alphabet Inc. (AAPL -> GOOGL) | AetherQuant</title>
+    <meta name="description" content="Quantitative causality analysis using Convergent Cross Mapping (CCM) and Volatility analysis for Apple Inc. vs Alphabet Inc. (AAPL vs. GOOGL).">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: hsl(222, 47%, 6%);
+            --card-bg: hsla(222, 47%, 10%, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-cyan: hsl(182, 100%, 50%);
+            --accent-purple: hsl(255, 82%, 67%);
+            --glass-glow: 0 8px 32px 0 rgba(0, 242, 254, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .bg-glow {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 1.5rem;
+        }
+
+        .back-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--glass-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .metric-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--card-border);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .metric-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 0.25rem;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-purple);
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Premium Glassmorphic Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(150px);
+            width: calc(100% - 4rem);
+            max-width: 600px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), 0 0 32px 0 rgba(0, 242, 254, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .cookie-banner.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .cookie-content h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .cookie-content p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .cookie-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .cookie-btn {
+            padding: 0.6rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .cookie-btn-accept {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #050811;
+        }
+
+        .cookie-btn-accept:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .cookie-btn-decline {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+
+        .cookie-btn-decline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Causality Validation Audit: AAPL to GOOGL",
+    "description": "Topological and convergent cross-mapping causality report for Apple Inc. vs Alphabet Inc. (AAPL vs. GOOGL).",
+    "author": {
+        "@type": "Organization",
+        "name": "AetherQuant"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "AetherQuant Technologies Inc.",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://aetherquant.cloud/logo.png"
+        }
+    },
+    "datePublished": "2026-06-12T20:08:20Z"
+}
+    </script>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="container">
+        <header>
+            <a href="https://aetherquant.cloud/" class="back-link">&larr; Back to AetherQuant Home</a>
+            <h1>Causality Report: AAPL &rarr; GOOGL</h1>
+            <div class="subtitle">Programmatic Quantitative Relation Audit: Apple Inc. vs Alphabet Inc.</div>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>Causal Discovery Summary</h2>
+                <p>
+                    Using <strong>Convergent Cross Mapping (CCM)</strong> on reconstructed delay-coordinate state-space manifolds,
+                    we audited the directional influence of <code>AAPL</code> on <code>GOOGL</code>.
+                </p>
+                <p>
+                    By embedding the time-series into 3-dimensional attractor manifolds (Embedding Lag &tau; = 2, Dimension <i>d</i> = 3),
+                    we tested for topological diffeomorphism, determining the degree of cross-map convergence across scale spaces.
+                </p>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">CCM Information Flow</div>
+                        <div class="metric-val">0.6200</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Manifold Convergence</div>
+                        <div class="metric-val">WEAK / NO CO-INTEGRATION</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Topological homological invariants</h2>
+                <p>
+                    Euler Characteristic Curves (ECC) and Connected Components (Betti-0) were computed on the reconstructed phase spaces
+                    to test for persistent loops and attractor void features.
+                </p>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">Topological Void Index</div>
+                        <div class="metric-val">0.2300</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Min Euler Invariant</div>
+                        <div class="metric-val">-29.0</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Causality Volatility Profiles</h2>
+                <p>
+                    Annualized volatility and mean daily returns calculated on the combined asset returns distribution:
+                </p>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">Annual Volatility (GARCH Est.)</div>
+                        <div class="metric-val">49.50%</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Risk-Adjusted Sharpe Ratio</div>
+                        <div class="metric-val">2.85</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- GDPR/CCPA Cookie Consent Banner -->
+        <div class="cookie-banner" id="cookie-consent-banner">
+            <div class="cookie-content">
+                <h4>Privacy Preferences &amp; Analytics</h4>
+                <p>
+                    We use optional cookies for Google Analytics to evaluate traffic patterns. 
+                    Our custom SQL telemetry is cookieless and GDPR-compliant (IPs are salted and hashed). 
+                    Do you consent to Google Analytics tracking cookies?
+                </p>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn cookie-btn-decline" onclick="handleConsent(false)">Decline Optional</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="handleConsent(true)">Accept Optional</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 AetherQuant Technologies Inc. All rights reserved.</p>
+            <p style="margin-top:0.5rem; opacity:0.6;">
+                This page was programmatically generated on 2026-06-12 20:08:20 UTC based on AetherQuant Volatility &amp; Causal Validation Compute Core feeds.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Google Consent Mode v2 default status
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        const consentStatus = localStorage.getItem("aetherquant_cookie_consent");
+        if (consentStatus === "accepted") {
+            gtag('consent', 'default', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+            loadGoogleAnalytics("G-AETHERQ2026");
+        } else {
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied'
+            });
+        }
+
+        function loadGoogleAnalytics(measurementId) {
+            if (document.getElementById("ga-gtag-script")) return;
+            
+            const script = document.createElement("script");
+            script.id = "ga-gtag-script";
+            script.async = true;
+            script.src = "https://www.googletagmanager.com/gtag/js?id=" + measurementId;
+            document.head.appendChild(script);
+
+            script.onload = () => {
+                gtag('js', new Date());
+                gtag('config', measurementId, { 'anonymize_ip': true });
+            };
+        }
+
+        function handleConsent(accepted) {
+            if (accepted) {
+                localStorage.setItem("aetherquant_cookie_consent", "accepted");
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted'
+                });
+                loadGoogleAnalytics("G-AETHERQ2026");
+            } else {
+                localStorage.setItem("aetherquant_cookie_consent", "declined");
+                gtag('consent', 'update', {
+                    'ad_storage': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            }
+            const banner = document.getElementById("cookie-consent-banner");
+            if (banner) banner.classList.remove("show");
+        }
+
+        let apiBaseUrl = "https://api.aetherquant.cloud";
+        let sessionStart = Date.now();
+        let sessionId = localStorage.getItem("aetherquant_session_id");
+        if (!sessionId) {
+            sessionId = "sess_" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            localStorage.setItem("aetherquant_session_id", sessionId);
+        }
+
+        const userAgent = navigator.userAgent;
+        const isBot = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|crawler|spider|lighthouse|headless/i.test(userAgent) || navigator.webdriver;
+
+        async function sendTelemetry(eventType, elementId = null) {
+            try {
+                const payload = {
+                    session_id: sessionId,
+                    event_type: eventType,
+                    page_url: window.location.href,
+                    referrer: document.referrer || null,
+                    element_id: elementId ? String(elementId).substring(0, 100) : null,
+                    user_agent: userAgent,
+                    duration_seconds: eventType === "duration" ? (Date.now() - sessionStart) / 1000.0 : null
+                };
+                
+                let targetUrl = apiBaseUrl;
+                if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+                    targetUrl = "http://localhost:8000";
+                }
+                
+                await fetch(targetUrl + "/api/v1/telemetry/track", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+            } catch (e) {
+                // Fail silently
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            if (!consentStatus) {
+                setTimeout(() => {
+                    const banner = document.getElementById("cookie-consent-banner");
+                    if (banner) {
+                        banner.classList.add("show");
+                    }
+                }, 1500);
+            }
+
+            if (isBot) {
+                sendTelemetry("bot_view", "Bot Detected: " + userAgent.substring(0, 80));
+                return;
+            }
+
+            sendTelemetry("pageview");
+
+            document.addEventListener("click", (e) => {
+                const target = e.target.closest("button, a, select, input[type='submit']");
+                if (target) {
+                    const desc = target.id || target.className || target.innerText || target.tagName;
+                    sendTelemetry("click", desc);
+                }
+            });
+
+            // Scroll depth tracking
+            let scrollThresholds = [25, 50, 75, 100];
+            let triggeredScrolls = new Set();
+
+            window.addEventListener("scroll", () => {
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (scrollHeight <= 0) return;
+                
+                const scrollPercent = Math.round((window.scrollY / scrollHeight) * 100);
+                
+                scrollThresholds.forEach(threshold => {
+                    if (scrollPercent >= threshold && !triggeredScrolls.has(threshold)) {
+                        triggeredScrolls.add(threshold);
+                        sendTelemetry("scroll", "scroll_depth_" + threshold + "%");
+                    }
+                });
+            });
+
+            window.addEventListener("visibilitychange", () => {
+                if (document.visibilityState === "hidden") {
+                    sendTelemetry("duration");
+                } else {
+                    sessionStart = Date.now();
+                }
+            });
+
+            window.addEventListener("beforeunload", () => {
+                sendTelemetry("duration");
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,14 @@
+# AetherQuant — Complete Quantitative API & Causal Discovery System Documentation
+
+## System Architecture
+AetherQuant delivers programmatic quantitative finance APIs powered by non-linear dynamical state-space reconstruction and empirical causal inference algorithms.
+
+## Core API Feeds
+1. **Developer Sentiment Feed**: Real-time reproducible sentiment scores derived from developer activity and market microstructure.
+2. **CCM Causal Discovery**: Convergent Cross Mapping to distinguish true causal drivers from spurious statistical correlations.
+3. **Topological Data Analysis (TDA)**: Vietoris-Rips filtration over $Z_2$ fields to calculate Betti numbers ($\beta_0, \beta_1, \beta_2$) for regime-shift detection.
+
+## API Usage for Autonomous Agents
+- `GET https://aetherquant.cloud/api/v1/sentiment?ticker=BTCUSD`
+  - Headers: `Authorization: Bearer <API_KEY>`
+  - Response: `{"ticker": "BTCUSD", "sentiment_score": 0.5693, "label": "BULLISH"}`
