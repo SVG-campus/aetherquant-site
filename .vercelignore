@@ -1,0 +1,13 @@
+# Local code, secrets, and data are never public static assets.
+.env
+.env.*
+.vercel
+.git
+__pycache__
+*.py
+*.pyc
+*.db
+*.sqlite
+*.egg-info
+*.zip
+auth-gateway.js

@@ -1,248 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AetherQuant | Auth0 Unified Sign In</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><title>Sign in | AetherQuant</title>
+  <style>body{margin:0;background:#0b0e14;color:#f8fafc;font:16px Inter,system-ui,sans-serif;display:grid;min-height:100vh;place-items:center;padding:24px}main{max-width:460px;width:100%;box-sizing:border-box;padding:40px;border:1px solid #243244;border-radius:20px;background:#111827}p{color:#a8b4c5;line-height:1.55}button{width:100%;border:0;border-radius:10px;padding:15px;background:#57e5d1;color:#06121a;font-weight:800;font-size:16px;cursor:pointer}button:disabled{opacity:.6;cursor:wait}a{color:#a8b4c5}#status{margin-top:16px;color:#a8b4c5}</style>
+</head><body><main>
+  <a href="/" aria-label="Return to AetherQuant home">← AetherQuant</a>
+  <h1>Welcome back</h1><p>Sign in or create an account to open your causal market intelligence.</p>
+  <button id="sign-in" disabled>Continue securely</button><p id="status" role="status" hidden></p>
+  <p>By continuing, you agree to the service terms and privacy notice.</p>
+</main>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
-    <style>
-        :root {
-            --bg: #0B0E14;
-            --color: #00f2fe;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: #F8FAFC;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 1.5rem;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2.5rem;
-            width: 100%;
-            max-width: 480px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(12px);
-        }
-        .brand-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-            color: var(--color);
-            text-align: center;
-        }
-        .subtitle {
-            font-size: 0.85rem;
-            color: #94A3B8;
-            text-align: center;
-            margin-bottom: 1.8rem;
-        }
-        .auth0-btn {
-            width: 100%;
-            padding: 0.9rem;
-            background: var(--color);
-            color: #000000;
-            font-weight: 800;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            transition: opacity 0.2s, transform 0.2s;
-        }
-        .auth0-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-        
-        /* Dashboard Container */
-        .dash-box {
-            display: none;
-        }
-        .user-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 1.5rem;
-        }
-        .avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 2px solid var(--color);
-        }
-        .info-card {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 10px;
-            padding: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        .info-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #94A3B8;
-            text-transform: uppercase;
-        }
-        .info-val {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            margin-top: 0.3rem;
-        }
-        code {
-            font-family: 'Fira Code', monospace;
-            background: rgba(0,0,0,0.4);
-            padding: 0.5rem;
-            border-radius: 4px;
-            color: var(--color);
-            font-size: 0.85rem;
-            display: block;
-            margin-top: 0.4rem;
-            word-break: break-all;
-        }
-        .signout-btn {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(239, 68, 68, 0.15);
-            border: 1px solid #EF4444;
-            color: #EF4444;
-            font-weight: 700;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: background 0.2s;
-        }
-        .signout-btn:hover { background: rgba(239, 68, 68, 0.3); }
-        .home-link {
-            display: block;
-            text-align: center;
-            margin-top: 1.2rem;
-            font-size: 0.85rem;
-            color: #94A3B8;
-            text-decoration: none;
-        }
-        .home-link:hover { color: var(--color); }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <!-- Unauthenticated View -->
-        <div id="auth-prompt">
-            <div class="brand-title">AetherQuant Portal</div>
-            <div class="subtitle">Secure Auth0 Single Sign-On Architecture</div>
-
-            <button class="auth0-btn" onclick="loginWithAuth0()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
-                Sign In / Register via Auth0
-            </button>
-        </div>
-
-        <!-- Authenticated Dashboard View -->
-        <div class="dash-box" id="user-dashboard">
-            <div class="user-header">
-                <img src="https://lh3.googleusercontent.com/a/default-user" id="user-avatar" class="avatar" alt="User">
-                <div>
-                    <h3 style="font-size: 1.15rem; font-weight: 800;" id="user-name">Developer User</h3>
-                    <p style="font-size: 0.8rem; color: #94A3B8;" id="user-email">user@domain.com</p>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-label">Active Subscription Tier</div>
-                <div class="info-val">Free Tier Plan <span style="font-size:0.7rem; color:#10B981; padding:0.15rem 0.4rem; background:rgba(16,185,129,0.15); border-radius:4px;">ACTIVE</span></div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-label">Production API Bearer Token</div>
-                <code id="api-bearer-token">aq_live_8f92a104c7b94e01a</code>
-            </div>
-
-            <a href="index.html#pricing" style="display:block; text-align:center; padding:0.8rem; background:var(--color); color:#000; font-weight:800; border-radius:6px; text-decoration:none; margin-top:1rem;">
-                ⚡ Upgrade Subscription via Stripe ($0.00 with FREEPASS)
-            </a>
-
-            <button class="signout-btn" onclick="logoutAuth0()">Sign Out</button>
-        </div>
-
-        <a href="index.html" class="home-link">← Back to Main Website</a>
-    </div>
-
     <script>
-        let auth0Client = null;
-
-        async function initAuth0() {
-            try {
-                auth0Client = await auth0.createAuth0Client({
-                    domain: "eminencecore.us.auth0.com",
-                    clientId: "12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU",
-                    authorizationParams: {
-                        redirect_uri: window.location.origin + "/login.html"
-                    }
-                });
-
-                if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
-                    await auth0Client.handleRedirectCallback();
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }
-
-                const isAuthenticated = await auth0Client.isAuthenticated();
-                if (isAuthenticated) {
-                    const user = await auth0Client.getUser();
-                    localStorage.setItem("aetherquant_auth0_user", JSON.stringify(user));
-                    showDashboard(user);
-                } else {
-                    checkSessionFallback();
-                }
-            } catch(e) {
-                console.warn("Auth0 init warning:", e);
-                checkSessionFallback();
-            }
+      const authConfig = { domain: "eminencecore.us.auth0.com", clientId: "12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU" };
+      let auth0Client;
+      const params = new URLSearchParams(window.location.search);
+      const status = document.getElementById('status');
+      const setStatus = (message) => { status.textContent = message; status.hidden = !message; };
+      async function startLogin() {
+        setStatus('Redirecting to secure sign in…');
+        await auth0Client.loginWithRedirect({ authorizationParams: { redirect_uri: `${window.location.origin}/login.html` }, appState: { returnTo: '/dashboard' } });
+      }
+      async function initAuth() {
+        try {
+          auth0Client = await auth0.createAuth0Client({ ...authConfig, authorizationParams: { redirect_uri: `${window.location.origin}/login.html` } });
+          if (params.has('code') && params.has('state')) {
+            const result = await auth0Client.handleRedirectCallback();
+            window.location.replace(result.appState?.returnTo || '/dashboard');
+            return;
+          }
+          if (await auth0Client.isAuthenticated()) { window.location.replace('/dashboard'); return; }
+          document.getElementById('sign-in').disabled = false;
+        } catch (error) {
+          console.error('Authentication initialization failed', error);
+          setStatus('We could not start secure sign in. Please try again or contact support.');
         }
-
-        function checkSessionFallback() {
-            const saved = localStorage.getItem("aetherquant_auth0_user");
-            if (saved) {
-                try { showDashboard(JSON.parse(saved)); } catch(e) {}
-            }
-        }
-
-        function showDashboard(user) {
-            document.getElementById('auth-prompt').style.display = 'none';
-            document.getElementById('user-dashboard').style.display = 'block';
-
-            document.getElementById('user-name').innerText = user.name || user.nickname || "Developer";
-            document.getElementById('user-email').innerText = user.email || "developer@aetherquant.cloud";
-            if (user.picture) document.getElementById('user-avatar').src = user.picture;
-        }
-
-        async function loginWithAuth0() {
-            if (auth0Client) {
-                await auth0Client.loginWithRedirect();
-            } else {
-                const mock = { name: "Santiago Villalobos Gonzalez", email: "santiago@aetherquant.cloud", picture: "https://lh3.googleusercontent.com/a/default-user" };
-                localStorage.setItem("aetherquant_auth0_user", JSON.stringify(mock));
-                showDashboard(mock);
-            }
-        }
-
-        function logoutAuth0() {
-            localStorage.removeItem("aetherquant_auth0_user");
-            // Clean client-side logout reload
-            window.location.href = "login.html";
-        }
-
-        window.onload = initAuth0;
-    </script>
-</body>
-</html>
+      }
+      document.getElementById('sign-in').addEventListener('click', startLogin);
+      initAuth();
+    </script></body></html>

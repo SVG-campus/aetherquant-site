@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><title>Causal market intelligence | AetherQuant</title>
+  <style>body{margin:0;background:#0b0e14;color:#f8fafc;font:16px Inter,system-ui,sans-serif}header,main{max-width:1120px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #243244}button{border:1px solid #577080;border-radius:8px;padding:10px 14px;background:transparent;color:#f8fafc;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:28px}.card{padding:22px;border:1px solid #243244;border-radius:14px;background:#111827}.eyebrow{color:#57e5d1;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.08em}p{color:#a8b4c5;line-height:1.55}#loading{padding:48px 0;color:#a8b4c5}</style>
+</head><body><header><strong>AetherQuant</strong><button id="sign-out">Sign out</button></header><main>
+  <p class="eyebrow">Causal market intelligence</p><h1 id="welcome">Loading your workspace…</h1><p id="email"></p>
+  <section id="workspace" hidden><div class="grid">
+    <article class="card"><p class="eyebrow">Getting started</p><h2>Create a watchlist, explore causal signals, and connect your market-data workflow.</h2><p>Your workspace is ready for setup. Product data and entitlements are verified server-side before any action is enabled.</p></article>
+    <article class="card"><p class="eyebrow">Plan</p><h2>Account setup required</h2><p>Choose a plan only after reviewing the available features. No subscription or trial is activated automatically.</p></article>
+    <article class="card"><p class="eyebrow">Support</p><h2>Need help?</h2><p>Contact the team from the main site for onboarding and workspace configuration.</p></article>
+  </div></section><p id="loading" role="status">Checking your secure session…</p>
+</main>
+<script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script><script>
+  const authConfig = { domain: "eminencecore.us.auth0.com", clientId: "12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU" }; let auth0Client;
+  async function initDashboard() {
+    try { auth0Client = await auth0.createAuth0Client({ ...authConfig, authorizationParams: { redirect_uri: `${window.location.origin}/login.html` } });
+      if (!(await auth0Client.isAuthenticated())) { window.location.replace('/login'); return; }
+      const user = await auth0Client.getUser(); document.getElementById('welcome').textContent = `Welcome${user.name ? `, ${user.name}` : ''}`;
+      document.getElementById('email').textContent = user.email || ''; document.getElementById('loading').hidden = true; document.getElementById('workspace').hidden = false;
+    } catch (error) { console.error('Dashboard authentication failed', error); window.location.replace('/login'); }
+  }
+  document.getElementById('sign-out').addEventListener('click', async () => { if (auth0Client) await auth0Client.logout({ logoutParams: { returnTo: window.location.origin } }); });
+  initDashboard();
+</script></body></html>

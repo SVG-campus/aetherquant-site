@@ -1,12 +1,13 @@
-# AetherQuant — Programmatic Finance & Causal Discovery API
+# AetherQuant
 
-> AetherQuant provides empirical quantitative market signals, Convergent Cross Mapping (CCM) causality discovery, and persistent homology state-space reconstructions for institutional alpha generation.
+> Causal market intelligence for structured research workflows. Not individualized investment advice.
 
-## Offerings & Products
-- [API Documentation](https://aetherquant.cloud/docs.html): RESTful APIs for causal sentiment feeds, CCM d-separation metrics, and TDA regime shifts.
-- [Pro Tier](https://aetherquant.cloud/#pricing): $250/month for 50,000 requests/month, high-frequency sentiment, and anonymized IP telemetry.
+## Public information
+- Home: https://aetherquant.cloud/
+- Secure client sign-in: https://aetherquant.cloud/login
 
-## Key Technical Specifications
-- Algorithms: Convergent Cross Mapping (CCM), PC-DAG Causal Discovery, Vietoris-Rips Persistent Homology.
-- Compliance & Safety: Certified out-of-distribution bounds via Wasserstein Distributionally Robust Optimization (DRO).
-- Endpoints: `POST /api/v1/sentiment`, `GET /api/v1/causal/ccm`.
+## Accuracy and access
+Public pages describe the product and its intended workflows. Account-specific usage,
+entitlements, pricing, billing, and credentials are verified only inside an authenticated
+workspace. Do not infer production API availability or real-time data access from public
+examples.

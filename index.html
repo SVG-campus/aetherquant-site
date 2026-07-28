@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Causal market intelligence for structured research workflows. Not individualized investment advice.">
+    <link rel="canonical" href="https://aetherquant.cloud/">
+    <meta property="og:title" content="AetherQuant | Causal market intelligence">
+    <meta property="og:description" content="Causal market intelligence for structured research workflows. Not individualized investment advice.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aetherquant.cloud/">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AetherQuant","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://aetherquant.cloud/","description":"Causal market intelligence for structured research workflows. Not individualized investment advice."}</script>
+
     <title>AetherQuant | Autonomous Enterprise Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
@@ -195,60 +203,19 @@
     <header>
         <a href="index.html" class="logo">AetherQuant</a>
         <div class="nav-actions">
-            <button class="btn-auth" id="nav-btn-auth" onclick="handleAuthNav()">Sign In with Auth0</button>
+            <button class="btn-auth" id="nav-btn-auth" onclick="handleAuthNav()">Client sign in</button>
         </div>
     </header>
 
     <div class="main-content">
         <!-- Landing View (Unauthenticated) -->
         <div class="hero-section" id="landing-hero">
-            <h1 class="hero-title">AetherQuant Platform</h1>
-            <p class="hero-sub">Topological AI Quantitative Engine & Downside Risk Overlays. Seamless Auth0 Identity Single Sign-On and enterprise infrastructure.</p>
+            <h1 class="hero-title">Causal market intelligence, made usable.</h1>
+            <p class="hero-sub">Explore research workflows, organize market signals, and build a repeatable process for evaluating ideas. AetherQuant is designed for research—not individualized investment advice.</p>
             <div class="cta-box">
-                <button class="btn-auth" style="padding: 1rem 2.5rem; font-size: 1.1rem;" onclick="loginAuth0()">
-                    Sign In / Register via Auth0
-                </button>
-                <a href="login.html" class="btn-auth" style="background: rgba(255,255,255,0.1); color: #FFFFFF; padding: 1rem 2rem; font-size: 1.1rem;">
-                    Auth0 Direct Portal
+                <a href="login.html" class="btn-auth" style="padding: 1rem 2.5rem; font-size: 1.1rem; text-decoration: none; display: inline-block;">
+                    Sign In to Developer Portal
                 </a>
-            </div>
-        </div>
-
-        <!-- Customer Dashboard View (Authenticated) -->
-        <div class="dash-view" id="customer-dashboard">
-            <div class="dash-top">
-                <div class="user-info">
-                    <img src="https://lh3.googleusercontent.com/a/default-user" id="user-avatar" class="user-avatar" alt="Avatar">
-                    <div>
-                        <h2 style="font-size: 1.4rem; font-weight: 800;" id="user-display-name">Developer Portal</h2>
-                        <p style="font-size: 0.85rem; color: var(--text-sub);" id="user-email-display">user@domain.com</p>
-                    </div>
-                </div>
-                <button onclick="logoutAuth0()" style="background: rgba(239, 68, 68, 0.15); border: 1px solid #EF4444; color: #EF4444; padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 600; cursor: pointer;">Sign Out</button>
-            </div>
-
-            <div class="dash-cards">
-                <div class="dash-card">
-                    <div class="card-title">Current Subscription</div>
-                    <div class="card-val" id="dash-plan-name">Free Tier Plan</div>
-                    <span style="display:inline-block; margin-top: 0.4rem; padding: 0.2rem 0.5rem; background: rgba(16,185,129,0.15); color: #10B981; font-size: 0.75rem; font-weight: 700; border-radius: 4px;">ACTIVE</span>
-                </div>
-                <div class="dash-card">
-                    <div class="card-title">Production API Bearer Token</div>
-                    <code id="dash-bearer-token">aq_live_8f92a104c7b94e01a</code>
-                    <span style="font-size: 0.7rem; color: #64748B; margin-top: 0.3rem; display: block;">Auth0 Certified Security</span>
-                </div>
-                <div class="dash-card">
-                    <div class="card-title">Free Feature Tool Access</div>
-                    <div class="card-val" style="font-size: 0.95rem; color: var(--text-sub);">10 Quant Queries / Day</div>
-                    <span style="font-size: 0.7rem; color: var(--accent-color); margin-top: 0.3rem; display: block;">Unlimited tooling available on Pro</span>
-                </div>
-            </div>
-
-            <div class="upgrade-banner">
-                <h3 style="font-size: 1.4rem; font-weight: 800;">Upgrade to Full Subscription Access</h3>
-                <p style="font-size: 0.9rem; color: var(--text-sub); max-width: 600px; margin: 0.5rem auto 1.25rem auto;">Unlock high-throughput production endpoints. Enter promo code <b>FREEPASS</b> at checkout for $0.00 access!</p>
-                <a href="https://buy.stripe.com/aetherquant_enterprise" target="_blank" class="btn-upgrade">⚡ Upgrade Subscription via Stripe ($0.00 with FREEPASS)</a>
             </div>
         </div>
     </div>
@@ -257,87 +224,16 @@
         &copy; 2026 AetherQuant Technologies Inc. Powered by Auth0 Identity Cloud &amp; Porkbun DNS.
     </footer>
 
-    <script>
-        let auth0Client = null;
-
-        async function initAuth0() {
-            try {
-                auth0Client = await auth0.createAuth0Client({
-                    domain: "eminencecore.us.auth0.com",
-                    clientId: "12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU",
-                    authorizationParams: {
-                        redirect_uri: window.location.origin + window.location.pathname,
-                        audience: "https://eminencecore.us.auth0.com/api/v2/"
-                    }
-                });
-
-                if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
-                    await auth0Client.handleRedirectCallback();
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }
-
-                const isAuthenticated = await auth0Client.isAuthenticated();
-                if (isAuthenticated) {
-                    const user = await auth0Client.getUser();
-                    showDashboard(user);
-                } else {
-                    checkLocalSession();
-                }
-            } catch(e) {
-                console.warn("Auth0 init notice:", e);
-                checkLocalSession();
-            }
-        }
-
-        function checkLocalSession() {
-            const stored = localStorage.getItem("aetherquant_user");
-            if (stored) {
-                try { showDashboard(JSON.parse(stored)); } catch(e) {}
-            }
-        }
-
-        function showDashboard(user) {
-            document.getElementById('landing-hero').style.display = 'none';
-            document.getElementById('customer-dashboard').style.display = 'block';
-
-            document.getElementById('user-display-name').innerText = user.name || user.nickname || "Developer Admin";
-            document.getElementById('user-email-display').innerText = user.email || "developer@aetherquant.cloud";
-            if (user.picture) document.getElementById('user-avatar').src = user.picture;
-
-            document.getElementById('nav-btn-auth').innerText = "Dashboard Active";
-            document.getElementById('nav-btn-auth').onclick = () => window.location.hash = "#dashboard";
-        }
-
-        async function loginAuth0() {
-            if (auth0Client) {
-                await auth0Client.loginWithRedirect();
-            } else {
-                const mockUser = {
-                    name: "Santiago Villalobos Gonzalez",
-                    email: "santiago@aetherquant.cloud",
-                    picture: "https://lh3.googleusercontent.com/a/default-user"
-                };
-                localStorage.setItem("aetherquant_user", JSON.stringify(mockUser));
-                showDashboard(mockUser);
-            }
-        }
-
-        async function logoutAuth0() {
-            localStorage.removeItem("aetherquant_user");
-            // Clean client-side logout to avoid Auth0 returnTo error pages
-            window.location.href = window.location.origin + window.location.pathname;
-        }
-
-        function handleAuthNav() {
-            const dash = document.getElementById('customer-dashboard');
-            if (dash.style.display === 'block') {
-                logoutAuth0();
-            } else {
-                loginAuth0();
-            }
-        }
-
-        window.onload = initAuth0;
-    </script>
+<!-- Secure-auth bridge: legacy modal and checkout actions now use the real Auth0 entry point. -->
+<script>
+  function openSecureLogin() { window.location.assign('/login'); }
+  window.toggleAuthModal = openSecureLogin;
+  window.authLogin = openSecureLogin;
+  window.authRegister = openSecureLogin;
+  window.checkout = openSecureLogin;
+  window.loginAuth0 = openSecureLogin;
+  window.handleAuthNav = openSecureLogin;
+  window.logoutAuth0 = function () { window.location.assign('/'); };
+</script>
 </body>
 </html>

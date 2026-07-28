@@ -178,8 +178,11 @@
             border-top: 1px solid var(--card-border);
         }
     </style>
+    <meta name="robots" content="noindex,nofollow">
 </head>
 <body>
+<div role="note" style="max-width:960px;margin:1rem auto;padding:1rem;border:1px solid #f59e0b;border-radius:8px;color:#fef3c7;background:#451a03;line-height:1.5"><strong>Product access notice.</strong> This page describes intended integrations. Production API credentials, billing, and checkout are not available from this public documentation until they are securely provisioned in your workspace.</div>
+
     <header>
         <a href="/" class="logo">AETHERQUANT</a>
         <nav class="nav-links">
@@ -249,7 +252,7 @@
       "command": "npx",
       "args": ["-y", "aetherquant-mcp-server"],
       "env": {
-        "AETHERQUANT_API_KEY": "sk_live_your_actual_key_here",
+        "AETHERQUANT_API_KEY": "YOUR_API_KEY",
         "AETHERQUANT_API_URL": "https://aetherquant.cloud"
       }
     }
@@ -302,7 +305,6 @@
         <p>&copy; 2026 AetherQuant. All rights reserved. Registered B2B Algorithmic SaaS Merchant.</p>
     </footer>
 
-    <script src="auth-gateway.js"></script>
     <script>
         function copyCode(btn) {
             const pre = btn.nextElementSibling;
