@@ -4,5 +4,6 @@ Disallow: /login
 Disallow: /login.html
 Disallow: /dashboard
 Disallow: /dashboard.html
+Disallow: /client-portal
 
 Sitemap: https://aetherquant.cloud/sitemap.xml

@@ -1,239 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Causal market intelligence for structured research workflows. Not individualized investment advice.">
-    <link rel="canonical" href="https://aetherquant.cloud/">
-    <meta property="og:title" content="AetherQuant | Causal market intelligence">
-    <meta property="og:description" content="Causal market intelligence for structured research workflows. Not individualized investment advice.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aetherquant.cloud/">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AetherQuant","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://aetherquant.cloud/","description":"Causal market intelligence for structured research workflows. Not individualized investment advice."}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AetherQuant is a secure causal market-research workspace for organizing evidence, assumptions, and repeatable research decisions. It is not investment advice.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://aetherquant.cloud/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AetherQuant">
+  <meta property="og:title" content="AetherQuant | Causal market research, made usable">
+  <meta property="og:description" content="Structure market research around evidence, assumptions, and a repeatable decision process.">
+  <meta property="og:url" content="https://aetherquant.cloud/">
+  <meta name="twitter:title" content="AetherQuant | Causal market research, made usable">
+  <meta name="twitter:description" content="A secure workspace for evidence-led market research. Not investment advice.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AetherQuant","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://aetherquant.cloud/","description":"A secure causal market-research workspace for organizing evidence, assumptions, and repeatable research decisions. Not investment advice.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <title>AetherQuant | Causal market research, made usable</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07101d;--surface:#0c192a;--surface-2:#11253b;--ink:#f4f8ff;--muted:#aebed2;--line:#27435c;--accent:#66e4d3;--accent-2:#82b5ff;--max:1160px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 86% -10%,#1a59714d,transparent 34%),radial-gradient(circle at -5% 20%,#31598942,transparent 32%),var(--bg);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit}header{position:sticky;top:0;z-index:2;border-bottom:1px solid #ffffff12;background:#07101ded;backdrop-filter:blur(16px)}.nav{width:min(var(--max),calc(100% - 40px));min-height:74px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-weight:850;letter-spacing:.035em;text-decoration:none}.brand b{color:var(--accent)}.links{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:.93rem}.links a{text-decoration:none}.links a:hover{color:var(--ink)}.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);border-radius:11px;padding:11px 16px;background:transparent;color:var(--ink);font:750 .94rem inherit;text-decoration:none;transition:transform .16s ease,border-color .16s ease,background .16s ease}.button:hover{transform:translateY(-1px);border-color:var(--accent)}.button.primary{border-color:var(--accent);background:var(--accent);color:#06131d}.button.primary:hover{background:#84f0e1}.hero,.section{width:min(var(--max),calc(100% - 40px));margin:auto}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:58px;align-items:center;padding:98px 0 82px}.eyebrow{margin:0 0 16px;color:var(--accent);font-size:.76rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.hero h1{max-width:760px;margin:0;font-size:clamp(2.8rem,6vw,5.5rem);line-height:1.01;letter-spacing:-.065em}.hero h1 em{font-style:normal;color:var(--accent)}.lead{max-width:650px;margin:28px 0 0;color:var(--muted);font-size:1.13rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.fine{margin-top:16px;color:#93a5bc;font-size:.85rem}.panel{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:20px;padding:25px;background:linear-gradient(145deg,#132b42e8,#0c1828e8);box-shadow:0 30px 80px #0004}.panel::after{position:absolute;inset:auto -80px -90px auto;width:210px;height:210px;border-radius:50%;background:#5ae1d334;content:"";filter:blur(8px)}.panel-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid #ffffff14}.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}.panel small{color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase}.signal{display:grid;gap:13px;margin-top:22px}.signal div{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 14px;border:1px solid #ffffff12;border-radius:11px;background:#081526a8}.signal span{color:var(--muted);font-size:.9rem}.signal strong{font-size:.92rem}.signal strong.ok{color:var(--accent)}.signal strong.wait{color:#ffd47c}.statement{border-top:1px solid #ffffff12;border-bottom:1px solid #ffffff12;background:#091525aa}.statement-inner{width:min(var(--max),calc(100% - 40px));margin:auto;padding:25px 0;color:#d6e2f1;font-size:1.06rem}.statement-inner b{color:var(--accent)}.section{padding:94px 0}.section h2{max-width:700px;margin:0;font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.045em;line-height:1.08}.section-lead{max-width:675px;margin:17px 0 0;color:var(--muted);font-size:1.04rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}.card{min-height:230px;padding:24px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(160deg,#112238d8,#0b1727d8)}.number{color:var(--accent);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.82rem;font-weight:800}.card h3{margin:20px 0 9px;font-size:1.2rem}.card p{margin:0;color:var(--muted)}.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}.checklist{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:13px}.checklist li{position:relative;padding-left:28px;color:var(--muted)}.checklist li::before{position:absolute;left:0;top:.25em;content:"✓";color:var(--accent);font-weight:900}.quote{padding:30px;border:1px solid #46728d;border-radius:18px;background:linear-gradient(145deg,#15354d,#0d1d31)}.quote p{margin:0;font-size:1.25rem;line-height:1.45}.quote footer{margin-top:18px;color:var(--muted);font-size:.92rem}.cta{margin-bottom:92px;padding:46px;border:1px solid #3d6a85;border-radius:22px;background:radial-gradient(circle at 88% 0,#58d8ca3d,transparent 30%),#10223a}.cta h2{max-width:720px;margin:0;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.045em;line-height:1.1}.cta p{max-width:620px;margin:16px 0 0;color:#c1d1e4}footer{border-top:1px solid #ffffff12;padding:30px 20px;color:#9aacc1;font-size:.85rem}.footer-inner{width:min(var(--max),100%);margin:auto;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}@media(max-width:800px){.links{display:none}.hero{grid-template-columns:1fr;padding:68px 0 60px;gap:36px}.grid,.split{grid-template-columns:1fr}.section{padding:68px 0}.cta{margin-bottom:64px;padding:30px}.nav,.hero,.section,.statement-inner{width:min(var(--max),calc(100% - 32px))}.panel{order:-1}}
+  </style>
+<!-- public-foundation-rum:auto -->
 
-    <title>AetherQuant | Autonomous Enterprise Platform</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
-    <style>
-        :root {
-            --bg-color: #0B0E14;
-            --accent-color: #00f2fe;
-            --text-main: #F8FAFC;
-            --text-sub: #94A3B8;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 2.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .btn-auth {
-            background: var(--accent-color);
-            color: #000000;
-            font-weight: 700;
-            padding: 0.65rem 1.5rem;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: opacity 0.2s, transform 0.2s;
-        }
-        .btn-auth:hover { opacity: 0.9; transform: translateY(-1px); }
+  <!-- portfolio-brand-metadata:start -->
+  <meta name="theme-color" content="#66E4D3">
+  <link rel="icon" type="image/svg+xml" href="/brand/mark.svg">
+  <link rel="shortcut icon" href="/brand/favicon.ico">
+  <link rel="apple-touch-icon" href="/brand/stripe-icon-512.png">
+  <link rel="manifest" href="/brand/site.webmanifest">
+  <meta property="og:site_name" content="AetherQuant">
+  <meta property="og:image" content="https://aetherquant.cloud/brand/social-card-1200x630.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://aetherquant.cloud/brand/social-card-1200x630.png">
+  <!-- portfolio-brand-metadata:end -->
 
-        /* Main Container */
-        .main-content {
-            flex: 1;
-            padding: 3rem 1.5rem;
-            max-width: 1150px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* Hero Landing Section */
-        .hero-section {
-            text-align: center;
-            padding: 4rem 1rem;
-        }
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-color) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-        .hero-sub {
-            font-size: 1.15rem;
-            color: var(--text-sub);
-            max-width: 680px;
-            margin: 0 auto 2.5rem auto;
-            line-height: 1.6;
-        }
-        .cta-box {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        /* Customer Dashboard View (When Logged In) */
-        .dash-view {
-            display: none;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-        .dash-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 2rem;
-        }
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .user-avatar {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            border: 2px solid var(--accent-color);
-        }
-        .dash-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-        .dash-card {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-        .card-title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--text-sub);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .card-val {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            margin-top: 0.5rem;
-        }
-        code {
-            font-family: 'Fira Code', monospace;
-            background: rgba(0,0,0,0.5);
-            padding: 0.6rem;
-            border-radius: 6px;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            display: block;
-            margin-top: 0.5rem;
-            word-break: break-all;
-        }
-        .upgrade-banner {
-            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
-            border: 1px solid var(--accent-color);
-            border-radius: 14px;
-            padding: 2.2rem;
-            text-align: center;
-        }
-        .btn-upgrade {
-            display: inline-block;
-            margin-top: 1.2rem;
-            padding: 0.95rem 2.5rem;
-            background: var(--accent-color);
-            color: #000000;
-            font-weight: 800;
-            font-size: 1.05rem;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        .btn-upgrade:hover { transform: translateY(-2px); opacity: 0.95; }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 0.85rem;
-            color: var(--text-sub);
-        }
-    </style>
+  <!-- portfolio-brand-style:start -->
+  <style>
+    :root{--accent:#66E4D3;--accent-2:#82B5FF}
+    .brand{display:inline-flex;align-items:center;gap:9px}
+    .brand-mark{width:25px;height:25px;flex:0 0 auto}
+    .brand-name{color:var(--ink,#f7fbff)!important}
+  </style>
+  <!-- portfolio-brand-style:end -->
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo">AetherQuant</a>
-        <div class="nav-actions">
-            <button class="btn-auth" id="nav-btn-auth" onclick="handleAuthNav()">Client sign in</button>
-        </div>
-    </header>
-
-    <div class="main-content">
-        <!-- Landing View (Unauthenticated) -->
-        <div class="hero-section" id="landing-hero">
-            <h1 class="hero-title">Causal market intelligence, made usable.</h1>
-            <p class="hero-sub">Explore research workflows, organize market signals, and build a repeatable process for evaluating ideas. AetherQuant is designed for research—not individualized investment advice.</p>
-            <div class="cta-box">
-                <a href="login.html" class="btn-auth" style="padding: 1rem 2.5rem; font-size: 1.1rem; text-decoration: none; display: inline-block;">
-                    Sign In to Developer Portal
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2026 AetherQuant Technologies Inc. Powered by Auth0 Identity Cloud &amp; Porkbun DNS.
-    </footer>
-
-<!-- Secure-auth bridge: legacy modal and checkout actions now use the real Auth0 entry point. -->
-<script>
-  function openSecureLogin() { window.location.assign('/login'); }
-  window.toggleAuthModal = openSecureLogin;
-  window.authLogin = openSecureLogin;
-  window.authRegister = openSecureLogin;
-  window.checkout = openSecureLogin;
-  window.loginAuth0 = openSecureLogin;
-  window.handleAuthNav = openSecureLogin;
-  window.logoutAuth0 = function () { window.location.assign('/'); };
-</script>
+  <header><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-mark" src="/brand/mark.svg" alt="" aria-hidden="true"><span class="brand-name">AetherQuant</span></a><div class="links"><a href="#workflow">Workflow</a><a href="#principles">Principles</a><a href="/docs">API &amp; MCP docs</a><a href="/login">Sign in</a></div><a class="button primary" href="/dashboard">Open workspace</a></nav></header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title"><div><p class="eyebrow">Causal market research workspace</p><h1 id="hero-title">Make research <em>traceable</em> before you make it actionable.</h1><p class="lead">AetherQuant gives teams one governed place to frame a market question, preserve the evidence behind it, and build a repeatable research process. It helps organize judgment; it does not provide individualized investment advice.</p><div class="actions"><a class="button primary" href="/dashboard">Create a research workspace</a><a class="button" href="#workflow">See the workflow <span aria-hidden="true">↓</span></a></div><p class="fine">Secure sign-in · Server-verified workspace access · No automatic trial or subscription</p></div><aside class="panel" aria-label="Research workspace preview"><div class="panel-head"><small>Research surface</small><span class="dot" aria-hidden="true"></span></div><div class="signal"><div><span>Question framing</span><strong class="ok">Defined</strong></div><div><span>Evidence trail</span><strong class="ok">Attached</strong></div><div><span>Assumption review</span><strong class="wait">Ready for review</strong></div><div><span>Decision record</span><strong>Controlled</strong></div></div></aside></section>
+    <div class="statement"><div class="statement-inner"><b>Built for disciplined work:</b> capture the context, assumptions, and evidence that support a research decision—then make the next review easier than the first.</div></div>
+    <section class="section" id="workflow"><p class="eyebrow">A practical workflow</p><h2>Move from an interesting signal to an accountable research record.</h2><p class="section-lead">The workspace is deliberately simple at the start: create a named research surface, connect approved tools when your team is ready, and keep the decision process visible.</p><div class="grid"><article class="card"><span class="number">01 / FRAME</span><h3>Start with the question</h3><p>Define the market, scope, and decision you are trying to support before collecting more information.</p></article><article class="card"><span class="number">02 / REVIEW</span><h3>Preserve the evidence</h3><p>Keep source material, working assumptions, and ownership together so the reasoning can be revisited.</p></article><article class="card"><span class="number">03 / REPEAT</span><h3>Build the next cycle</h3><p>Use the resulting record as a baseline for future research rather than recreating context from scratch.</p></article></div></section>
+    <section class="section split" id="principles"><div><p class="eyebrow">Designed for responsible use</p><h2>Useful structure without overpromising certainty.</h2><ul class="checklist"><li>Clear separation between research workflow and investment decisions.</li><li>API keys created once, shown once, and revocable from the workspace.</li><li>Usage and access are verified server-side before a connected action is enabled.</li><li>Checkout is handled by Stripe only when you choose a paid tier.</li></ul></div><aside class="quote"><p>“Good research has a chain of reasoning. AetherQuant is the workspace for keeping that chain intact.”</p><footer>Designed for research teams, analysts, and builders evaluating market questions.</footer></aside></section>
+    <section class="section" id="access"><p class="eyebrow">Start deliberately</p><h2>Open a workspace when you have a real question to investigate.</h2><p class="section-lead">The free developer workspace lets you evaluate the flow before choosing a production tier. Paid access is never activated automatically, and every subscription decision happens on Stripe’s hosted checkout page. Server and approved local-agent integrations use the authenticated <code>/v1/products/aetherquant/api/operations</code> route documented in the API and MCP guide.</p><div class="cta"><h2>Bring your next research question into a workspace built to hold its context.</h2><p>Sign in to create a research workspace, review usage, and connect approved integrations when they are useful to your team.</p><div class="actions"><a class="button primary" href="/dashboard">Open secure workspace</a><a class="button" href="/docs">Read the API and MCP docs</a><a class="button" href="/login">Sign in</a></div></div></section>
+  </main>
+  <footer><div class="footer-inner"><span>© 2026 AetherQuant</span><span>Research workflow software · Not investment advice</span></div><nav class="public-foundation-links" aria-label="Trust and legal" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px"><a href="/use-cases">Use case</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/security">Security</a></nav></footer>
 </body>
 </html>

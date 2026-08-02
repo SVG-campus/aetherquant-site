@@ -1,324 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GLMN9LLXZ8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GLMN9LLXZ8');
-</script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2789744628056088" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AetherQuant | Developer & Agent Integration Docs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #070913;
-            --card-bg: #0d1127;
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-cyan: #00f2fe;
-            --accent-purple: #9d4edd;
-            --success: #10b981;
-            --code-bg: #04050d;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        header {
-            border-bottom: 1px solid var(--card-border);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(13, 17, 39, 0.5);
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--accent-cyan); }
-        .container {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-        h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #fff, var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-        section {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-        h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text);
-        }
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 1.25rem;
-            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple));
-            border-radius: 2px;
-        }
-        p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; }
-        .badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-family: 'Fira Code', monospace;
-            color: var(--accent-cyan);
-        }
-        .badge.post { color: var(--accent-purple); }
-        .badge.get { color: var(--success); }
-        .code-container {
-            position: relative;
-            background-color: var(--code-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 1.25rem;
-            margin: 1rem 0;
-            overflow-x: auto;
-        }
-        pre {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
-            color: #e2e8f0;
-            margin: 0;
-        }
-        .copy-btn {
-            position: absolute;
-            top: 0.75rem;
-            right: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            color: var(--text-secondary);
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .copy-btn:hover {
-            background: var(--accent-cyan);
-            color: var(--bg);
-            border-color: var(--accent-cyan);
-        }
-        .alert {
-            background: rgba(157, 78, 221, 0.05);
-            border-left: 4px solid var(--accent-purple);
-            padding: 1rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 1.5rem;
-        }
-        .alert-title {
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            color: var(--text);
-            font-size: 0.9rem;
-        }
-        .alert-content {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--card-border);
-        }
-    </style>
-    <meta name="robots" content="noindex,nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AetherQuant production API and MCP integration documentation.">
+  <meta name="theme-color" content="#66E4D3">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://aetherquant.cloud/docs">
+  <link rel="icon" type="image/svg+xml" href="/brand/mark.svg"><link rel="shortcut icon" href="/brand/favicon.ico"><link rel="apple-touch-icon" href="/brand/stripe-icon-512.png"><link rel="manifest" href="/brand/site.webmanifest">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://aetherquant.cloud/docs"><meta property="og:title" content="AetherQuant API and agent integration"><meta property="og:description" content="AetherQuant production API and MCP integration documentation."><meta property="og:image" content="https://aetherquant.cloud/brand/social-card-1200x630.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AetherQuant API and agent integration"><meta name="twitter:description" content="AetherQuant production API and MCP integration documentation."><meta name="twitter:image" content="https://aetherquant.cloud/brand/social-card-1200x630.png">
+  <!-- public-foundation-rum:auto -->
+  <title>AetherQuant API and agent integration</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111e;--surface:#0d1a2b;--line:#29425f;--ink:#f5f8ff;--muted:#b5c4d8;--accent:#62e2d2;--code:#07101c}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% -15%,#1d55704d,transparent 34%),var(--bg);color:var(--ink);font:16px/1.58 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:#9cefe4;text-underline-offset:3px}code,pre{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}header{position:sticky;top:0;z-index:1;border-bottom:1px solid var(--line);background:#07111ef0;backdrop-filter:blur(16px)}.header-inner{width:min(1180px,100%);margin:auto;padding:15px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{font-weight:850;letter-spacing:.02em;color:var(--ink);text-decoration:none}.brand span{color:var(--accent)}.header-links{display:flex;gap:14px;flex-wrap:wrap}.header-links a{font-size:.92rem;color:var(--muted)}main{width:min(1180px,100%);margin:auto;padding:54px 24px 72px}.eyebrow{margin:0;color:var(--accent);font-size:.78rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.hero{padding:0 0 34px;border-bottom:1px solid var(--line)}h1{max-width:800px;margin:.38rem 0 .8rem;font-size:clamp(2.25rem,5vw,4.4rem);line-height:1.05;letter-spacing:-.04em}h2{margin:0 0 .75rem;font-size:1.35rem;line-height:1.2}.lede{max-width:800px;margin:0;color:var(--muted);font-size:1.1rem}.notice{max-width:920px;margin:22px 0 0;padding:14px 16px;border:1px solid #3b6680;border-radius:12px;background:#0d2638;color:#d2e5ef}.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:34px;margin-top:36px}.content{min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:28px}.sidebar{align-self:start;position:sticky;top:76px;padding:18px;border:1px solid var(--line);border-radius:15px;background:#0b1727}.sidebar strong{display:block;margin-bottom:7px}.sidebar a{display:block;padding:5px 0;color:var(--muted);font-size:.92rem}.card{min-width:0;padding:23px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#102037e8,#0b1626e8)}.card>p:first-of-type{margin-top:0}.muted{color:var(--muted)}.base{display:grid;gap:7px;margin-top:15px;padding:14px;border-radius:11px;background:#071321;border:1px solid #254361}.label{color:var(--accent);font-size:.76rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.base code{overflow-wrap:anywhere;color:#f8ffff}.list{margin:13px 0 0;padding-left:21px}.list li{margin:8px 0;color:var(--muted)}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}.plans{width:100%;border-collapse:collapse;min-width:520px}.plans th,.plans td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}.plans th{color:var(--muted);font-size:.78rem;letter-spacing:.07em;text-transform:uppercase}.plans tr:last-child td{border-bottom:0}.endpoint{padding:19px 0;border-top:1px solid var(--line)}.endpoint:first-of-type{padding-top:0;border-top:0}.method{display:inline-block;min-width:50px;margin-right:8px;padding:3px 6px;border-radius:6px;background:#16445a;color:#91f4e8;font-size:.75rem;font-weight:850;text-align:center}.path{font-size:.95rem;overflow-wrap:anywhere}.endpoint p{margin:10px 0;color:var(--muted)}pre{max-width:100%;overflow:auto;margin:13px 0 0;padding:15px;border:1px solid #223c58;border-radius:11px;background:var(--code);color:#d9f7f1;font-size:.85rem;line-height:1.55}.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:14px}.tool{min-width:0;padding:14px;border:1px solid #284260;border-radius:11px;background:#0a1626}.tool code{color:#9cefe4;font-size:.86rem}.tool p{margin:.45rem 0 0;color:var(--muted);font-size:.9rem}.fine{margin-top:14px;color:var(--muted);font-size:.88rem}.warning{margin:0;padding:14px 16px;border:1px solid #765f31;border-radius:11px;background:#2b2518;color:#ffe7b1}@media(max-width:860px){.layout{grid-template-columns:1fr}.sidebar{display:none}main{padding:34px 18px 54px}.header-inner{padding:13px 18px}h1{font-size:clamp(2rem,11vw,3.3rem)}}@media(print){header,.sidebar{display:none}body{background:#fff;color:#000}.card{background:#fff;border-color:#aaa}.muted,.list li{color:#333}pre{white-space:pre-wrap;background:#f4f4f4;color:#111}}
+  </style><style>:root{--accent:#66E4D3;--accent-2:#82B5FF}.brand{display:inline-flex;align-items:center;gap:9px}.brand-mark{width:25px;height:25px;flex:0 0 auto}.brand-name{color:var(--ink)!important}</style>
 </head>
 <body>
-<div role="note" style="max-width:960px;margin:1rem auto;padding:1rem;border:1px solid #f59e0b;border-radius:8px;color:#fef3c7;background:#451a03;line-height:1.5"><strong>Product access notice.</strong> This page describes intended integrations. Production API credentials, billing, and checkout are not available from this public documentation until they are securely provisioned in your workspace.</div>
-
-    <header>
-        <a href="/" class="logo">AETHERQUANT</a>
-        <nav class="nav-links">
-            <a href="/">Website</a>
-            <a href="#mcp">MCP Config</a>
-            <a href="#api">REST API</a>
-            <a href="#billing">Agent Billing</a>
-            <a href="#" onclick="openLoginModal()" style="border: 1px solid var(--accent-cyan); padding: 0.35rem 0.75rem; border-radius: 6px; color: var(--accent-cyan);">Sign In</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        <h1>Integration Documentation</h1>
-        <p class="subtitle">Programmatic setup instructions and API/MCP configuration specifications for developers and autonomous LLM agents.</p>
-
-        <section id="getting-started">
-            <h2>Agent-First Quantitative Feed Integration</h2>
-            <p>AetherQuant provides high-fidelity algo signals and causal validation parameters for financial trading algorithms. Autonomous agents and trade execution nodes can pull signals programmatically.</p>
-            <div class="alert">
-                <div class="alert-title">🚀 LLM Installation Directives</div>
-                <div class="alert-content">If you are an AI developer or an autonomous agent looking to install trading feeds, read this guide to automate key creation, subscription payments, and signal feeds natively.</div>
-            </div>
-        </section>
-
-        <section id="billing">
-            <h2>Programmatic Checkout & Subscriptions</h2>
-            <p>To support programmatic usage by LLM agents, AetherQuant offers a dedicated billing agent subscriber endpoint. This allows an agent to request a subscription. If the user has a saved payment method in their Stripe profile, it charges the card and provisions the subscription instantly; otherwise, it returns a Stripe Checkout URL for manual completion.</p>
-            
-            <div class="code-container">
-                <span class="badge post">POST</span> <code>/api/v1/billing/agent-subscribe</code>
-                <button class="copy-btn" onclick="copyCode(this)">Copy Curl</button>
-                <pre style="margin-top: 1rem;">curl -X POST https://aetherquant.cloud/api/v1/billing/agent-subscribe \
-  -H "Content-Type: application/json" \
-  -d '{
-    "user_email": "agent-runner@yourcompany.com",
-    "plan_id": "pro"
-  }'</pre>
-            </div>
-            <p>Response JSON (Immediate Activation):</p>
-            <div class="code-container">
-                <pre>{
-  "status": "active",
-  "subscription_id": "sub_1ThZHu4k2kNCVVeN...",
-  "message": "Subscription programmatically activated and charged to default payment method."
-}</pre>
-            </div>
-            <p>Response JSON (Fallback Checkout):</p>
-            <div class="code-container">
-                <pre>{
-  "status": "pending_payment",
-  "checkout_url": "https://checkout.stripe.com/pay/cs_live_...",
-  "message": "No default payment method saved. Complete payment via the checkout URL."
-}</pre>
-            </div>
-        </section>
-
-        <section id="mcp">
-            <h2>Model Context Protocol (MCP) Server Setup</h2>
-            <p>If you are running Claude Desktop or Cursor, you can register AetherQuant as an MCP tool server to pull live signals and run causal validations natively.</p>
-            <p>Add the following configuration block to your <code>claude_desktop_config.json</code> or Cursor settings file:</p>
-            
-            <div class="code-container">
-                <button class="copy-btn" onclick="copyCode(this)">Copy JSON</button>
-                <pre>{
-  "mcpServers": {
-    "aetherquant": {
-      "command": "npx",
-      "args": ["-y", "aetherquant-mcp-server"],
-      "env": {
-        "AETHERQUANT_API_KEY": "YOUR_API_KEY",
-        "AETHERQUANT_API_URL": "https://aetherquant.cloud"
+  <header><div class="header-inner"><a class="brand" href="/"><img class="brand-mark" src="/brand/mark.svg" alt="" aria-hidden="true"><span class="brand-name">AetherQuant</span></a><nav class="header-links" aria-label="Product navigation"><a href="/dashboard">Dashboard</a><a href="#api">API</a><a href="#mcp">MCP</a><a href="#safety">Safety</a></nav></div></header>
+  <main>
+    <section class="hero"><p class="eyebrow">Production API and agent contract</p><h1>Use AetherQuant from your service or agent.</h1><p class="lede">Account-scoped, read-only US-equity daily-bar snapshots from the IEX market-data feed. This page describes only the deployed, account-scoped API and the customer-installed MCP bridge.</p><p class="notice">Create a product API key in the signed-in dashboard. Keep it in a server or local-agent environment variable—never in browser code, a prompt, source control, or a shared configuration file.</p></section>
+    <div class="layout"><div class="content">
+      <section class="card" id="quickstart"><h2>Quick start</h2><ol class="list"><li>Sign in to your AetherQuant dashboard and create a product API key.</li><li>Store the key as <code>PRODUCT_API_KEY</code> in your local shell or server secret manager.</li><li>Call the account-scoped status endpoint before invoking a product workflow.</li></ol><div class="base"><span class="label">API base</span><code>https://client-platform-rho.vercel.app/v1</code></div><pre>export PRODUCT_API_KEY="replace-with-a-product-key"
+curl -sS "https://client-platform-rho.vercel.app/v1/products/aetherquant/api/status" -H "X-API-Key: $PRODUCT_API_KEY"</pre><p class="fine">A key is product-scoped: it can access only its own product workspace and never another customer account. Missing or invalid keys return 401; invalid request input returns 422; an exhausted monthly quota returns 429.</p></section>
+      <section class="card" id="plans"><h2>Plan quota</h2><p class="muted">Each plan uses the same account-scoped unit: <strong>completed read-only market-data snapshot requests per calendar month</strong>.</p><div class="table-wrap"><table class="plans"><thead><tr><th>Plan</th><th>Monthly quota</th></tr></thead><tbody><tr><td>Developer</td><td>1,000 completed read-only market-data snapshot requests per calendar month</td></tr><tr><td>Pro Dev Tier</td><td>100,000 completed read-only market-data snapshot requests per calendar month</td></tr></tbody></table></div><p class="fine">A provider failure is not metered. A completed request may truthfully return no bars when the feed has no usable result. Usage is reported by the status endpoint and reset by the control plane's calendar-month usage window.</p></section>
+      <section class="card" id="api"><h2>Supported API endpoints</h2><p class="muted">All paths below are relative to <code>https://client-platform-rho.vercel.app/v1</code> and require <code>X-API-Key</code>. The API returns JSON and creates only account-owned artifacts.</p><div class="endpoint"><span class="method">GET</span><code class="path">/products/aetherquant/api/status</code><p>Read the authenticated workspace's plan labels, monthly quota, usage, remaining quota, and current period boundary.</p><pre>curl -sS "https://client-platform-rho.vercel.app/v1/products/aetherquant/api/status" -H "X-API-Key: $PRODUCT_API_KEY"</pre></div><div class="endpoint"><span class="method">GET</span><code class="path">/products/aetherquant/api/work-items?limit=20</code><p>List up to 100 workspace artifacts owned by the authenticated product key.</p><pre>curl -sS "https://client-platform-rho.vercel.app/v1/products/aetherquant/api/work-items?limit=20" -H "X-API-Key: $PRODUCT_API_KEY"</pre></div><div class="endpoint"><span class="method">GET</span><code class="path">/products/aetherquant/api/work-items/{work_item_id}</code><p>Read one owned artifact and its immutable revision history.</p><pre>curl -sS -X GET &quot;https://client-platform-rho.vercel.app/v1/products/aetherquant/api/work-items/{work_item_id}&quot;   -H &quot;X-API-Key: $PRODUCT_API_KEY&quot;</pre><ul class="list"><li>Requires X-API-Key.</li></ul></div><div class="endpoint"><span class="method">POST</span><code class="path">/products/aetherquant/api/work-items/{work_item_id}/versions</code><p>Save a complete new revision and return it to draft status.</p><pre>curl -sS -X POST &quot;https://client-platform-rho.vercel.app/v1/products/aetherquant/api/work-items/{work_item_id}/versions&quot;   -H &quot;X-API-Key: $PRODUCT_API_KEY&quot;   -H &quot;Content-Type: application/json&quot;   --data &#x27;{&quot;title&quot;:&quot;Revised artifact&quot;,&quot;payload&quot;:{&quot;artifact&quot;:{}},&quot;change_note&quot;:&quot;Explain the revision&quot;}&#x27;</pre><ul class="list"><li>Requires X-API-Key.</li><li>The payload is a complete replacement snapshot.</li></ul></div><div class="endpoint"><span class="method">POST</span><code class="path">/products/aetherquant/api/work-items/{work_item_id}/submit-review</code><p>Move a draft into human review.</p><pre>curl -sS -X POST &quot;https://client-platform-rho.vercel.app/v1/products/aetherquant/api/work-items/{work_item_id}/submit-review&quot;   -H &quot;X-API-Key: $PRODUCT_API_KEY&quot;</pre><ul class="list"><li>Requires X-API-Key.</li></ul></div><div class="endpoint"><span class="method">POST</span><code class="path">/products/aetherquant/api/work-items/{work_item_id}/approve</code><p>Approve an artifact already in review without publishing it.</p><pre>curl -sS -X POST &quot;https://client-platform-rho.vercel.app/v1/products/aetherquant/api/work-items/{work_item_id}/approve&quot;   -H &quot;X-API-Key: $PRODUCT_API_KEY&quot;   -H &quot;Content-Type: application/json&quot;   --data &#x27;{&quot;confirmation&quot;:true}&#x27;</pre><ul class="list"><li>Requires X-API-Key.</li><li>Explicit confirmation is required.</li></ul></div><div class="endpoint"><span class="method">POST</span><code class="path">/products/aetherquant/api/work-items/{work_item_id}/archive</code><p>Archive an artifact while retaining its version history.</p><pre>curl -sS -X POST &quot;https://client-platform-rho.vercel.app/v1/products/aetherquant/api/work-items/{work_item_id}/archive&quot;   -H &quot;X-API-Key: $PRODUCT_API_KEY&quot;   -H &quot;Content-Type: application/json&quot;   --data &#x27;{&quot;confirmation&quot;:true}&#x27;</pre><ul class="list"><li>Requires X-API-Key.</li><li>Explicit confirmation is required.</li></ul></div><div class="endpoint"><span class="method">GET</span><code class="path">/products/aetherquant/api/work-items/{work_item_id}/export</code><p>Return an account-scoped JSON export.</p><pre>curl -sS -X GET &quot;https://client-platform-rho.vercel.app/v1/products/aetherquant/api/work-items/{work_item_id}/export&quot;   -H &quot;X-API-Key: $PRODUCT_API_KEY&quot;</pre><ul class="list"><li>Requires X-API-Key.</li></ul></div><div class="endpoint"><span class="method">POST</span><code class="path">/products/aetherquant/api/market-data</code><p>Fetch and save one account-owned, read-only IEX daily-bar snapshot.</p><pre>curl -sS -X POST &quot;https://client-platform-rho.vercel.app/v1/products/aetherquant/api/market-data&quot;   -H &quot;X-API-Key: $PRODUCT_API_KEY&quot;   -H &quot;Content-Type: application/json&quot;   --data &#x27;{&quot;ticker&quot;:&quot;AAPL&quot;,&quot;limit&quot;:30}&#x27;</pre><ul class="list"><li>Requires X-API-Key.</li><li>Returns 201 only after a completed snapshot is retained.</li></ul></div></section>
+      <section class="card" id="mcp"><h2>Use the product from an MCP-compatible agent</h2><p class="muted">The supported bridge is a local <code>stdio</code> process in <code>services/customer-mcp</code>. It calls the same production API with a key held only in its process environment.</p><pre>{
+  &quot;mcpServers&quot;: {
+    &quot;aetherquant&quot;: {
+      &quot;command&quot;: &quot;uv&quot;,
+      &quot;args&quot;: [
+        &quot;run&quot;,
+        &quot;--directory&quot;,
+        &quot;/absolute/path/to/automated-businesses/services/customer-mcp&quot;,
+        &quot;client-platform-mcp&quot;,
+        &quot;--product&quot;,
+        &quot;aetherquant&quot;
+      ],
+      &quot;env&quot;: {
+        &quot;CLIENT_PLATFORM_API_KEY&quot;: &quot;replace-with-a-product-key&quot;
       }
     }
   }
-}</pre>
-            </div>
-            <p>Exposed MCP Tools:</p>
-            <ul>
-                <li><code>get_latest_signals</code>: Retrieve real-time trade signals and alpha/Sharpe metrics.</li>
-                <li><code>verify_causality</code>: Reconstruct delayed coordinate attractor manifolds using CCM.</li>
-            </ul>
-        </section>
-
-        <section id="api">
-            <h2>REST API Reference</h2>
-            <p>Secure all requests by passing your generated API key in the authorization header: <code>Authorization: Bearer YOUR_API_KEY</code>.</p>
-            
-            <h3>1. Create Developer Key</h3>
-            <div class="code-container">
-                <span class="badge post">POST</span> <code>/api/v1/keys/create</code>
-                <button class="copy-btn" onclick="copyCode(this)">Copy Curl</button>
-                <pre style="margin-top: 1rem;">curl -X POST https://aetherquant.cloud/api/v1/keys/create \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"</pre>
-            </div>
-
-            <h3>2. Get Latest Quantitative Signals</h3>
-            <div class="code-container">
-                <span class="badge get">GET</span> <code>/api/v1/signals/latest</code>
-                <button class="copy-btn" onclick="copyCode(this)">Copy Curl</button>
-                <pre style="margin-top: 1rem;">curl -X GET https://aetherquant.cloud/api/v1/signals/latest \
-  -H "Authorization: Bearer YOUR_API_KEY"</pre>
-            </div>
-
-            <h3>3. Run Causality Validation (CCM)</h3>
-            <div class="code-container">
-                <span class="badge post">POST</span> <code>/api/v1/signals/causality</code>
-                <button class="copy-btn" onclick="copyCode(this)">Copy Curl</button>
-                <pre style="margin-top: 1rem;">curl -X POST https://aetherquant.cloud/api/v1/signals/causality \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "target_series": "BTCUSD",
-    "driver_series": "API_CALLS"
-  }'</pre>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 AetherQuant. All rights reserved. Registered B2B Algorithmic SaaS Merchant.</p>
-    </footer>
-
-    <script>
-        function copyCode(btn) {
-            const pre = btn.nextElementSibling;
-            navigator.clipboard.writeText(pre.innerText || pre.textContent);
-            const originalText = btn.innerText;
-            btn.innerText = "Copied!";
-            btn.style.background = "var(--success)";
-            btn.style.color = "#070913";
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.style.background = "rgba(255, 255, 255, 0.05)";
-                btn.style.color = "var(--text-secondary)";
-            }, 1500);
-        }
-    </script>
+}</pre><p class="fine">Run the configuration from a checked-out copy of this project. The bridge exposes one product selected by <code>--product aetherquant</code>; it does not expose checkout, billing, API-key creation, API-key revocation, or cross-product access as tools.</p><div class="tool-grid"><article class="tool"><code>workspace_status</code><p>Read the configured workspace plan and current monthly usage.</p></article><article class="tool"><code>list_workspace_artifacts</code><p>List saved workspace artifacts owned by the API key.</p></article><article class="tool"><code>get_workspace_artifact</code><p>Read one owned artifact and its immutable version history.</p></article><article class="tool"><code>create_workspace_artifact_version</code><p>Save a complete new revision in draft status.</p></article><article class="tool"><code>submit_workspace_artifact_for_review</code><p>Submit a draft for human review without approving it.</p></article><article class="tool"><code>approve_workspace_artifact</code><p>Approve a reviewed artifact only after explicit confirmation; never publish it.</p></article><article class="tool"><code>archive_workspace_artifact</code><p>Archive an artifact after explicit confirmation while retaining its versions.</p></article><article class="tool"><code>export_workspace_artifact</code><p>Return an account-scoped JSON export without an external side effect.</p></article><article class="tool"><code>aetherquant_market_snapshot</code><p>Fetch a read-only IEX US-equity daily-bar snapshot.</p></article></div></section>
+      <section class="card" id="safety"><h2>Safety and operating boundaries</h2><ul class="list"><li>No brokerage account, order, position, portfolio, or trade endpoint is exposed.</li><li>Daily bars and derived research metrics are informational only and are not investment advice.</li><li>The API accepts a US-equity ticker and 1 through 100 daily bars.</li></ul><p class="warning">Do not give an agent a Stripe credential, payment card, browser session, or API key in its prompt. The documented MCP bridge reads only the product API key from its local environment and returns only the product API response.</p></section>
+    </div><aside class="sidebar"><strong>On this page</strong><a href="#quickstart">Quick start</a><a href="#plans">Plan quota</a><a href="#api">Supported endpoints</a><a href="#mcp">MCP setup</a><a href="#safety">Safety boundaries</a></aside></div>
+  </main>
+  <footer class="header-inner" style="border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;justify-content:flex-start"><span>AetherQuant</span><a href="/use-cases">Use case</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/security">Security</a></footer>
 </body>
 </html>
