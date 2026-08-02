@@ -1,0 +1,5 @@
+* text=auto
+
+# Generated brand text assets are hashed byte-for-byte by the portfolio CI.
+brand/*.svg text eol=lf
+brand/*.webmanifest text eol=lf
