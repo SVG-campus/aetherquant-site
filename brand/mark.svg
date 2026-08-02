@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">AetherQuant mark</title>
+  <defs><linearGradient id="g" x1="18" y1="16" x2="110" y2="112" gradientUnits="userSpaceOnUse"><stop stop-color="#66E4D3"/><stop offset="1" stop-color="#82B5FF"/></linearGradient></defs>
+  <circle cx="64" cy="64" r="24" fill="none" stroke="url(#g)" stroke-width="10"/><path d="M18 64c12-25 40-37 64-27 14 6 25 18 32 34" fill="none" stroke="#66E4D3" stroke-width="8" stroke-linecap="round"/><circle cx="97" cy="69" r="8" fill="#82B5FF"/>
+</svg>

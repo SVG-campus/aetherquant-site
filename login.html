@@ -1,40 +1,19 @@
 <!doctype html>
 <html lang="en"><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex,nofollow"><title>Sign in | AetherQuant</title>
-  <style>body{margin:0;background:#0b0e14;color:#f8fafc;font:16px Inter,system-ui,sans-serif;display:grid;min-height:100vh;place-items:center;padding:24px}main{max-width:460px;width:100%;box-sizing:border-box;padding:40px;border:1px solid #243244;border-radius:20px;background:#111827}p{color:#a8b4c5;line-height:1.55}button{width:100%;border:0;border-radius:10px;padding:15px;background:#57e5d1;color:#06121a;font-weight:800;font-size:16px;cursor:pointer}button:disabled{opacity:.6;cursor:wait}a{color:#a8b4c5}#status{margin-top:16px;color:#a8b4c5}</style>
-</head><body><main>
-  <a href="/" aria-label="Return to AetherQuant home">← AetherQuant</a>
-  <h1>Welcome back</h1><p>Sign in or create an account to open your causal market intelligence.</p>
-  <button id="sign-in" disabled>Continue securely</button><p id="status" role="status" hidden></p>
-  <p>By continuing, you agree to the service terms and privacy notice.</p>
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#66E4D3"><link rel="icon" type="image/svg+xml" href="/brand/mark.svg"><link rel="shortcut icon" href="/brand/favicon.ico"><link rel="apple-touch-icon" href="/brand/stripe-icon-512.png"><link rel="manifest" href="/brand/site.webmanifest"><title>Sign in | AetherQuant</title>
+  <style>
+    :root{color-scheme:dark;--accent:#65e7d6}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:#08101d;color:#f7fbff;font:16px/1.55 Inter,ui-sans-serif,system-ui,sans-serif}.shell{width:min(460px,100%);padding:38px;border:1px solid #253852;border-radius:22px;background:linear-gradient(145deg,#101d30,#0b1423);box-shadow:0 25px 80px #0006}.brand{color:var(--accent);font-weight:800;letter-spacing:.05em;text-decoration:none}h1{font-size:2rem;line-height:1.15;margin:26px 0 12px}p{color:#b8c6d9}button{width:100%;margin:12px 0;border:0;border-radius:12px;padding:15px;background:var(--accent);color:#06121a;font:800 16px inherit;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.status{min-height:1.5rem;color:#b8c6d9}.fine{font-size:.88rem}.fine a{color:#b8c6d9}
+  </style><style>:root{--accent:#66E4D3;--accent-2:#82B5FF}.brand{display:inline-flex;align-items:center;gap:9px;color:var(--accent)}.brand-mark{width:25px;height:25px;flex:0 0 auto}.brand-name{color:var(--accent)}#sign-in{background:var(--accent)}</style>
+</head><body><main class="shell">
+  <a class="brand" href="/" aria-label="Return to AetherQuant home"><img class="brand-mark" src="/brand/mark.svg" alt="" aria-hidden="true"><span class="brand-name">AetherQuant</span></a>
+  <h1>Welcome back</h1><p>Sign in or create an account to open your workspace.</p>
+  <button id="sign-in" disabled>Continue securely</button><p class="status" id="status" role="status" hidden></p>
+  <p class="fine">By continuing, you agree to the service terms and privacy notice.</p>
 </main>
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
-    <script>
-      const authConfig = { domain: "eminencecore.us.auth0.com", clientId: "12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU" };
-      let auth0Client;
-      const params = new URLSearchParams(window.location.search);
-      const status = document.getElementById('status');
-      const setStatus = (message) => { status.textContent = message; status.hidden = !message; };
-      async function startLogin() {
-        setStatus('Redirecting to secure sign in…');
-        await auth0Client.loginWithRedirect({ authorizationParams: { redirect_uri: `${window.location.origin}/login.html` }, appState: { returnTo: '/dashboard' } });
-      }
-      async function initAuth() {
-        try {
-          auth0Client = await auth0.createAuth0Client({ ...authConfig, authorizationParams: { redirect_uri: `${window.location.origin}/login.html` } });
-          if (params.has('code') && params.has('state')) {
-            const result = await auth0Client.handleRedirectCallback();
-            window.location.replace(result.appState?.returnTo || '/dashboard');
-            return;
-          }
-          if (await auth0Client.isAuthenticated()) { window.location.replace('/dashboard'); return; }
-          document.getElementById('sign-in').disabled = false;
-        } catch (error) {
-          console.error('Authentication initialization failed', error);
-          setStatus('We could not start secure sign in. Please try again or contact support.');
-        }
-      }
-      document.getElementById('sign-in').addEventListener('click', startLogin);
-      initAuth();
-    </script></body></html>
+<script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script><script>
+const AUTH0_DOMAIN="eminencecore.us.auth0.com",AUTH0_CLIENT_ID="12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU",AUTH0_AUDIENCE="https://api.eminencecore.com",AUTH0_SCOPE="openid profile email read:workspace write:workspace";let auth0Client;const statusNode=document.getElementById('status');const setStatus=(message)=>{statusNode.textContent=message;statusNode.hidden=!message;};
+async function startLogin(){setStatus('Redirecting to secure sign in…');await auth0Client.loginWithRedirect({authorizationParams:{redirect_uri:`${window.location.origin}/login.html`,audience:AUTH0_AUDIENCE,scope:AUTH0_SCOPE},appState:{returnTo:'/dashboard'}});}
+async function initAuth(){try{auth0Client=await auth0.createAuth0Client({domain:AUTH0_DOMAIN,clientId:AUTH0_CLIENT_ID,authorizationParams:{redirect_uri:`${window.location.origin}/login.html`,audience:AUTH0_AUDIENCE,scope:AUTH0_SCOPE}});const params=new URLSearchParams(window.location.search);if(params.has('code')&&params.has('state')){const result=await auth0Client.handleRedirectCallback();window.location.replace(result.appState?.returnTo||'/dashboard');return;}if(await auth0Client.isAuthenticated()){window.location.replace('/dashboard');return;}document.getElementById('sign-in').disabled=false;}catch(error){console.error('Authentication initialization failed',error);setStatus('Secure workspace access is being activated. Please try again shortly or contact support.');}}
+document.getElementById('sign-in').addEventListener('click',startLogin);initAuth();
+</script></body></html>

@@ -3,8 +3,8 @@
 > Causal market intelligence for structured research workflows. Not individualized investment advice.
 
 ## Public information
-- Home: https://aetherquant.cloud/
-- Secure client sign-in: https://aetherquant.cloud/login
+- [Home](https://aetherquant.cloud/)
+- [Secure client sign-in](https://aetherquant.cloud/login)
 
 ## Accuracy and access
 Public pages describe the product and its intended workflows. Account-specific usage,

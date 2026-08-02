@@ -1,0 +1,14 @@
+{
+  "name": "AetherQuant",
+  "short_name": "AetherQuant",
+  "icons": [
+    {
+      "src": "/brand/stripe-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#66E4D3",
+  "background_color": "#07101D",
+  "display": "standalone"
+}
