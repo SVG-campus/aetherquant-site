@@ -1,25 +1,499 @@
 <!doctype html>
 <html lang="en"><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex,nofollow"><title>Causal market intelligence | AetherQuant</title>
-  <style>body{margin:0;background:#0b0e14;color:#f8fafc;font:16px Inter,system-ui,sans-serif}header,main{max-width:1120px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #243244}button{border:1px solid #577080;border-radius:8px;padding:10px 14px;background:transparent;color:#f8fafc;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:28px}.card{padding:22px;border:1px solid #243244;border-radius:14px;background:#111827}.eyebrow{color:#57e5d1;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.08em}p{color:#a8b4c5;line-height:1.55}#loading{padding:48px 0;color:#a8b4c5}</style>
-</head><body><header><strong>AetherQuant</strong><button id="sign-out">Sign out</button></header><main>
-  <p class="eyebrow">Causal market intelligence</p><h1 id="welcome">Loading your workspace…</h1><p id="email"></p>
-  <section id="workspace" hidden><div class="grid">
-    <article class="card"><p class="eyebrow">Getting started</p><h2>Create a watchlist, explore causal signals, and connect your market-data workflow.</h2><p>Your workspace is ready for setup. Product data and entitlements are verified server-side before any action is enabled.</p></article>
-    <article class="card"><p class="eyebrow">Plan</p><h2>Account setup required</h2><p>Choose a plan only after reviewing the available features. No subscription or trial is activated automatically.</p></article>
-    <article class="card"><p class="eyebrow">Support</p><h2>Need help?</h2><p>Contact the team from the main site for onboarding and workspace configuration.</p></article>
-  </div></section><p id="loading" role="status">Checking your secure session…</p>
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#66E4D3"><link rel="icon" type="image/svg+xml" href="/brand/mark.svg"><link rel="shortcut icon" href="/brand/favicon.ico"><link rel="apple-touch-icon" href="/brand/stripe-icon-512.png"><link rel="manifest" href="/brand/site.webmanifest"><title>Causal market intelligence | AetherQuant</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07101d;--surface:#101d30;--surface-2:#15253c;--ink:#f6f9ff;--muted:#aebdd0;--line:#2a3d57;--accent:#65e7d6;--warn:#ffd27a;--danger:#ff9a9a;--radius:16px}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% -20%,#1b3f5b66,transparent 38%),var(--bg);color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,sans-serif}button,input,select,textarea{font:inherit}button{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface-2);color:var(--ink);cursor:pointer;font-weight:700}button:hover{border-color:var(--accent)}button.primary{border-color:var(--accent);background:var(--accent);color:#06121a}button:disabled{cursor:not-allowed;opacity:.55}a{color:inherit}header{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1240px;margin:auto;padding:20px 28px;border-bottom:1px solid var(--line)}.brand{font-weight:850;text-decoration:none;letter-spacing:.03em}.brand span{color:var(--accent)}main{max-width:1240px;margin:auto;padding:42px 28px 64px}.eyebrow{margin:0;color:var(--accent);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}.hero{display:flex;align-items:end;justify-content:space-between;gap:28px}.hero h1{margin:.35rem 0;font-size:clamp(2rem,5vw,3.2rem);line-height:1.08}.muted{color:var(--muted)}.notice{margin:26px 0;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#132035;color:var(--muted)}.notice[data-state="error"]{border-color:#7e454b;color:#ffd6d6}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}.two{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}.card{min-width:0;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(160deg,#112036e8,#0d1829e8)}.card h2,.card h3{margin:.2rem 0 .5rem;line-height:1.2}.metric{display:block;margin:.55rem 0;font-size:2rem;font-weight:850}.meter{height:9px;overflow:hidden;border-radius:99px;background:#253850}.meter>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#7db5ff)}.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.list{display:grid;gap:10px;margin:14px 0 0;padding:0;list-style:none}.item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid #253953;border-radius:10px;background:#0b1524}.item small{display:block;color:var(--muted);margin-top:2px}.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}.plan{display:flex;flex-direction:column;gap:8px;padding:16px;border:1px solid #2b405c;border-radius:12px;background:#0c1728}.plan .price{font-size:1.45rem;font-weight:850}.plan .grow{flex:1}form{display:grid;gap:12px;margin-top:14px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:grid;gap:6px}label{font-size:.88rem;font-weight:750}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:#091322;color:var(--ink)}textarea{min-height:90px;resize:vertical}.operation-result{min-height:1.55rem;margin:14px 0 0;padding:10px 12px;border-left:3px solid var(--line);color:var(--muted);background:#0a1525}.operation-result[data-state="success"]{border-color:var(--accent);color:#d8fff8}.operation-result[data-state="error"]{border-color:#7e454b;color:#ffd6d6}.operation-result[data-state="pending"]{border-color:var(--warn);color:#ffe4aa}.helper{font-size:.88rem}.draft-note{margin:16px 0 0;font-size:.88rem;color:var(--muted)}dialog{width:min(560px,calc(100% - 32px));border:1px solid var(--line);border-radius:16px;background:#101d30;color:var(--ink);padding:24px;box-shadow:0 30px 100px #000a}dialog::backdrop{background:#000a}.key-box{display:flex;gap:8px}.key-box input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.empty{color:var(--muted);padding:12px 0}@media(max-width:860px){.grid,.two,.form-grid{grid-template-columns:1fr}.hero{align-items:start;flex-direction:column}header,main{padding-left:18px;padding-right:18px}}
+  </style>
+<style>:root{--accent:#66E4D3;--accent-2:#82B5FF}.brand{display:inline-flex;align-items:center;gap:9px}.brand-mark{width:25px;height:25px;flex:0 0 auto}.brand-name{color:var(--ink)!important}.operation-output{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:12px;background:#081321}.operation-output-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.operation-output h3{margin:0}.operation-output pre{max-height:520px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0 0;padding:14px;border-radius:10px;background:#050d18;color:#e7f3ff;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}</style></head><body>
+<header><a class="brand" href="/"><img class="brand-mark" src="/brand/mark.svg" alt="" aria-hidden="true"><span class="brand-name">AetherQuant</span></a><button id="sign-out">Sign out</button></header>
+<main>
+  <div class="hero"><div><p class="eyebrow">Causal market intelligence</p><h1 id="welcome">Loading your workspace…</h1><p class="muted" id="email"></p></div><p class="muted" id="connection-state">Verifying secure workspace access…</p></div>
+  <section class="notice" id="notice" hidden role="status"></section>
+  <section id="workspace" hidden>
+    <div class="grid">
+      <article class="card"><p class="eyebrow">Usage</p><h2>Monthly workspace usage</h2><span class="metric" id="usage-text">—</span><div class="meter" aria-label="Monthly usage"><span id="usage-meter" style="width:0%"></span></div><p class="muted" id="usage-detail">Usage is metered only when you use a connected product endpoint.</p></article>
+      <article class="card"><p class="eyebrow">Entitlement</p><h2 id="entitlement-title">Workspace preview</h2><p class="muted" id="entitlement-detail">Your access is verified server-side.</p><div class="toolbar"><button id="billing-portal" hidden>Manage billing</button><button class="primary" id="reactivate-subscription" hidden>Reactivate subscription</button></div></article>
+      <article class="card"><p class="eyebrow">Developer access</p><h2>API keys</h2><p class="muted">API keys can fetch read-only US-equity daily bars from the IEX feed. Market data and signal outputs are not investment advice.</p><div class="toolbar"><button class="primary" id="create-key">Create API key</button></div></article>
+    </div>
+    <div class="two">
+      <article class="card"><p class="eyebrow">Primary workflow</p><h2 id="primary-workflow-title">Preparing your workflow...</h2><p class="muted" id="primary-workflow-description"></p><form id="primary-action-form"><div class="form-grid" id="primary-workflow-fields"></div><div class="toolbar"><button class="primary" id="run-primary-action" type="submit">Run workflow</button><button id="save-primary-draft" type="button">Save configuration</button></div></form><p class="operation-result" id="operation-result" role="status" aria-live="polite">No product operation has run in this browser session.</p><section class="operation-output" id="operation-output" hidden><div class="operation-output-head"><h3>Latest reviewable output</h3><button id="copy-operation-output" type="button">Copy output</button></div><pre id="operation-output-content" tabindex="0"></pre></section><p class="draft-note">Saving a configuration records a private setup draft only. Do not include API keys, credentials, or sensitive personal data.</p><h3 style="margin-top:24px">Saved setup drafts</h3><ul class="list" id="work-items"></ul><form id="work-item-form" hidden aria-hidden="true"><input id="work-item-title" name="title"></form></article>
+      <article class="card"><p class="eyebrow">Activity</p><h2>Recent workspace events</h2><ul class="list" id="activity"></ul><section id="telemetry-panel" hidden><h3 style="margin-top:24px">Recent telemetry</h3><p class="muted helper">Event and project metadata only; arbitrary payloads are never retained.</p><ul class="list" id="telemetry-events"></ul></section><section id="portal-panel" hidden><h3 style="margin-top:24px">Client portals</h3><p class="muted helper">Drafts stay private. Publishing makes only the configured portal content public.</p><ul class="list" id="portals"></ul></section><h3 style="margin-top:24px">Active API keys</h3><ul class="list" id="keys"></ul></article>
+    </div>
+    <div class="two">
+      <article class="card"><p class="eyebrow">Support</p><h2>Ask for help from your workspace</h2><p class="muted">Requests stay attached to this product account. Never include passwords, API keys, card details, health information, or other sensitive personal data.</p><form id="support-form"><div class="form-grid"><label class="field">Category<select id="support-category" required><option value="product">Product</option><option value="billing">Billing</option><option value="account">Account</option><option value="privacy">Privacy</option><option value="other">Other</option></select></label><label class="field">Subject<input id="support-subject" minlength="3" maxlength="120" required></label></div><label class="field">What happened?<textarea id="support-message" minlength="10" maxlength="2000" required></textarea></label><div class="toolbar"><button class="primary" type="submit">Create support request</button></div></form></article>
+      <article class="card"><p class="eyebrow">Support history</p><h2>Your recent requests</h2><p class="muted">Only requests owned by this product workspace appear here.</p><ul class="list" id="support-tickets"></ul></article>
+    </div>
+    <article class="card" style="margin-top:18px"><p class="eyebrow">Plans</p><h2>Choose the access level that fits your workflow</h2><p class="muted">Checkout opens Stripe’s hosted page. No subscription or trial is activated until you complete it there.</p><div class="plans" id="plans"></div></article>
+  </section>
 </main>
+<dialog id="key-dialog"><form method="dialog"><p class="eyebrow">Copy once</p><h2>Your new API key</h2><p class="muted">This is the only time this value will be shown. Store it in a secret manager, not in browser code or source control.</p><div class="key-box"><input id="raw-key" readonly><button type="button" id="copy-key">Copy</button></div><div class="toolbar"><button class="primary" value="close">I stored it safely</button></div></form></dialog>
 <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script><script>
-  const authConfig = { domain: "eminencecore.us.auth0.com", clientId: "12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU" }; let auth0Client;
-  async function initDashboard() {
-    try { auth0Client = await auth0.createAuth0Client({ ...authConfig, authorizationParams: { redirect_uri: `${window.location.origin}/login.html` } });
-      if (!(await auth0Client.isAuthenticated())) { window.location.replace('/login'); return; }
-      const user = await auth0Client.getUser(); document.getElementById('welcome').textContent = `Welcome${user.name ? `, ${user.name}` : ''}`;
-      document.getElementById('email').textContent = user.email || ''; document.getElementById('loading').hidden = true; document.getElementById('workspace').hidden = false;
-    } catch (error) { console.error('Dashboard authentication failed', error); window.location.replace('/login'); }
+const PRODUCT="aetherquant",API_BASE="https://client-platform-rho.vercel.app",AUTH0_DOMAIN="eminencecore.us.auth0.com",AUTH0_CLIENT_ID="12ZdllQtLrC6a6LSqrx7sjgd6KkQtuMU",AUTH0_AUDIENCE="https://api.eminencecore.com",AUTH0_SCOPE="openid profile email read:workspace write:workspace",WORK_ITEM_KIND="research_workspace",ATTRIBUTION_STORAGE_KEY=`portfolio.attribution.v1:${PRODUCT}`;let auth0Client,currentData;
+const notice=document.getElementById('notice'),workspace=document.getElementById('workspace'),connectionState=document.getElementById('connection-state');const escapeHtml=(value)=>String(value??'').replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));const formatDate=(value)=>value?new Intl.DateTimeFormat(undefined,{dateStyle:'medium',timeStyle:'short'}).format(new Date(value)):'Not used yet';const formatMoney=(cents)=>cents===0?'$0':new Intl.NumberFormat(undefined,{style:'currency',currency:'USD',maximumFractionDigits:0}).format(cents/100)+'/mo';
+function setNotice(message,state=''){notice.textContent=message;notice.hidden=!message;notice.dataset.state=state;}function setBusy(button,busy,label){if(!button)return;button.disabled=busy;if(busy&&label){button.dataset.original??=button.textContent;button.textContent=label;}else if(!busy&&button.dataset.original){button.textContent=button.dataset.original;delete button.dataset.original;}}
+async function accessToken(){return auth0Client.getTokenSilently({authorizationParams:{audience:AUTH0_AUDIENCE,scope:AUTH0_SCOPE}})}
+async function api(path,options={}){const token=await accessToken();const response=await fetch(API_BASE+path,{...options,headers:{Authorization:`Bearer ${token}`,...(options.body?{'Content-Type':'application/json'}:{}),...(options.headers||{})}});if(response.status===204)return null;const body=await response.json().catch(()=>({}));if(!response.ok){const detail=typeof body.detail==='string'?body.detail:body.detail?.message||'Request could not be completed.';const error=new Error(detail);error.status=response.status;throw error;}return body;}
+function pendingAttribution(){try{const raw=sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY);return raw?JSON.parse(raw):null;}catch{return null;}}
+function clearPendingAttribution(){try{sessionStorage.removeItem(ATTRIBUTION_STORAGE_KEY);}catch{}}
+async function captureFirstTouch(){
+  const payload=pendingAttribution();
+  if(!payload)return true;
+  try{
+    await api(`/v1/products/${PRODUCT}/attribution/first-touch`,{method:'POST',body:JSON.stringify(payload)});
+    clearPendingAttribution();
+    return true;
+  }catch(error){
+    if([400,403,422].includes(error.status)){
+      clearPendingAttribution();
+      setNotice('Campaign context was not accepted and was discarded. Product access remains available, but this visit is unattributed.','error');
+      return true;
+    }
+    setNotice('Campaign context could not be saved yet. It will be retried before the first product operation.','error');
+    return false;
   }
-  document.getElementById('sign-out').addEventListener('click', async () => { if (auth0Client) await auth0Client.logout({ logoutParams: { returnTo: window.location.origin } }); });
-  initDashboard();
+}
+function renderList(node,items,renderer,empty){node.innerHTML=items.length?items.map(renderer).join(''):`<li class="empty">${escapeHtml(empty)}</li>`;}
+function render(data){currentData=data;const ent=data.entitlement;document.getElementById('usage-text').textContent=`${ent.monthly_used.toLocaleString()} / ${ent.monthly_quota.toLocaleString()}`;document.getElementById('usage-detail').textContent=`${ent.monthly_remaining.toLocaleString()} requests remain this month.`;document.getElementById('usage-meter').style.width=`${Math.min(100,Math.round(ent.monthly_used/Math.max(1,ent.monthly_quota)*100))}%`;document.getElementById('entitlement-title').textContent=ent.display_plans.join(' + ');document.getElementById('entitlement-detail').textContent=ent.active_plans.length?`Active access: ${ent.display_plans.join(', ')}.`:'You are on the free workspace preview. Upgrade only when the included workflow is useful.';document.getElementById('billing-portal').hidden=!data.account.billing_portal_ready;renderList(document.getElementById('work-items'),data.work_items,item=>`<li class="item"><span><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.kind)} · ${formatDate(item.created_at)}</small></span></li>`,'No saved workspace items yet.');renderList(document.getElementById('activity'),data.audit_events,item=>`<li class="item"><span><strong>${escapeHtml(item.action)}</strong><small>${formatDate(item.created_at)}</small></span></li>`,'Activity appears here after you take an action.');renderList(document.getElementById('keys'),data.api_keys,item=>`<li class="item"><span><strong>${escapeHtml(item.label)}</strong><small>${escapeHtml(item.key_prefix)}••••${escapeHtml(item.key_last_four)} · ${formatDate(item.last_used_at)}</small></span><button data-revoke="${escapeHtml(item.id)}">Revoke</button></li>`,'No active API keys.');renderList(document.getElementById('support-tickets'),data.support_tickets||[],item=>`<li class="item"><span><strong>${escapeHtml(item.subject)}</strong><small>${escapeHtml(item.category)} · ${escapeHtml(item.status)} · ${formatDate(item.updated_at)}</small></span></li>`,'No support requests yet.');document.getElementById('plans').innerHTML=data.plans.map(plan=>`<section class="plan"><strong>${escapeHtml(plan.label)}</strong><span class="price">${formatMoney(plan.monthly_cents)}</span><span class="muted grow">${escapeHtml(plan.description||`${plan.quota.toLocaleString()} monthly product requests`)}</span>${plan.monthly_cents===0?'<span class="muted">Included automatically</span>':`<button class="primary" data-checkout="${escapeHtml(plan.key)}" ${plan.checkout_enabled?'':'disabled'}>${plan.checkout_enabled?'Upgrade securely':'Checkout unavailable'}</button>`}</section>`).join('');workspace.hidden=false;connectionState.textContent='Workspace connected';}
+async function refresh(){const data=await api(`/v1/products/${PRODUCT}/dashboard`);render(data);}
+async function releaseCanceledCheckout(){if(new URLSearchParams(window.location.search).get('checkout')!=='canceled')return;try{const result=await api(`/v1/products/${PRODUCT}/checkout/abandon`,{method:'POST'});setNotice(result.abandoned?'Checkout was canceled and its Stripe Session was safely expired. You can choose another plan now.':'Checkout was canceled. No active Checkout reservation remained.');}catch(error){setNotice(`Checkout was canceled and your workspace is unchanged. ${error.message}`,'error');}}
+async function init(){try{auth0Client=await auth0.createAuth0Client({domain:AUTH0_DOMAIN,clientId:AUTH0_CLIENT_ID,authorizationParams:{redirect_uri:`${window.location.origin}/login.html`,audience:AUTH0_AUDIENCE,scope:AUTH0_SCOPE}});if(!(await auth0Client.isAuthenticated())){window.location.replace('/login');return;}const user=await auth0Client.getUser();document.getElementById('welcome').textContent=`Welcome${user.name?`, ${user.name}`:''}`;document.getElementById('email').textContent=user.email||'';await captureFirstTouch();await refresh();await releaseCanceledCheckout();}catch(error){console.error('Dashboard initialization failed',error);connectionState.textContent='Workspace setup required';setNotice('Your sign-in is active, but secure workspace access is still being configured. No subscription has been created and no product data is being simulated.','error');}}
+document.getElementById('sign-out').addEventListener('click',async()=>{if(auth0Client)await auth0Client.logout({logoutParams:{returnTo:window.location.origin}})});document.getElementById('create-key').addEventListener('click',async(event)=>{const button=event.currentTarget;try{setBusy(button,true,'Creating…');const data=await api(`/v1/products/${PRODUCT}/keys`,{method:'POST',body:JSON.stringify({label:'Primary key'})});document.getElementById('raw-key').value=data.api_key;document.getElementById('key-dialog').showModal();await refresh();}catch(error){setNotice(error.message,'error')}finally{setBusy(button,false)}});document.getElementById('copy-key').addEventListener('click',async()=>{const input=document.getElementById('raw-key');await navigator.clipboard.writeText(input.value);document.getElementById('copy-key').textContent='Copied';});const telemetryTest=document.getElementById('test-telemetry');if(telemetryTest)telemetryTest.addEventListener('click',async(event)=>{const button=event.currentTarget;const rawKey=document.getElementById('raw-key').value;if(!rawKey){setNotice('Create an API key before testing telemetry.','error');return;}try{setBusy(button,true,'Sending…');const response=await fetch(`${API_BASE}/v1/products/devpulse/ingest`,{method:'POST',headers:{'Content-Type':'application/json','X-API-Key':rawKey},body:JSON.stringify({event_name:'dashboard.connection_check',project:'dashboard'})});const body=await response.json().catch(()=>({}));if(!response.ok)throw new Error(body.detail||'Telemetry verification failed.');setNotice(`Telemetry verification accepted. ${body.monthly_used.toLocaleString()} of ${body.monthly_quota.toLocaleString()} free events used.`);await refresh();}catch(error){setNotice(error.message,'error')}finally{setBusy(button,false)}});document.getElementById('billing-portal').addEventListener('click',async(event)=>{const button=event.currentTarget;try{setBusy(button,true,'Opening…');const data=await api(`/v1/products/${PRODUCT}/portal`,{method:'POST'});window.location.assign(data.url);}catch(error){setNotice(error.message,'error');setBusy(button,false)}});document.getElementById('work-item-form').addEventListener('submit',async(event)=>{event.preventDefault();const button=event.currentTarget.querySelector('button');try{setBusy(button,true,'Saving…');const title=document.getElementById('work-item-title').value;await api(`/v1/products/${PRODUCT}/work-items`,{method:'POST',body:JSON.stringify({kind:WORK_ITEM_KIND,title,payload:{created_from:'client_dashboard'}})});event.currentTarget.reset();await refresh();}catch(error){setNotice(error.message,'error')}finally{setBusy(button,false)}});document.getElementById('keys').addEventListener('click',async(event)=>{const revokeButton=event.target;const keyId=revokeButton.dataset.revoke;if(!keyId)return;if(revokeButton.dataset.confirmRevoke!=='true'){document.querySelectorAll('#keys [data-confirm-revoke="true"]').forEach(button=>{delete button.dataset.confirmRevoke;button.textContent='Revoke';});revokeButton.dataset.confirmRevoke='true';revokeButton.textContent='Confirm revoke';window.setTimeout(()=>{if(revokeButton.dataset.confirmRevoke==='true'){delete revokeButton.dataset.confirmRevoke;revokeButton.textContent='Revoke';}},5000);return;}try{setBusy(revokeButton,true,'Revoking…');await api(`/v1/products/${PRODUCT}/keys/${keyId}`,{method:'DELETE'});await refresh();}catch(error){setNotice(error.message,'error')}finally{setBusy(revokeButton,false)}});document.getElementById('plans').addEventListener('click',async(event)=>{const button=event.target;const planKey=button.dataset.checkout;if(!planKey)return;try{setBusy(button,true,'Opening Stripe…');const data=await api(`/v1/products/${PRODUCT}/checkout?plan_key=${encodeURIComponent(planKey)}`,{method:'POST'});window.location.assign(data.url);}catch(error){setNotice(error.message,'error');setBusy(button,false)}});const checkoutState=new URLSearchParams(window.location.search).get('checkout');if(checkoutState==='success')setNotice('Stripe returned you to your workspace. Entitlements update after the signed webhook is received.');if(checkoutState==='canceled')setNotice('Checkout was canceled. Your workspace remains unchanged.');init();
+</script><script>
+document.getElementById('support-form').addEventListener('submit',async(event)=>{
+  event.preventDefault();
+  const form=event.currentTarget;
+  const button=form.querySelector('button[type="submit"]');
+  try{
+    setBusy(button,true,'Saving…');
+    const payload={
+      category:document.getElementById('support-category').value,
+      subject:document.getElementById('support-subject').value,
+      message:document.getElementById('support-message').value,
+    };
+    const result=await api(`/v1/products/${PRODUCT}/support-tickets`,{method:'POST',body:JSON.stringify(payload)});
+    form.reset();
+    setNotice(result.notice||'Your support request was saved.');
+    await refresh();
+  }catch(error){
+    setNotice(error.message,'error');
+  }finally{
+    setBusy(button,false);
+  }
+});
+</script><script>
+// Keep a stable form reference across the awaited request. Browsers clear
+// Event.currentTarget after dispatch, so do not read it after await.
+document.getElementById('work-item-form').addEventListener('submit',async(event)=>{
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  const form=event.currentTarget;
+  const button=form.querySelector('button');
+  try{
+    setBusy(button,true,'Saving…');
+    const title=document.getElementById('work-item-title').value;
+    await api(`/v1/products/${PRODUCT}/work-items`,{method:'POST',body:JSON.stringify({kind:WORK_ITEM_KIND,title,payload:{created_from:'client_dashboard'}})});
+    form.reset();
+    await refresh();
+  }catch(error){
+    setNotice(error.message,'error');
+  }finally{
+    setBusy(button,false);
+  }
+},{capture:true});
+</script><script>
+// Make the paid entitlement unambiguous in the plan catalogue. A plan card is
+// not an account-state indicator by itself; the active plan needs a distinct
+// state and must never offer a second checkout button.
+const renderDashboardWithPlanState=render;
+const planStateStyle=document.createElement('style');
+planStateStyle.textContent='.plan.current{border-color:var(--accent);box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 20%,transparent)}.plan-status{display:inline-flex;align-self:flex-start;padding:3px 8px;border-radius:999px;background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--accent);font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}.current-plan{display:block;padding:10px 14px;border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);border-radius:10px;color:var(--accent);font-weight:800;text-align:center}';
+document.head.append(planStateStyle);
+render=function(data){
+  renderDashboardWithPlanState(data);
+  const activePlans=new Set(data.entitlement?.active_plans||[]);
+  const hasPaidPlan=activePlans.size>0;
+  const billingReady=Boolean(data.account?.billing_portal_ready);
+  const periodEnd=data.entitlement?.current_period_end;
+  const cancelAtPeriodEnd=Boolean(data.entitlement?.cancel_at_period_end);
+  const currentPlan=data.plans.find(plan=>activePlans.has(plan.key));
+  document.getElementById('reactivate-subscription').hidden=!(hasPaidPlan&&cancelAtPeriodEnd&&billingReady);
+  if(hasPaidPlan&&periodEnd){
+    document.getElementById('entitlement-detail').textContent=cancelAtPeriodEnd
+      ?`Active access continues through ${formatDate(periodEnd)}. Reactivate before then to keep the same renewal date.`
+      :`Active access: ${data.entitlement.display_plans.join(', ')}. Current billing period ends ${formatDate(periodEnd)}.`;
+  }
+  if(new URLSearchParams(window.location.search).get('checkout')==='success'){
+    setNotice(hasPaidPlan?`Subscription confirmed. ${data.entitlement.display_plans.join(', ')} access is active.`:'Stripe returned you to your workspace. Entitlements are being synchronized securely.');
+  }
+  document.getElementById('plans').innerHTML=data.plans.map(plan=>{
+    const isCurrent=activePlans.has(plan.key);
+    const action=isCurrent
+      ?'<span class="current-plan" aria-current="true">Current plan</span>'
+      :plan.monthly_cents===0
+        ?`<span class="muted">${hasPaidPlan?'Base access included':'Included automatically'}</span>`
+        :hasPaidPlan
+          ?`<button class="primary" data-change-plan="${escapeHtml(plan.key)}" ${billingReady?'':'disabled'}>${billingReady?(cancelAtPeriodEnd?'Reactivate, then review change':(currentPlan&&plan.monthly_cents>currentPlan.monthly_cents?'Upgrade securely':'Downgrade securely')):'Billing portal unavailable'}</button>`
+          :`<button class="primary" data-checkout="${escapeHtml(plan.key)}" ${plan.checkout_enabled?'':'disabled'}>${plan.checkout_enabled?'Upgrade securely':'Checkout unavailable'}</button>`;
+    return `<section class="plan${isCurrent?' current':''}">${isCurrent?'<span class="plan-status">Current plan</span>':''}<strong>${escapeHtml(plan.label)}</strong><span class="price">${formatMoney(plan.monthly_cents)}</span><span class="muted grow">${escapeHtml(plan.description||`${plan.quota.toLocaleString()} monthly product requests`)}</span>${action}</section>`;
+  }).join('');
+};
+document.getElementById('plans').addEventListener('click',async(event)=>{
+  const button=event.target;
+  const planKey=button.dataset.changePlan;
+  if(!planKey)return;
+  const needsReactivation=Boolean(currentData?.entitlement?.cancel_at_period_end);
+  if(needsReactivation&&button.dataset.confirmReactivateChange!=='true'){
+    button.dataset.confirmReactivateChange='true';
+    button.textContent='Confirm reactivation & review';
+    window.setTimeout(()=>{if(button.dataset.confirmReactivateChange==='true'){delete button.dataset.confirmReactivateChange;button.textContent='Reactivate, then review change';}},5000);
+    return;
+  }
+  try{
+    if(needsReactivation){
+      setBusy(button,true,'Reactivating...');
+      await api(`/v1/products/${PRODUCT}/reactivate`,{method:'POST'});
+    }
+    setBusy(button,true,'Opening Stripe…');
+    const data=await api(`/v1/products/${PRODUCT}/portal?plan_key=${encodeURIComponent(planKey)}`,{method:'POST'});
+    window.location.assign(data.url);
+  }catch(error){
+    setNotice(error.message,'error');
+    setBusy(button,false);
+    delete button.dataset.confirmReactivateChange;
+    if(needsReactivation)button.textContent='Reactivate, then review change';
+  }
+});
+document.getElementById('reactivate-subscription').addEventListener('click',async(event)=>{
+  const button=event.currentTarget;
+  if(button.dataset.confirmReactivate!=='true'){
+    button.dataset.confirmReactivate='true';
+    button.textContent='Confirm reactivation';
+    window.setTimeout(()=>{if(button.dataset.confirmReactivate==='true'){delete button.dataset.confirmReactivate;button.textContent='Reactivate subscription';}},5000);
+    return;
+  }
+  try{
+    setBusy(button,true,'Reactivating...');
+    await api(`/v1/products/${PRODUCT}/reactivate`,{method:'POST'});
+    setNotice('Subscription reactivated. Your existing renewal date is unchanged.');
+    await refresh();
+  }catch(error){
+    setNotice(error.message,'error');
+  }finally{
+    delete button.dataset.confirmReactivate;
+    button.textContent='Reactivate subscription';
+    setBusy(button,false);
+  }
+});
+if(new URLSearchParams(window.location.search).get('billing')==='updated'){
+  setNotice('Stripe confirmed the plan change. Your entitlement will refresh after the signed webhook is processed.');
+}
+if(currentData)render(currentData);
+</script><script>
+// Each product receives its own purposeful starting workflow. The operation
+// endpoint is deliberately separate from configuration storage: an operation
+// may only claim a result after the server accepts and returns one.
+const PRIMARY_WORKFLOW={"endpoint":"market-data","request_mode":"direct","title":"Fetch a read-only daily market-data snapshot","description":"Retrieve verified daily OHLCV bars for one supported US equity from Alpaca's IEX feed. No brokerage account is read, no signal is fabricated, and no trade can be placed.","action_label":"Fetch daily bars","draft_label":"Save watchlist configuration","draft_prefix":"Watchlist","not_connected":"Read-only market-data access is temporarily unavailable. No request was metered and no trade can be placed.","fields":[{"name":"ticker","label":"US equity ticker","placeholder":"e.g., AAPL","maxlength":12},{"name":"limit","label":"Daily bars (1\u2013100)","placeholder":"30","maxlength":3,"input_type":"number","min":1,"max":100,"value":"30"}]};
+const primaryForm=document.getElementById('primary-action-form');
+const primaryFields=document.getElementById('primary-workflow-fields');
+const primaryTitle=document.getElementById('primary-workflow-title');
+const primaryDescription=document.getElementById('primary-workflow-description');
+const primaryResult=document.getElementById('operation-result');
+const operationOutput=document.getElementById('operation-output');
+const operationOutputContent=document.getElementById('operation-output-content');
+
+function customerOutput(artifact){
+  if(!artifact||typeof artifact!=='object')return null;
+  if(PRODUCT==='copyflow'&&artifact.draft)return {draft:artifact.draft,quality_controls:artifact.quality_controls,output:artifact.output};
+  if(PRODUCT==='eminencecore'&&artifact.record)return {record:artifact.record,governance:artifact.governance};
+  return artifact;
+}
+
+function renderOperationOutput(artifact){
+  const output=customerOutput(artifact);
+  if(!output){operationOutput.hidden=true;operationOutputContent.textContent='';return;}
+  operationOutputContent.textContent=JSON.stringify(output,null,2);
+  operationOutput.hidden=false;
+}
+
+document.getElementById('copy-operation-output').addEventListener('click',async(event)=>{
+  await navigator.clipboard.writeText(operationOutputContent.textContent);
+  event.currentTarget.textContent='Copied';
+  window.setTimeout(()=>{event.currentTarget.textContent='Copy output';},1800);
+});
+
+function setOperationResult(message,state=''){
+  primaryResult.textContent=message;
+  if(state)primaryResult.dataset.state=state;
+  else delete primaryResult.dataset.state;
+}
+
+function renderPrimaryWorkflow(){
+  primaryTitle.textContent=PRIMARY_WORKFLOW.title;
+  primaryDescription.textContent=PRIMARY_WORKFLOW.description;
+  primaryFields.innerHTML=PRIMARY_WORKFLOW.fields.map(field=>{
+    const required=field.required===false?'':' required';
+    const element=field.input_type==='checkbox'
+      ?`<input id="primary-${escapeHtml(field.name)}" name="${escapeHtml(field.name)}" type="checkbox"${required}>`
+      :field.input_type==='select'
+        ?`<select id="primary-${escapeHtml(field.name)}" name="${escapeHtml(field.name)}"${required}>${(field.options||[]).map(option=>`<option value="${escapeHtml(option.value)}"${option.value===field.value?' selected':''}>${escapeHtml(option.label)}</option>`).join('')}</select>`
+      :field.multiline
+        ?`<textarea id="primary-${escapeHtml(field.name)}" name="${escapeHtml(field.name)}" maxlength="${Number(field.maxlength)||160}" placeholder="${escapeHtml(field.placeholder||'')}"${required}></textarea>`
+        :`<input id="primary-${escapeHtml(field.name)}" name="${escapeHtml(field.name)}" type="${escapeHtml(field.input_type||'text')}" maxlength="${Number(field.maxlength)||160}" min="${field.min??''}" max="${field.max??''}" value="${escapeHtml(field.value||'')}" placeholder="${escapeHtml(field.placeholder||'')}"${required}>`;
+    return `<div class="field"><label for="primary-${escapeHtml(field.name)}">${escapeHtml(field.label)}</label>${element}</div>`;
+  }).join('');
+  const runButton=document.getElementById('run-primary-action');
+  runButton.textContent=PRIMARY_WORKFLOW.action_label;
+  runButton.hidden=!(PRIMARY_WORKFLOW.operation||PRIMARY_WORKFLOW.endpoint);
+  document.getElementById('save-primary-draft').textContent=PRIMARY_WORKFLOW.draft_label;
+  if(!PRIMARY_WORKFLOW.operation&&!PRIMARY_WORKFLOW.endpoint)setOperationResult(PRIMARY_WORKFLOW.not_connected,'pending');
+}
+
+function primaryInput(){
+  const input={...(PRIMARY_WORKFLOW.defaults||{})};
+  for(const field of PRIMARY_WORKFLOW.fields){
+    const control=primaryForm.elements.namedItem(field.name);
+    if(field.input_type==='checkbox'){
+      input[field.name]=Boolean(control?.checked);
+      continue;
+    }
+    const value=control?.value.trim();
+    if(value){
+      input[field.name]=(PRIMARY_WORKFLOW.array_fields||[]).includes(field.name)
+        ?value.split(',').map(item=>item.trim()).filter(Boolean)
+        :value;
+    }
+  }
+  return input;
+}
+
+function draftTitle(input){
+  const firstValue=PRIMARY_WORKFLOW.fields.map(field=>input[field.name]).find(Boolean)||'Untitled configuration';
+  return `${PRIMARY_WORKFLOW.draft_prefix}: ${firstValue}`.slice(0,160);
+}
+
+function operationMessage(body){
+  const candidates=[body?.message,body?.summary,body?.result?.message,body?.result?.summary];
+  const message=candidates.find(value=>typeof value==='string'&&value.trim());
+  return message||'The service accepted the operation request. Review workspace activity for its recorded result.';
+}
+
+async function requestPrimaryOperation(input){
+  const token=await accessToken();
+  const path=PRIMARY_WORKFLOW.endpoint
+    ?`/v1/products/${PRODUCT}/${PRIMARY_WORKFLOW.endpoint}`
+    :`/v1/products/${PRODUCT}/operations`;
+  const bodyPayload=PRIMARY_WORKFLOW.request_mode==='direct'
+    ?input
+    :{operation:PRIMARY_WORKFLOW.operation,input};
+  const response=await fetch(`${API_BASE}${path}`,{
+    method:'POST',
+    headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},
+    body:JSON.stringify(bodyPayload),
+  });
+  const body=await response.json().catch(()=>({}));
+  if(!response.ok){
+    const detail=typeof body.detail==='string'?body.detail:body.detail?.message||'The workflow could not be completed.';
+    const error=new Error(detail);
+    error.status=response.status;
+    throw error;
+  }
+  return body;
+}
+
+primaryForm.addEventListener('submit',async(event)=>{
+  event.preventDefault();
+  if(!primaryForm.reportValidity())return;
+  // Attribution must never make the product unavailable. Retry once before the
+  // operation, but continue with an explicitly unattributed result on outage.
+  if(pendingAttribution())await captureFirstTouch();
+  if(!PRIMARY_WORKFLOW.operation&&!PRIMARY_WORKFLOW.endpoint){
+    setOperationResult(PRIMARY_WORKFLOW.not_connected,'pending');
+    return;
+  }
+  const button=document.getElementById('run-primary-action');
+  try{
+    setBusy(button,true,'Submitting...');
+    const body=await requestPrimaryOperation(primaryInput());
+    setOperationResult(operationMessage(body),'success');
+    renderOperationOutput(body.artifact);
+    await refresh();
+  }catch(error){
+    if([404,405,501].includes(error.status))setOperationResult(PRIMARY_WORKFLOW.not_connected,'pending');
+    else setOperationResult(`The workflow did not complete: ${error.message}`,'error');
+  }finally{
+    setBusy(button,false);
+  }
+});
+
+document.getElementById('save-primary-draft').addEventListener('click',async(event)=>{
+  if(!primaryForm.reportValidity())return;
+  const button=event.currentTarget;
+  const input=primaryInput();
+  try{
+    setBusy(button,true,'Saving...');
+    await api(`/v1/products/${PRODUCT}/work-items`,{
+      method:'POST',
+      body:JSON.stringify({
+        kind:WORK_ITEM_KIND,
+        title:draftTitle(input),
+        payload:{created_from:'client_dashboard',operation:PRIMARY_WORKFLOW.operation,input},
+      }),
+    });
+    primaryForm.reset();
+    setOperationResult('Configuration saved. No product operation was executed.','success');
+    await refresh();
+  }catch(error){
+    setOperationResult(`The configuration was not saved: ${error.message}`,'error');
+  }finally{
+    setBusy(button,false);
+  }
+});
+
+// Keep the server-backed draft list, but label it by what it actually is rather
+// than implying a connected product operation has occurred.
+const renderWithPrimaryWorkflow=render;
+render=function(data){
+  renderWithPrimaryWorkflow(data);
+  const drafts=Array.isArray(data.work_items)?data.work_items:[];
+  renderList(document.getElementById('work-items'),drafts,item=>`<li class="item"><span><strong>${escapeHtml(item.title)}</strong><small>Saved configuration · ${formatDate(item.created_at)}</small></span></li>`,'No saved setup drafts yet.');
+};
+renderPrimaryWorkflow();
+if(currentData)render(currentData);
+// Replace the generic saved-configuration label once more so finished product
+// outputs are never presented as drafts.
+const renderWithResultLabels=render;
+render=function(data){
+  renderWithResultLabels(data);
+  const items=Array.isArray(data.work_items)?data.work_items:[];
+  renderList(document.getElementById('work-items'),items,item=>{
+    const resultLabel=item.kind==='market_data.daily_bars'
+      ?'Read-only market-data result'
+      :item.kind==='assessment.public_https_metadata'
+        ?'Passive assessment result'
+        :item.kind.startsWith('operation.')
+          ?'Workspace result'
+          :'Saved configuration';
+    const lifecycle=item.lifecycle_status||'draft';
+    const lifecycleLabel=lifecycle.replace('_',' ');
+    const primaryAction=lifecycle==='draft'
+      ?`<button data-artifact-action="submit-review" data-artifact-id="${escapeHtml(item.id)}">Submit for review</button>`
+      :lifecycle==='in_review'
+        ?`<button class="primary" data-artifact-action="approve" data-artifact-id="${escapeHtml(item.id)}">Approve</button>`
+        :'';
+    const archiveAction=lifecycle==='archived'
+      ?''
+      :`<button data-artifact-action="archive" data-artifact-id="${escapeHtml(item.id)}">Archive</button>`;
+    return `<li class="item"><span><strong>${escapeHtml(item.title)}</strong><small>${resultLabel} - ${escapeHtml(lifecycleLabel)} - v${Number(item.current_version)||1} - ${formatDate(item.updated_at||item.created_at)}</small></span><span class="toolbar"><button data-artifact-action="export" data-artifact-id="${escapeHtml(item.id)}">Export</button>${primaryAction}${archiveAction}</span></li>`;
+  },'No saved setup drafts or product results yet.');
+  const latestOperation=items.find(item=>item.kind.startsWith('operation.')&&item.payload?.artifact);
+  if(latestOperation)renderOperationOutput(latestOperation.payload.artifact);
+};
+document.getElementById('work-items').addEventListener('click',async(event)=>{
+  const button=event.target.closest('button[data-artifact-action]');
+  if(!button)return;
+  const action=button.dataset.artifactAction;
+  const artifactId=button.dataset.artifactId;
+  if(!action||!artifactId)return;
+  if(action==='export'){
+    try{
+      setBusy(button,true,'Exporting...');
+      const token=await accessToken();
+      const response=await fetch(`${API_BASE}/v1/products/${PRODUCT}/work-items/${encodeURIComponent(artifactId)}/export?format=markdown`,{headers:{Authorization:`Bearer ${token}`}});
+      if(!response.ok){const body=await response.json().catch(()=>({}));throw new Error(body.detail||'Export failed.');}
+      const blob=await response.blob();
+      const url=URL.createObjectURL(blob);
+      const link=document.createElement('a');
+      link.href=url;
+      link.download=(response.headers.get('content-disposition')||'').match(/filename="([^"]+)"/)?.[1]||'workspace-artifact.md';
+      document.body.appendChild(link);link.click();link.remove();URL.revokeObjectURL(url);
+    }catch(error){setNotice(error.message,'error');}finally{setBusy(button,false);}
+    return;
+  }
+  const confirmationRequired=action==='approve'||action==='archive';
+  if(confirmationRequired&&button.dataset.confirmArtifact!=='true'){
+    button.dataset.confirmArtifact='true';
+    button.textContent=action==='approve'?'Confirm approval':'Confirm archive';
+    window.setTimeout(()=>{if(button.dataset.confirmArtifact==='true'){delete button.dataset.confirmArtifact;button.textContent=action==='approve'?'Approve':'Archive';}},5000);
+    return;
+  }
+  try{
+    setBusy(button,true,'Saving...');
+    const options={method:'POST'};
+    if(confirmationRequired)options.body=JSON.stringify({confirmation:true});
+    const data=await api(`/v1/products/${PRODUCT}/work-items/${encodeURIComponent(artifactId)}/${action}`,options);
+    setNotice(data.notice||'Artifact status updated.');
+    await refresh();
+  }catch(error){setNotice(error.message,'error');}finally{setBusy(button,false);}
+});
+if(currentData)render(currentData);
+// DevPulse has a real ingestion path, so show the account-scoped retained
+// event metadata rather than asking customers to infer success from audit logs.
+const renderWithTelemetry=render;
+render=function(data){
+  renderWithTelemetry(data);
+  const panel=document.getElementById('telemetry-panel');
+  const eventsNode=document.getElementById('telemetry-events');
+  if(!panel||!eventsNode)return;
+  if(PRODUCT!=='devpulse'){
+    panel.hidden=true;
+    return;
+  }
+  panel.hidden=false;
+  const events=Array.isArray(data.telemetry_events)?data.telemetry_events:[];
+  renderList(eventsNode,events,event=>`<li class="item"><span><strong>${escapeHtml(event.event_name)}</strong><small>${escapeHtml(event.project)} - ${formatDate(event.ingested_at)}</small></span></li>`,'No telemetry events have been retained for this workspace yet.');
+};
+if(currentData)render(currentData);
+// NicheStack portal lifecycle: creation is private; publishing and
+// unpublishing require a second explicit confirmation from the owner.
+const renderWithPortals=render;
+render=function(data){
+  renderWithPortals(data);
+  const panel=document.getElementById('portal-panel');
+  const portalsNode=document.getElementById('portals');
+  if(!panel||!portalsNode)return;
+  if(PRODUCT!=='nichestack'){
+    panel.hidden=true;
+    return;
+  }
+  panel.hidden=false;
+  const portals=Array.isArray(data.portals)?data.portals:[];
+  renderList(portalsNode,portals,portal=>{
+    const published=portal.status==='published';
+    const action=published?'unpublish':'publish';
+    const actionLabel=published?'Unpublish':'Publish portal';
+    const publicLink=published&&portal.public_url
+      ?`<a href="${escapeHtml(portal.public_url)}" target="_blank" rel="noopener">View public portal</a>`
+      :'<span class="muted">Private draft</span>';
+    return `<li class="item"><span><strong>${escapeHtml(portal.name)}</strong><small>${escapeHtml(portal.slug)} - ${published?'Published':'Draft'}</small>${publicLink}</span><button data-portal-action="${action}" data-portal-id="${escapeHtml(portal.id)}">${actionLabel}</button></li>`;
+  },'No client portals have been created yet.');
+};
+document.getElementById('portals').addEventListener('click',async(event)=>{
+  const button=event.target;
+  const action=button.dataset.portalAction;
+  const portalId=button.dataset.portalId;
+  if(!action||!portalId)return;
+  if(button.dataset.confirmPortal!=='true'){
+    button.dataset.confirmPortal='true';
+    button.textContent=action==='publish'?'Confirm publish':'Confirm unpublish';
+    window.setTimeout(()=>{
+      if(button.dataset.confirmPortal==='true'){
+        delete button.dataset.confirmPortal;
+        button.textContent=action==='publish'?'Publish portal':'Unpublish';
+      }
+    },5000);
+    return;
+  }
+  try{
+    setBusy(button,true,action==='publish'?'Publishing...':'Unpublishing...');
+    const data=await api(`/v1/products/nichestack/portals/${encodeURIComponent(portalId)}/${action}`,{method:'POST'});
+    setNotice(data.summary||'Portal status updated.');
+    await refresh();
+  }catch(error){
+    setNotice(error.message,'error');
+  }finally{
+    setBusy(button,false);
+  }
+});
+if(currentData)render(currentData);
 </script></body></html>
