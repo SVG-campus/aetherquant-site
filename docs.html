@@ -46,5 +46,37 @@ curl -sS "https://client-platform-rho.vercel.app/v1/products/aetherquant/api/sta
     </div><aside class="sidebar"><strong>On this page</strong><a href="#quickstart">Quick start</a><a href="#plans">Plan quota</a><a href="#api">Supported endpoints</a><a href="#mcp">MCP setup</a><a href="#safety">Safety boundaries</a></aside></div>
   </main>
   <footer class="header-inner" style="border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;justify-content:flex-start"><span>AetherQuant</span><a href="/use-cases">Use case</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/security">Security</a></footer>
+  <script data-docs-copy="v1">
+  (()=>{
+    document.querySelectorAll('pre').forEach(pre=>{
+      const wrap=document.createElement('div');
+      wrap.style.cssText='position:relative;margin:13px 0 0;';
+      pre.parentNode.insertBefore(wrap,pre);
+      wrap.appendChild(pre);
+      pre.style.marginTop='0';
+      const btn=document.createElement('button');
+      btn.type='button';
+      btn.setAttribute('aria-label','Copy snippet to clipboard');
+      btn.textContent='📋 Copy';
+      btn.style.cssText='position:absolute;top:8px;right:8px;padding:4px 9px;border:1px solid #335478;border-radius:6px;background:#0d1d2f;color:#b5c4d8;font:700 11px system-ui,sans-serif;cursor:pointer;z-index:2;transition:all .15s;';
+      btn.addEventListener('click',async()=>{
+        try{
+          await navigator.clipboard.writeText(pre.innerText||pre.textContent||'');
+          btn.textContent='✓ Copied!';
+          btn.style.borderColor='var(--accent)';
+          btn.style.color='#f0fdf4';
+          if(navigator.sendBeacon){
+            navigator.sendBeacon('https://client-platform-rho.vercel.app/v1/public/telemetry/beacon',new Blob([JSON.stringify({venture:'aetherquant',action:'docs_code_snippet_copy',details:{chars:(pre.innerText||'').length},ts:Date.now()})],{type:'application/json'}));
+          }
+          if(typeof window.va==='function'){
+            window.va('event',{name:'journey_interaction',data:{venture:'aetherquant',action:'docs_code_snippet_copy'}});
+          }
+          setTimeout(()=>{btn.textContent='📋 Copy';btn.style.borderColor='#335478';btn.style.color='#b5c4d8';},2000);
+        }catch(_){}
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
 </body>
 </html>
