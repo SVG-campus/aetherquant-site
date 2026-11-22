@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GLMN9LLXZ8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GLMN9LLXZ8');
-</script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2789744628056088" crossorigin="anonymous"></script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Causality Report: Bitcoin vs Tesla Inc. (BTCUSD -> TSLA) | AetherQuant</title>
@@ -248,22 +236,55 @@
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "Causality Validation Audit: BTCUSD to TSLA",
-    "description": "Topological and convergent cross-mapping causality report for Bitcoin vs Tesla Inc. (BTCUSD vs. TSLA).",
-    "author": {
-        "@type": "Organization",
-        "name": "AetherQuant"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "AetherQuant Technologies Inc.",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://aetherquant.cloud/logo.png"
+    "@graph": [
+        {
+            "@type": "TechArticle",
+            "headline": "Causality Validation Audit: BTCUSD to TSLA",
+            "description": "Topological and convergent cross-mapping causality report for Bitcoin vs Tesla Inc. (BTCUSD vs. TSLA).",
+            "author": {
+                "@type": "Organization",
+                "name": "AetherQuant"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "AetherQuant Technologies Inc.",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://aetherquant.cloud/logo.png"
+                }
+            },
+            "datePublished": "2026-11-22T23:36:39Z"
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is Convergent Cross Mapping (CCM)?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "CCM is a mathematical technique used to identify non-linear causal relationships between two dynamical systems. Unlike linear correlation, CCM reconstructs shadow attractors from time-lagged variables to determine if states in one manifold can reliably predict states in another."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How does Topological Data Analysis (TDA) aid asset allocation?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "TDA uses algebraic topology to extract structural features from cloud data. In volatile regimes, TDA identifies transient attractor voids that standard statistical indicators miss, warning quant engines to scale down exposure before systemic breakdowns."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Why use GARCH estimation over raw volatility?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "GARCH modeling accounts for volatility clustering\u2014the empirical fact that high-volatility days tend to follow high-volatility days. This dynamic modeling allows for proactive leverage scaling, keeping drawdowns within predetermined parameters."
+                    }
+                }
+            ]
         }
-    },
-    "datePublished": "2026-06-12T20:08:20Z"
+    ]
 }
     </script>
 </head>
@@ -296,6 +317,40 @@
                         <div class="metric-label">Manifold Convergence</div>
                         <div class="metric-val">STABLE</div>
                     </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Interactive Attractor Manifold Simulator</h2>
+                <p>
+                    Adjust the parameters below to simulate non-linear topological reconstruction of the time series delay coordinates in real-time.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label style="font-size: 0.85rem; color: var(--accent-cyan); display: flex; justify-content: space-between;">
+                            <span>Select Dynamic Attractor:</span>
+                        </label>
+                        <select id="attractor-select" style="width: 100%; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--card-border); color: var(--text-primary); padding: 0.6rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; outline: none; margin-top: 0.25rem;">
+                            <option value="lorenz">Lorenz Attractor (Default)</option>
+                            <option value="rossler">Rossler Attractor (High Complexity)</option>
+                            <option value="aizawa">Aizawa Attractor (Phase-Space Sphere)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.85rem; color: var(--accent-cyan); display: flex; justify-content: space-between;">
+                            <span>Embedding Dimension (d): <span id="dim-val">3</span></span>
+                        </label>
+                        <input type="range" id="dim-slider" min="2" max="5" value="3" style="width: 100%; accent-color: var(--accent-cyan);">
+                    </div>
+                    <div>
+                        <label style="font-size: 0.85rem; color: var(--accent-cyan); display: flex; justify-content: space-between;">
+                            <span>CCM Mapping Speed: <span id="speed-val">1.0</span>x</span>
+                        </label>
+                        <input type="range" id="speed-slider" min="0.5" max="3.0" step="0.1" value="1.0" style="width: 100%; accent-color: var(--accent-cyan);">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center; background: rgba(0,0,0,0.4); border-radius: 8px; border: 1px solid var(--card-border); padding: 1rem;">
+                    <canvas id="attractor-canvas" width="400" height="300" style="max-width: 100%; display: block;"></canvas>
                 </div>
             </section>
 
@@ -333,6 +388,49 @@
                     </div>
                 </div>
             </section>
+
+            <section class="card">
+                <h2>Wasserstein Distributionally Robust Optimization (DRO)</h2>
+                <p>
+                    For allocation models involving <code>BTCUSD</code> and <code>TSLA</code>, we apply a dual Wasserstein DRO formulation. 
+                    This guarantees optimal risk coverage under probability distribution perturbations within a bounded ambiguity set.
+                </p>
+                <p>
+                    By solving the Wasserstein projection, we obtain worst-case expectation bounds that insulate the Kelly multiplier from tail covariance errors.
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>Frequently Asked Questions</h2>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                    <div>
+                        <h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.5rem;">What is Convergent Cross Mapping (CCM)?</h3>
+                        <p style="margin-bottom: 0; font-size: 0.9rem;">CCM is a mathematical technique used to identify non-linear causal relationships between two dynamical systems. Unlike linear correlation, CCM reconstructs shadow attractors from time-lagged variables to determine if states in one manifold can reliably predict states in another.</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.5rem;">How does Topological Data Analysis (TDA) aid asset allocation?</h3>
+                        <p style="margin-bottom: 0; font-size: 0.9rem;">TDA uses algebraic topology to extract structural features from cloud data. In volatile regimes, TDA identifies transient attractor voids that standard statistical indicators miss, warning quant engines to scale down exposure before systemic breakdowns.</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.5rem;">Why use GARCH estimation over raw volatility?</h3>
+                        <p style="margin-bottom: 0; font-size: 0.9rem;">GARCH modeling accounts for volatility clustering—the empirical fact that high-volatility days tend to follow high-volatility days. This dynamic modeling allows for proactive leverage scaling, keeping drawdowns within predetermined parameters.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Related Causality &amp; Arbitrage Audits</h2>
+                <p>
+                    Explore other cross-DEX liquidity pools and high-frequency asset causality validation reports:
+                </p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem; padding-left: 0; margin-top: 1rem;">
+                    <li>&rarr; <a href="/causality/ETHUSD-vs-LINKUSD/" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500;">Ethereum vs Chainlink (ETHUSD to LINKUSD)</a></li>
+<li>&rarr; <a href="/causality/QQQ-vs-TSLA/" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500;">Nasdaq-100 vs Tesla Inc. (QQQ to TSLA)</a></li>
+<li>&rarr; <a href="/causality/USO-vs-GLD/" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500;">Crude Oil vs Gold Trust (USO to GLD)</a></li>
+<li>&rarr; <a href="/causality/MSFT-vs-NVDA/" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500;">Microsoft Corp. vs NVIDIA Corp. (MSFT to NVDA)</a></li>
+<li>&rarr; <a href="/causality/QQQ-vs-SOXX/" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500;">Nasdaq-100 vs Semiconductor ETF (QQQ to SOXX)</a></li>
+                </ul>
+            </section>
         </main>
 
         <!-- GDPR/CCPA Cookie Consent Banner -->
@@ -354,7 +452,7 @@
         <footer>
             <p>&copy; 2026 AetherQuant Technologies Inc. All rights reserved.</p>
             <p style="margin-top:0.5rem; opacity:0.6;">
-                This page was programmatically generated on 2026-06-12 20:08:20 UTC based on AetherQuant Volatility &amp; Causal Validation Compute Core feeds.
+                This page was programmatically generated on 2026-11-22 23:36:39 UTC based on AetherQuant Volatility &amp; Causal Validation Compute Core feeds.
             </p>
         </footer>
     </div>
@@ -451,6 +549,123 @@
         }
 
         window.addEventListener("DOMContentLoaded", () => {
+            // 3D Multi-Attractor Simulation
+            const canvas = document.getElementById("attractor-canvas");
+            if (canvas) {
+                const ctx = canvas.getContext("2d");
+                let x = 0.1, y = 0.0, z = 0.0;
+                
+                // Attractor parameters
+                const sigma = 10.0, rho = 28.0, beta = 8.0 / 3.0; // Lorenz
+                const ra = 0.2, rb = 0.2, rc = 5.7; // Rossler
+                const aa = 0.95, ab = 0.7, ac = 0.6, ad = 3.5, ae = 0.25, af = 0.1; // Aizawa
+                
+                const dt = 0.01;
+                const points = [];
+                let angleX = 0, angleY = 0;
+                
+                const dimSlider = document.getElementById("dim-slider");
+                const speedSlider = document.getElementById("speed-slider");
+                const dimVal = document.getElementById("dim-val");
+                const speedVal = document.getElementById("speed-val");
+                const attractorSelect = document.getElementById("attractor-select");
+                
+                if (dimSlider && dimVal) {
+                    dimSlider.addEventListener("input", () => { dimVal.innerText = dimSlider.value; });
+                }
+                if (speedSlider && speedVal) {
+                    speedSlider.addEventListener("input", () => { speedVal.innerText = speedSlider.value; });
+                }
+                
+                if (attractorSelect) {
+                    attractorSelect.addEventListener("change", () => {
+                        x = 0.1; y = 0.0; z = 0.0;
+                        points.length = 0;
+                    });
+                }
+
+                function draw() {
+                    const speed = speedSlider ? parseFloat(speedSlider.value) : 1.0;
+                    const loops = Math.round(5 * speed);
+                    const type = attractorSelect ? attractorSelect.value : "lorenz";
+                    
+                    for (let i = 0; i < loops; i++) {
+                        let dx = 0, dy = 0, dz = 0;
+                        if (type === "lorenz") {
+                            dx = sigma * (y - x) * dt;
+                            dy = (x * (rho - z) - y) * dt;
+                            dz = (x * y - beta * z) * dt;
+                        } else if (type === "rossler") {
+                            dx = (-y - z) * dt;
+                            dy = (x + ra * y) * dt;
+                            dz = (rb + z * (x - rc)) * dt;
+                        } else if (type === "aizawa") {
+                            dx = ((z - ab) * x - ad * y) * dt;
+                            dy = (ad * x + (z - ab) * y) * dt;
+                            dz = (ac + aa * z - (z * z * z) / 3.0 - (x * x + y * y) * (1.0 + ae * z) + af * z * (x * x * x)) * dt;
+                        }
+                        x += dx;
+                        y += dy;
+                        z += dz;
+                        points.push({ x, y, z });
+                        if (points.length > 800) points.shift();
+                    }
+
+                    ctx.fillStyle = "rgba(15, 23, 42, 0.2)";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    angleX += 0.01;
+                    angleY += 0.005;
+                    
+                    const cosX = Math.cos(angleX), sinX = Math.sin(angleX);
+                    const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
+
+                    ctx.lineWidth = 1.5;
+                    if (type === "lorenz") {
+                        ctx.strokeStyle = "rgba(0, 242, 254, 0.8)";
+                        ctx.shadowColor = "rgba(0, 242, 254, 0.5)";
+                    } else if (type === "rossler") {
+                        ctx.strokeStyle = "rgba(127, 90, 240, 0.8)";
+                        ctx.shadowColor = "rgba(127, 90, 240, 0.5)";
+                    } else if (type === "aizawa") {
+                        ctx.strokeStyle = "rgba(244, 63, 94, 0.8)";
+                        ctx.shadowColor = "rgba(244, 63, 94, 0.5)";
+                    }
+                    ctx.shadowBlur = 10;
+                    
+                    const d = dimSlider ? parseInt(dimSlider.value) : 3;
+                    
+                    ctx.beginPath();
+                    for (let i = 0; i < points.length; i++) {
+                        const p = points[i];
+                        
+                        let rY = p.y * cosX - p.z * sinX;
+                        let rZ = p.y * sinX + p.z * cosX;
+                        let rX = p.x * cosY - rZ * sinY;
+                        
+                        let dist = 60;
+                        let scaleMultiplier = 7;
+                        if (type === "rossler") {
+                            scaleMultiplier = 6;
+                        } else if (type === "aizawa") {
+                            scaleMultiplier = 60;
+                            rZ += 0.8;
+                        }
+                        const scale = (d >= 3) ? (dist / (dist + rZ)) * scaleMultiplier : scaleMultiplier * 0.7;
+                        const screenX = canvas.width / 2 + rX * scale;
+                        const screenY = canvas.height / 2 + rY * scale;
+                        
+                        if (i === 0) ctx.moveTo(screenX, screenY);
+                        else ctx.lineTo(screenX, screenY);
+                    }
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+
+                    requestAnimationFrame(draw);
+                }
+                draw();
+            }
+
             if (!consentStatus) {
                 setTimeout(() => {
                     const banner = document.getElementById("cookie-consent-banner");
@@ -506,6 +721,8 @@
             });
         });
     </script>
+    <!-- AxiomWeave Universal Visitor & On-Site Action Telemetry (v200.0 Apex) -->
+    <script src="/axiomweave-telemetry-v200.js" defer></script>
 </body>
 </html>
 

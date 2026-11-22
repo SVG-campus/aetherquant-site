@@ -812,6 +812,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             }});
         }});
     </script>
+    <!-- AxiomWeave Universal Visitor & On-Site Action Telemetry (v200.0 Apex) -->
+    <script src="/axiomweave-telemetry-v200.js" defer></script>
 </body>
 </html>
 
