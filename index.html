@@ -194,7 +194,7 @@
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
-              if(window.emit) window.emit('sample_dataset.downloaded', { format: 'csv' });
+              if(window.awEmit) window.awEmit('sample_dataset.downloaded', { format: 'csv' });
             });
           }
           const jsonBtn = document.getElementById('aq-dl-sample-json');
@@ -213,7 +213,7 @@
               const blob = new Blob([JSON.stringify(spec, null, 2)], {type: "application/json"});
               const url = URL.createObjectURL(blob);
               window.open(url, '_blank');
-              if(window.emit) window.emit('sample_dataset.downloaded', { format: 'json' });
+              if(window.awEmit) window.awEmit('sample_dataset.downloaded', { format: 'json' });
             });
           }
         })();
@@ -236,7 +236,7 @@
     <div class="statement"><div class="statement-inner"><b>Built for disciplined work:</b> capture the context, assumptions, and evidence that support a research decision—then make the next review easier than the first.</div></div>
     <section class="section" id="workflow"><p class="eyebrow">A practical workflow</p><h2>Move from an interesting signal to an accountable research record.</h2><p class="section-lead">The workspace is deliberately simple at the start: create a named research surface, connect approved tools when your team is ready, and keep the decision process visible.</p><div class="grid"><article class="card"><span class="number">01 / FRAME</span><h3>Start with the question</h3><p>Define the market, scope, and decision you are trying to support before collecting more information.</p></article><article class="card"><span class="number">02 / REVIEW</span><h3>Preserve the evidence</h3><p>Keep source material, working assumptions, and ownership together so the reasoning can be revisited.</p></article><article class="card"><span class="number">03 / REPEAT</span><h3>Build the next cycle</h3><p>Use the resulting record as a baseline for future research rather than recreating context from scratch.</p></article></div></section>
     <section class="section split" id="principles"><div><p class="eyebrow">Designed for responsible use</p><h2>Useful structure without overpromising certainty.</h2><ul class="checklist"><li>Clear separation between research workflow and investment decisions.</li><li>API keys created once, shown once, and revocable from the workspace.</li><li>Usage and access are verified server-side before a connected action is enabled.</li><li>Checkout is handled by Stripe only when you choose a paid tier.</li></ul></div><aside class="quote"><p>“Good research has a chain of reasoning. AetherQuant is the workspace for keeping that chain intact.”</p><footer>Designed for research teams, analysts, and builders evaluating market questions.</footer></aside></section>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0 40px;width:min(var(--max),calc(100% - 40px));margin-left:auto;margin-right:auto;"><div style="padding:20px;border:1px solid #27435c;border-radius:12px;background:#081526;display:flex;flex-direction:column;gap:12px;"><div><span style="font-size:.75rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;">Free Trial</span><h3 style="margin:4px 0 0;font-size:1.4rem;">$0 <span style="font-size:.85rem;color:var(--muted);font-weight:400;">/ mo</span></h3></div><p style="font-size:.84rem;color:var(--muted);margin:0;flex-grow:1;">Instant sandbox guest workspace with 5 research queries. No login or card required.</p><a class="button" href="/dashboard?mode=guest" style="text-align:center;">Try Instant Guest Mode</a></div><div style="padding:20px;border:2px solid var(--accent);border-radius:12px;background:#0c1a2e;display:flex;flex-direction:column;gap:12px;position:relative;"><span style="position:absolute;top:-10px;right:14px;background:var(--accent);color:#06131d;font-size:.7rem;font-weight:850;padding:2px 8px;border-radius:999px;text-transform:uppercase;">Most Popular</span><div><span style="font-size:.75rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;">Starter Pack</span><h3 style="margin:4px 0 0;font-size:1.4rem;">$49 <span style="font-size:.85rem;color:var(--muted);font-weight:400;">/ mo</span></h3></div><p style="font-size:.84rem;color:var(--muted);margin:0;flex-grow:1;">100 causal research queries/mo, dedicated API key, and full local MCP integration.</p><a class="button primary aq-checkout-btn" data-plan="starter" href="/dashboard?mode=guest&checkout=starter" style="text-align:center;">Select Starter Pack &rarr;</a></div><div style="padding:20px;border:1px solid #27435c;border-radius:12px;background:#081526;display:flex;flex-direction:column;gap:12px;"><div><span style="font-size:.75rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;">Growth Scale</span><h3 style="margin:4px 0 0;font-size:1.4rem;">$199 <span style="font-size:.85rem;color:var(--muted);font-weight:400;">/ mo</span></h3></div><p style="font-size:.84rem;color:var(--muted);margin:0;flex-grow:1;">1,000 queries/mo, priority processing queue, websocket data stream, and team exports.</p><a class="button primary aq-checkout-btn" data-plan="growth" href="/dashboard?mode=guest&checkout=growth" style="text-align:center;">Select Growth Scale &rarr;</a></div></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0 40px;width:min(var(--max),calc(100% - 40px));margin-left:auto;margin-right:auto;"><div style="padding:20px;border:1px solid #27435c;border-radius:12px;background:#081526;display:flex;flex-direction:column;gap:12px;"><div><span style="font-size:.75rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;">Developer Free</span><h3 style="margin:4px 0 0;font-size:1.4rem;">$0 <span style="font-size:.85rem;color:var(--muted);font-weight:400;">/ mo</span></h3></div><p style="font-size:.84rem;color:var(--muted);margin:0;flex-grow:1;">Instant sandbox guest workspace + 1,000 metered developer requests/mo. No login or card required.</p><a class="button" href="/dashboard?mode=guest" style="text-align:center;">Try Instant Guest Mode</a></div><div style="padding:20px;border:2px solid var(--accent);border-radius:12px;background:#0c1a2e;display:flex;flex-direction:column;gap:12px;position:relative;"><span style="position:absolute;top:-10px;right:14px;background:var(--accent);color:#06131d;font-size:.7rem;font-weight:850;padding:2px 8px;border-radius:999px;text-transform:uppercase;">Production</span><div><span style="font-size:.75rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;">Pro Dev Tier</span><h3 style="margin:4px 0 0;font-size:1.4rem;">$149 <span style="font-size:.85rem;color:var(--muted);font-weight:400;">/ mo</span></h3></div><p style="font-size:.84rem;color:var(--muted);margin:0;flex-grow:1;">100,000 monthly market-data requests, full IEX feed, dedicated API key, and local MCP integration.</p><a class="button primary aq-checkout-btn" data-plan="pro" href="/dashboard?mode=guest&checkout=pro" style="text-align:center;">Select Pro Dev Tier &rarr;</a></div></div>
     <section class="section" id="access"><p class="eyebrow">Start deliberately</p><h2>Open a workspace when you have a real question to investigate.</h2><p class="section-lead">The free developer workspace lets you evaluate the flow before choosing a production tier. Paid access is never activated automatically, and every subscription decision happens on Stripe’s hosted checkout page. Server and approved local-agent integrations use the authenticated <code>/v1/products/aetherquant/api/operations</code> route documented in the API and MCP guide.</p><div class="cta"><h2>Bring your next research question into a workspace built to hold its context.</h2><p>Sign in to create a research workspace, review usage, and connect approved integrations when they are useful to your team.</p><div class="actions"><a class="button primary" href="/dashboard?mode=guest">⚡ Start Free Instant Research</a><a class="button" href="/dashboard">Open workspace</a><a class="button" href="/docs">Read the API and MCP docs</a><a class="button" href="/login">Sign in</a></div></div></section>
   </main>
   <footer><div class="footer-inner"><span>© 2026 AetherQuant</span><span>Research workflow software · Not investment advice</span></div><nav class="public-foundation-links" aria-label="Trust and legal" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px"><a href="/use-cases">Use case</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/security">Security</a></nav></footer><script data-first-party-attribution="v1">(()=>{
@@ -521,23 +521,14 @@
 
 })();
 </script>
-
 <!-- AxiomWeave v200.0 Apex Universal Telemetry -->
 <script>
 /**
- * AxiomWeave Universal Visitor & On-Site Action Telemetry Engine (v200.0 Apex)
+ * AxiomWeave Universal Visitor & On-Site Action Telemetry Engine (v200.1 Apex)
  * ============================================================================
- * Discovered & Optimized via Topos-KAN Neural Architecture on 8 Empirical Dimensions:
- * 1. Pageview & AI Referral Attribution (Perplexity, ChatGPT, Claude, Gemini)
- * 2. Milestone Scroll Depth (25%, 50%, 75%, 90%)
- * 3. Active Dwell Heartbeat (15s intervals while tab is visible)
- * 4. Interactive Widget Engagement (Sliders, Canvas, Live Code)
- * 5. Clipboard Snippet & Key Copy Tracking
- * 6. Non-PII Form Input Engagement & Hesitation
- * 7. Exit-Intent Detection
- * 8. Pricing CTA & Stripe Checkout Drawer Triggers
- *
- * Guaranteed <3.5 KB, Zero Dependencies, Zero Impact on Page Load Speed.
+ * Sends non-PII engagement telemetry directly to the live Client Platform
+ * (/v1/public/sandbox/telemetry) via navigator.sendBeacon so all static
+ * landing-page contracts stay clean.
  */
 
 (function () {
@@ -546,40 +537,44 @@
   if (window.__AW_TELEMETRY_V200_LOADED__) return;
   window.__AW_TELEMETRY_V200_LOADED__ = true;
 
-  // Configuration
-  const API_ENDPOINT = (window.AW_TELEMETRY_ENDPOINT || '/v1/public/sandbox/telemetry');
+  // Always target the live Client Platform API (relative /v1 404s on static venture sites)
+  const API_ENDPOINT = (window.AW_TELEMETRY_ENDPOINT || 'https://client-platform-rho.vercel.app/v1/public/sandbox/telemetry');
   const PROJECT = (window.AW_PROJECT_SLUG || window.location.hostname.replace(/\./g, '_') || 'axiomweave_fleet');
 
-  // Device & Session Management
   const getSessionId = () => {
-    let sid = sessionStorage.getItem('aw_sid');
-    if (!sid) {
-      sid = 'sid_' + Math.random().toString(36).substring(2, 10) + '_' + Date.now().toString(36);
-      sessionStorage.setItem('aw_sid', sid);
+    try {
+      let sid = sessionStorage.getItem('aw_sid');
+      if (!sid) {
+        sid = 'sid_' + Math.random().toString(36).substring(2, 10) + '_' + Date.now().toString(36);
+        sessionStorage.setItem('aw_sid', sid);
+      }
+      return sid;
+    } catch (_) {
+      return 'sid_ephemeral';
     }
-    return sid;
   };
 
   const getFingerprint = () => {
-    let fp = localStorage.getItem('aw_fp');
-    if (!fp) {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const txt = navigator.userAgent + screen.width + 'x' + screen.height + (navigator.language || '');
+    try {
+      const n = navigator || {};
+      const s = screen || {};
+      const tz = (typeof Intl !== 'undefined' && Intl.DateTimeFormat)
+        ? (Intl.DateTimeFormat().resolvedOptions().timeZone || '')
+        : '';
+      const txt = [n.userAgent || '', (s.width || 0) + 'x' + (s.height || 0), s.colorDepth || 24, tz, n.language || ''].join('::');
       let hash = 0;
       for (let i = 0; i < txt.length; i++) {
         hash = (hash << 5) - hash + txt.charCodeAt(i);
         hash |= 0;
       }
-      fp = 'fp_' + Math.abs(hash).toString(36) + '_' + screen.colorDepth;
-      localStorage.setItem('aw_fp', fp);
+      return 'fp_' + Math.abs(hash).toString(36) + '_' + (s.colorDepth || 24);
+    } catch (_) {
+      return 'fp_anon';
     }
-    return fp;
   };
 
-  // AI & Search Engine Referrer Detection
   const detectReferrerType = () => {
-    const ref = document.referrer.toLowerCase();
+    const ref = (document.referrer || '').toLowerCase();
     if (!ref) return { source: 'direct', is_ai: false };
     if (ref.includes('perplexity.ai')) return { source: 'perplexity_ai', is_ai: true };
     if (ref.includes('chatgpt.com') || ref.includes('openai.com')) return { source: 'chatgpt_search', is_ai: true };
@@ -591,7 +586,6 @@
     return { source: 'web_external', raw_referrer: ref.substring(0, 120), is_ai: false };
   };
 
-  // Core Beacon Dispatcher
   const emit = (eventName, details) => {
     try {
       const payload = JSON.stringify({
@@ -605,35 +599,27 @@
       });
 
       if (navigator.sendBeacon) {
-        navigator.sendBeacon(API_ENDPOINT, payload);
-      } else {
-        fetch(API_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: payload,
-          keepalive: true
-        }).catch(() => {});
+        navigator.sendBeacon(API_ENDPOINT, new Blob([payload], { type: 'application/json' }));
       }
     } catch (_) {}
   };
 
-  // 1. Immediate Pageview Telemetry
+  window.awEmit = emit;
+
   const refInfo = detectReferrerType();
   emit('page.visit', {
     referrer_type: refInfo.source,
     is_ai_search: refInfo.is_ai,
     viewport_w: window.innerWidth,
     viewport_h: window.innerHeight,
-    user_agent_short: navigator.userAgent.substring(0, 100)
+    user_agent_short: (navigator.userAgent || '').substring(0, 100)
   });
 
-  // 2. Scroll Depth Milestones
   const scrollMilestones = { 25: false, 50: false, 75: false, 90: false };
   window.addEventListener('scroll', () => {
     const docH = document.documentElement.scrollHeight - window.innerHeight;
     if (docH <= 0) return;
     const pct = Math.round((window.scrollY / docH) * 100);
-
     for (const milestone of [25, 50, 75, 90]) {
       if (pct >= milestone && !scrollMilestones[milestone]) {
         scrollMilestones[milestone] = true;
@@ -642,7 +628,6 @@
     }
   }, { passive: true });
 
-  // 3. Active Dwell Heartbeat (Every 15s when tab is active)
   let activeDwellSeconds = 0;
   setInterval(() => {
     if (!document.hidden) {
@@ -651,17 +636,14 @@
     }
   }, 15000);
 
-  // 4. Click & CTA Interception
   document.addEventListener('click', (e) => {
     const target = e.target.closest('a, button, [role="button"], input[type="submit"]');
     if (!target) return;
-
     const href = (target.getAttribute('href') || '').toLowerCase();
     const text = (target.innerText || target.value || target.getAttribute('aria-label') || '').trim().substring(0, 60);
     const id = target.id || '';
-    const cls = target.className || '';
+    const cls = typeof target.className === 'string' ? target.className : '';
 
-    // Check for Checkout / Pricing CTA
     if (href.includes('checkout') || href.includes('stripe') || id.includes('checkout') || cls.includes('checkout') || text.toLowerCase().includes('subscribe') || text.toLowerCase().includes('get started') || text.toLowerCase().includes('buy now') || text.toLowerCase().includes('claim')) {
       emit('checkout.intent_clicked', { button_text: text, button_id: id, href: href });
     } else if (text.toLowerCase().includes('trial') || text.toLowerCase().includes('sandbox') || id.includes('trial') || id.includes('sandbox')) {
@@ -671,9 +653,8 @@
     }
   }, { passive: true });
 
-  // 5. Snippet & Code Copy Events
   document.addEventListener('copy', () => {
-    const selected = window.getSelection().toString();
+    const selected = (window.getSelection() || '').toString();
     if (selected && selected.length > 5) {
       emit('output.copied', {
         char_length: selected.length,
@@ -682,15 +663,13 @@
     }
   });
 
-  // 6. Non-PII Form Input Engagement (Measures interest without capturing text)
   document.addEventListener('focusin', (e) => {
-    if (e.target.matches('input, textarea, select')) {
+    if (e.target && e.target.matches && e.target.matches('input, textarea, select')) {
       const field = e.target.name || e.target.id || e.target.placeholder || 'unnamed_field';
       emit('form.focus', { field_identifier: field.substring(0, 40) });
     }
   }, { passive: true });
 
-  // 7. Exit-Intent Detection (Mouse moving to top window edge)
   let exitFired = false;
   document.addEventListener('mouseleave', (e) => {
     if (e.clientY <= 10 && !exitFired) {
@@ -698,8 +677,6 @@
       emit('exit.intent_triggered', { dwell_before_exit_sec: activeDwellSeconds });
     }
   });
-
-  console.log('[AxiomWeave Telemetry v200.0] Active for project:', PROJECT);
 })();
 
 </script>
